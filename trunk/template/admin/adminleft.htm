@@ -1,0 +1,29 @@
+<!--<?php
+include_once PrintEot("css");
+print <<<EOT
+-->
+</head>
+<body>
+<table width="173" align=center cellspacing=1 class="tableborder" style="margin-top: 3px;">
+<tr><td align=center>
+<a target=main href="$admin_file?adminjob=admin">首页</a> | <a target="_top" href="?adminjob=quit">退出</a> | <a href="#" onClick="return ClearAdminDeploy()">展开</a> | <a href="#" onClick="return SetAdminDeploy()">收缩</a>
+</td></tr>
+</table>
+
+<table width="173" align=center cellspacing=1 class="tableborder">
+<tr><td class="header"><a style="float:right" href="#" onClick="return IndexDeploy('a0',1)"><img id="img_a0" src="$imgpath/admin/cate_$imgtype[a0].gif"></a>
+PHPvod</td></tr>
+<tbody id="cate_a0" style="$styletype[a0]" class="bg">
+<tr><td>用户名: $admin_name</td></tr>
+<tr><td>系统组: $admin[grouptitle]</td></tr>
+<tr><td>PHPvod: 免费用户</td></tr>
+</tbody>
+</table>
+
+$leftinfo
+<script language="JavaScript" src="js/Deploy.js"></script>
+<script language="JavaScript" src="js/DeployInit.js"></script>
+<!--
+EOT;
+include_once PrintEot('adminbottom');
+?>-->

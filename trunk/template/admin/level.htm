@@ -1,0 +1,342 @@
+<!--<?php
+include_once PrintEot('top');
+if (empty($action)){
+print <<<EOT
+-->
+<form action="$basename&" method="post">
+<input type=hidden name="action" value="menedit">
+<table width=98% border=0 align=center cellspacing=1 cellpadding=0 class=tableborder>
+<tr><td class=header colspan=5>会员组编辑</td></tr>
+<tr align=center>
+	<td>头衔</td><td>等级图片号</td><td>升级点数需求</td><td>编辑</td><td>删除</td>
+</tr>
+<!--
+EOT;
+foreach($memberdb as $member){
+$key=$member[gid];
+print <<<EOT
+-->
+<tr>
+<td class=bg align=middle>组ID为:$member[gid] <input type=text size=40 name='memtitle[$key]' value='$member[grouptitle]'></td>
+<td class=bg align=middle><input type=text size=40 name='mempic[$key]' value='$member[groupimg]'></td>
+<td class=bg align=middle><input type=text size=10 name='mempost[$key]' value='$member[grouppost]'></td>
+<td class=bg valign=middle align=center><input type=button value='权限' onclick=location.href='$basename&action=editgroup&gid=$key'></td>
+<td class=bg valign=middle align=center><input type=button value='删除' onclick=location.href='$basename&action=delgroup&delid=$key'></td>
+</tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+</table>
+<br><center><input type=submit value="提 交"></center></form>
+<br />
+<form action="$basename&" method="post">
+<input type=hidden name="action" value="addmengroup">
+<table width=50% align=center cellspacing=1 cellpadding=0 class=tableborder>
+<tr><td class=header colspan=2>新增会员组</td></tr>
+<tr>
+	<td class=bg valign=middle align=left width=40%> 头衔</td>
+	<td class=bg valign=middle align=left><input type=text size=40 name='newtitle'></td>
+</tr>
+<tr>
+	<td class=bg valign=middle align=left width=40%>等级图片号</td>
+	<td class=bg valign=middle align=left><input type=text size=40 name='newpic'></td>
+</tr>
+<tr>
+	<td class=bg valign=middle align=left width=40%>升级点数需求</td>
+	<td class=bg valign=middle align=left><input type=text size=40 name='newpost'></td>
+</tr>
+</table>
+<br><center><input type=submit value="提 交"></center></form>
+<br />
+<form action="$basename&" method="post">
+<input type=hidden name="action" value="defedit">
+<table width=98% align=center cellspacing=1 cellpadding=0 class=tableborder>
+<tr><td class=header colspan=3>默认用户组</td></tr>
+<tr align=center>
+	<td>头衔</td><td>等级图片号</td><td>编辑</td>
+</tr>
+<!--
+EOT;
+foreach($defaultdb as $default){
+$key=$default[gid];
+print <<<EOT
+-->
+<tr><td class=bg align=middle>组ID为:$default[gid]
+<input type=text size=40 name='deftitle[$key]' value='$default[grouptitle]'></td>
+<td class=bg align=middle>
+<input type=text size=40 name='defpic[$key]' value='$default[groupimg]'></td>
+<td class=bg align=middle><input type=button value='权限' onclick=location.href='$basename&action=editgroup&gid=$key'></td></tr>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+</table>
+<br><center><input type=submit value="提 交"></center></form>
+<br />
+<form action="$basename&" method="post">
+<input type=hidden name="action" value="sysedit">
+<table width=98% align=center cellspacing=1 cellpadding=0 class=tableborder>
+<tr><td class=header colspan=4>系统组编辑</td></tr>
+<tr align=center><td>头衔</td><td>等级图片号</td><td>编辑</td><td>删除</td></tr>
+<!--
+EOT;
+foreach($sysdb as $sys){
+$key=$sys[gid];
+print <<<EOT
+-->
+<tr>
+<td align=center class=bg>组ID为:$sys[gid]
+<input type=text size=40 name='systitle[$key]' value='$sys[grouptitle]'></td>
+<td align=center class=bg>
+<input type=text size=40 name='syspic[$key]' value='$sys[groupimg]'></td>
+<td align=center class=bg>
+<input type=button value='权限' onclick=location.href="$basename&action=editgroup&gid=$key"></td>
+<td align=center class=bg>
+<!--
+EOT;
+if($key>4){
+print <<<EOT
+-->
+<input type=button value='删除' onclick=location.href='$basename&action=delgroup&delid=$key'>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+</td></tr>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+</table>
+<br><center><input type=submit value="提 交">
+</center></form>
+<br />
+<form action="$basename&" method="post">
+<input type=hidden name="action" value="addadmingroup">
+<table width=50% align=center cellspacing=1 cellpadding=0 class=tableborder>
+<tr><td class=header colspan=2>新增系统组</td></tr>
+<tr><td class=bg valign=middle align=left width=40%>头衔</td>
+<td class=bg valign=middle align=left><input type=text size=40 name='newtitle'></td></tr>
+<tr><td class=bg valign=middle align=left width=40%>等级图片号</td>
+<td class=bg valign=middle align=left><input type=text size=40 name='newpic'></td></tr>
+</table>
+<br><center><input type=submit value="提 交"></center>
+</form>
+<!--
+EOT;
+}elseif($action=='editgroup'){
+print <<<EOT
+-->
+<form action="$basename&" method=POST name=mod>
+<table width=98% align=center cellspacing=1 cellpadding=0 class=tableborder>
+<tr><td class=header align=center colspan=2>用户组编辑</td></tr>
+<tr>
+<td class=bg width=50%>用户组头衔</td>
+<td class=bg>
+	<select name="selectfid" onChange="level_jump('$admin_file')">
+		$groupselect
+	</select>
+<!--
+EOT;
+if($gp_gptype=='member' && !$default){
+print <<<EOT
+-->
+<font color=red>独立用户组权限</font> -- <a href='$basename&step=3'>点击采用默认用户组权限</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+</td></tr>
+</table>
+
+<input type=hidden name="action" value="editgroup">
+<input type=hidden name="gid" value="$gid">
+<input type=hidden name="gptype" value="$gp_gptype">
+<input type=hidden name="step" value="2">
+<br>
+
+<table width="98%" align=center cellspacing=1 cellpadding=0 class=tableborder>
+<tr><td class=header align=center colspan=2>基本权限</td></tr>
+
+<tr>
+<td class=bg width="60%">是否允许浏览影片</td>
+<td class=bg>
+<input type=radio value=1 $read_Y name=group[allowread]>是 
+<input type=radio value=0 $read_N name=group[allowread]>否
+</td>
+</tr>
+
+<tr>
+<td class=bg width="60%">是否允许播放影片</td>
+<td class=bg>
+<input type=radio value=1 $play_Y name=group[allowplay]>是 
+<input type=radio value=0 $play_N name=group[allowplay]>否
+</td>
+</tr>
+
+<tr>
+<td class=bg width="60%">是否允许发布影片</td>
+<td class=bg>
+<input type=radio value=1 $post_Y name=group[allowpost]>是 
+<input type=radio value=0 $post_N name=group[allowpost]>否
+</td>
+</tr>
+
+<tr>
+<td class=bg width="60%">发布的影片是否需要管理员审核（此项只有开启栏目影片审核时才有效）</td>
+<td class=bg>
+<input type=radio value=1 $atccheck_Y name=group[atccheck]>是 
+<input type=radio value=0 $atccheck_N name=group[atccheck]>否
+</td>
+</tr> 
+
+<tr>
+<td class=bg width="60%">是否允许发表评论</td>
+<td class=bg>
+<input type=radio value=1 $reply_Y name=group[allowrp]>是 
+<input type=radio value=0 $reply_N name=group[allowrp]>否
+</td>
+</tr>
+
+<tr>
+<td class=bg width="60%">发布的评论是否需要管理员审核（此项只有开启栏目评论审核时才有效）</td>
+<td class=bg>
+<input type=radio value=1 $rpcheck_Y name=group[rpcheck]>是 
+<input type=radio value=0 $rpcheck_N name=group[rpcheck]>否
+</td>
+</tr>
+
+<tr>
+<td class=bg width="60%">是否允许编辑自己发布的影片</td>
+<td class=bg>
+<input type=radio value=1 $editatc_Y name=group[alloweditatc]>是 
+<input type=radio value=0 $editatc_N name=group[alloweditatc]>否
+</td>
+</tr>
+
+<tr>
+<td class=bg width="60%">是否允许删除自己发布的影片</td>
+<td class=bg>
+<input type=radio value=1 $delatc_Y name=group[allowdelatc]>是 
+<input type=radio value=0 $delatc_N name=group[allowdelatc]>否
+</td>
+</tr>
+
+<tr>
+<td class=bg width="60%">是否允许自定义头衔</td>
+<td class=bg>
+<input type=radio value=1 $honor_Y name=group[allowhonor]>是 
+<input type=radio value=0 $honor_N name=group[allowhonor]>否
+</td>
+</tr>
+
+<tr>
+<td class=bg width="60%">是否允许查看会员资料</td>
+<td class=bg>
+<input type=radio value=1 $profile_Y name=group[allowprofile]>是 
+<input type=radio value=0 $profile_N name=group[allowprofile]>否
+</td>
+</tr>
+
+<tr>
+<td class=bg width="60%">是否允许用户使用自定义头像</td>
+<td class=bg>
+<input type=radio value=1 $seticon_Y name=group[allowseticon]>是 
+<input type=radio value=0 $seticon_N name=group[allowseticon]>否
+</td>
+</tr>
+
+<tr>
+<td class=bg width="60%">是否允许用户使用头像上传功能</td>
+<td class=bg>
+<input type=radio value=1 $upicon_Y name=group[allowupicon]>是 
+<input type=radio value=0 $upicon_N name=group[allowupicon]>否
+</td>
+</tr>
+
+<tr>
+<td class=bg width="60%">是否允许用户发布出售影片</td>
+<td class=bg>
+<input type=radio value=1 $sell_Y name=group[allowsell]>是 
+<input type=radio value=0 $sell_N name=group[allowsell]>否
+</td>
+</tr>
+
+<tr>
+<td class=bg width="60%">是否允许用户发布加密影片</td>
+<td class=bg>
+<input type=radio value=1 $encode_Y name=group[allowencode]>是 
+<input type=radio value=0 $encode_N name=group[allowencode]>否
+</td>
+</tr>
+
+<tr>
+<td class=bg width="60%">是否允许发送短消息</td>
+<td class=bg>
+<input type=radio value=1 $message_Y name=group[allowmessage]>是 
+<input type=radio value=0 $message_N name=group[allowmessage]>否
+</td>
+</tr>
+
+<tr>
+<td class=bg width="60%">最大短消息数目</td>
+<td class=bg>
+<input type=text value=$gp_maxmsg name=group[maxmsg]>
+</td>
+</tr>
+
+</table>
+
+<!--
+EOT;
+if($gp_gptype=='system'){print <<<EOT
+-->
+<br>
+<table width=98% align=center cellspacing=1 cellpadding=0 class=tableborder>
+<tr><td class=header align=center colspan=2>管理权限</td></tr>
+<tr class=bg>
+<td width="60%">是否允许进后台</td>
+<td><input type=radio value=1 $allowadmincp_Y name=sysgroup[allowadmincp]>是 
+<input type=radio value=0 $allowadmincp_N name=sysgroup[allowadmincp]>否 </td>
+</tr>
+
+<tr class=bg>
+<td>是否允许编辑视频</td>
+<td><input type=radio value=1 $allowadminedit_Y name=sysgroup[allowadminedit]>是 
+<input type=radio value=0 $allowadminedit_N name=sysgroup[allowadminedit]>否 </td>
+</tr>
+
+<tr class=bg>
+<td>是否允许删除视频</td>
+<td><input type=radio value=1 $allowadmindel_Y name=sysgroup[allowadmindel]>是 
+<input type=radio value=0 $allowadmindel_N name=sysgroup[allowadmindel]>否 </td>
+</tr>
+
+<tr class=bg>
+<td>是否允许浏览未审核的视频</td>
+<td><input type=radio value=1 $allowadminshow_Y name=sysgroup[allowadminshow]>是 
+<input type=radio value=0 $allowadminshow_N name=sysgroup[allowadminshow]>否 </td>
+</tr>
+
+<tr class=bg>
+<td>是否允许浏览加密与出售的视频</td>
+<td><input type=radio value=1 $allowadminviewhide_Y name=sysgroup[allowadminviewhide]>是 
+<input type=radio value=0 $allowadminviewhide_N name=sysgroup[allowadminviewhide]>否 </td>
+</tr>
+
+</table>
+<!--
+EOT;
+}print <<<EOT
+-->
+<br><center><input type=submit value="提 交"></center>
+</form>
+<!--
+EOT;
+}include_once PrintEot('adminbottom');
+?>
+-->

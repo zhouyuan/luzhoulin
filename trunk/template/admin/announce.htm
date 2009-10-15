@@ -1,0 +1,76 @@
+<!--<?php
+include_once PrintEot('top');
+if(empty($action)){
+print <<<EOT
+-->
+<table class="tableborder" align="center" border="0" cellpadding="0" cellspacing="1" width="98%">
+<tr class="bg"><td>
+[<strong>网站公告列表</strong>]
+[<a href="$basename&action=add">添加/编辑公告</a>]
+</td></tr></table>
+<br />
+<form method="post" action="$basename">
+<input name=action type=hidden value="del">
+<table width=98% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+<tr><td class=header colspan="7">网站公告列表</td></tr>
+<tr align="center">
+  <td width="5%">ID</td>
+  <td width="5%">顺序</td>
+  <td width="15%">发布人</td>
+  <td>标题</td>
+  <td width="20%">发表时间</td>
+  <td width="5%">操作</td>
+  <td width="5%">删除</td>
+</tr>
+<!--
+EOT;
+foreach($annoucedb as $key => $value){
+print <<<EOT
+-->
+<tr align="center">
+  <td class=bg>$value[aid]</td>
+  <td class=bg>$value[vieworder]</td>
+  <td class=bg>$value[author]</td>
+  <td class=bg><a href="$basename&action=edit&aid=$value[aid]" title='编辑该公告'>$value[subject]</a></td>
+  <td class=bg>$value[startdate]</td>
+  <td class=bg><a href="$basename&action=edit&aid=$value[aid]" title='编辑该公告'>编辑</a></td>
+  <td class=bg><input type='checkbox' name='selid[]' value="$value[aid]"></td>
+</tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+</table>
+<br><center><input type="button" name="chkall" value="全 选" onClick="CheckAll(this.form)"> <input type="submit" value="提 交"></center>
+</form>
+<!--
+EOT;
+}elseif($action=='add' || $action=='edit'){
+print <<<EOT
+-->
+<table class="tableborder" align="center" border="0" cellpadding="0" cellspacing="1" width="98%">
+<tr class="bg"><td>
+[<a href="$basename">网站公告列表</a>]
+[<strong>添加/编辑公告</strong>]
+</td></tr></table>
+<br />
+<form action="$basename" method=post>
+<input type=hidden value=$aid name=aid>
+<input type=hidden value=2 name=step>
+<input name=action type=hidden value="$action">
+<table width=98% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+<tr><td class=header colspan="2">添加/编辑网站公告</td></tr>
+<tr><td class=bg width=40%>标题</td>
+<td class=bg><input type="text" size="45" name="newsubject" value="$subject"></td></tr>
+<tr><td class=bg>顺序(只能为数字)</td>
+<td class=bg><input type="text" size="4" name="vieworder" value="$vieworder"></td></tr>
+<tr><td class=bg>公告内容: <br />支持html代码</td>
+<td class=bg><textarea name="atc_content" rows=6 cols=50>$atc_content</textarea></td></tr>
+</table>
+<br /><center><input type="submit" name="add" value="提 交"></center>
+</form>
+<!--
+EOT;
+}include_once PrintEot('adminbottom');
+?>
+-->

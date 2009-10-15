@@ -1,0 +1,38 @@
+<!--<?php
+include_once PrintEot('top');
+print <<<EOT
+-->
+<form action="$basename&" method=post>
+<input type=hidden name=action value='cache'>
+<table width=98% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+<tr><td class=header>更新数据缓存</td></tr>
+<tr><td class="bg" style="padding:20px; line-height: 2em;">提示：将更新网站所有缓存数据，当刚完成数据转换或前台不能正常访问时，可以使用此功能更新缓存</td></tr>
+</table>
+<br><center><input type=submit value="提 交"></center>
+</form>
+
+<br />
+
+<form action="$basename&" method=post>
+<input type=hidden name=action value='template_cache'>
+<table width=98% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+<tr><td class=header>更新模板缓存</td></tr>
+<tr><td class="bg" style="padding:20px; line-height: 2em;">提示：将更新当前模板缓存数据，编辑完模板后前台显示不正常时，可以使用此功能更新缓存</td></tr>
+</table>
+<br><center><input type=submit value="提 交"></center>
+</form>
+
+<br />
+
+<form action="$basename&" method=post>
+<input type=hidden name=action value='siteinfo'>
+<table width=98% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+<tr><td class=header>更新会员总数</td></tr>
+<tr><td class="bg" style="padding:20px;">提示：将更新网站会员数统计，可修复会员总数统计错误问题</td></tr>
+</table>
+<br><center><input type=submit value="提 交"></center>
+</form>
+<!--
+EOT;
+include_once PrintEot('adminbottom');
+?>-->

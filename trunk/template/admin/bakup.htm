@@ -1,0 +1,113 @@
+<!--<?php
+include_once PrintEot('top');
+print <<<EOT
+-->
+<table width=98% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+<tr><td class=header>提示信息</td></tr>
+<tr><td class=bg style="padding: 20px; line-height: 2em">1、PHPvod使用专项识别备份文件，请不要恢复PHPvod默认备份文件之外的文件<br />2、数据越多 备份/恢复 时间越长，请耐心等待</td></tr>
+</table>
+<br>
+<!--
+EOT;
+if($type=='bakout'){
+ print <<<EOT
+-->
+<form action="$basename&" method=post>
+<input type=hidden name="action" value="bakout">
+<table width=98% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+<tr><td class=header colspan=3>备份数据库</td></tr>
+<tr align="center">
+<td width="5%" align=center>ID</td>
+<td>数据库表</td>
+<td width="10%" align=center>选择</td>
+</tr>
+<!--
+EOT;
+$id=0;
+foreach($tabledb as $key=>$table){
+$id++;
+$tablename=$pv=='pv_' ? $table : str_replace($pv,'pv_',$table);
+print <<<EOT
+-->
+<tr>
+<td class=bg align=center>$id</td>
+<td class=bg>$table</td>
+<td class=bg align=center><input type=checkbox name=tabledb[] value=$tablename></td>
+</tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+<tr><td colspan=3>分卷备份</td></tr>
+<tr><td colspan=3 class=bg><input type=text name="sizelimit" value="2048" size=5> 每个分卷文件长度</td></tr>
+</table>
+
+<br />
+<center><input type="button" name="chkall" value="全 选" onclick="CheckAll(this.form)">
+<input type=submit value="提 交"></center>
+
+</form>
+<!--
+EOT;
+}elseif($type=='bakin'){
+if(!$action){print <<<EOT
+-->
+<form method="post" action="$basename">
+<input name=action type=hidden value="del">
+<table width=98% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+<tr><td colspan=7 class=header>恢复数据库</td></tr>
+<tr align=center><td width=3%>ID</td>
+<td width=35%>文件名</td><td width=15%>版本</td>
+<td>备份时间</td><td width=5%>卷号</td><td>导入</td><td width=5%>删除</td></tr>
+<!--
+EOT;
+foreach($filedb as $id=>$bakfile){
+$id++;
+print <<<EOT
+-->
+<tr align=center>
+<td class=bg>$id</td>
+<td class=bg><a href="data/$bakfile[name]" target="_blank">$bakfile[name]</a></td>
+<td class=bg>$bakfile[version]</td>
+<td class=bg>$bakfile[time]</td>
+<td class=bg>$bakfile[num]</td>
+<td class=bg><a href="$basename&action=bakincheck&pre=$bakfile[pre]">导入</a></td>
+<td class=bg><input name="delfile[]" type=checkbox value="$bakfile[name]"></td>
+</tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+</table>
+<br><center>
+<input type="button" name="chkall" value="全 选" onclick="CheckAll(this.form)">
+<input type="submit" name="delete" value="删 除" onclick="return checkset('此功能不可恢复,您确认要删除选中的备份文件！');"></center>
+</form>
+<script language=JavaScript>
+function checkset(confirm_info)
+{
+	if(confirm(confirm_info)){
+		return true;
+	} else {
+		return false;
+	}
+}
+</script>
+<!--
+EOT;
+}elseif($action=='bakincheck'){
+print <<<EOT
+-->
+<form action="$basename&action=bakin&pre=$pre" method="post">
+<table width=98% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+<tr><td class=header colspan=2>提示信息</td></tr>
+<tr><td class=bg style="padding: 20px;"><font color="blue">备份恢复功能将覆盖原来的数据,您确认要导入备份数据！</font></td>
+<td class=bg valign="top" align="center"><br><input type=submit value="确认导入备份"></td></tr></table>
+<br>
+<center><input type='button' value='返回上一步' onclick='javascript:history.go(-1);'></center>
+</form>
+<!--
+EOT;
+}}include_once PrintEot('adminbottom');
+?>
+-->

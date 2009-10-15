@@ -1,0 +1,19 @@
+<object classid="clsid:F3D0D36F-23F8-4682-A195-74C92B03D4AF" width="550" height="400" id="QvodPlayer" name="QvodPlayer" onError=if(window.confirm('请您先安装QvodPlayer软件,然后刷新本页才可以正常播放.')){window.open('http://www.qvod.com/download.htm')}else{self.location='http://www.qvod.com/'}>
+<PARAM NAME='URL' VALUE='$urlpath'>
+<PARAM NAME='Autoplay' VALUE='1'>
+<PARAM NAME='Showcontrol'  VALUE='1'>
+<PARAM NAME='NextWebPage' VALUE='$nextpage'>
+</object>
+<script language="JavaScript" type="text/javascript"> 
+setInterval('StartNextDownFile',5000);
+var bstartnextplay = false;
+function StartNextDownFile()
+{
+	if(QvodPlayer.get_CurTaskProcess() > 990 && !bstartnextplay)
+	{
+		var url = "$nexturl";
+		var rv = QvodPlayer.StartNextDown(url);
+		bstartnextplay = true;
+	}
+}
+</script>

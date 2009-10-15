@@ -1,0 +1,46 @@
+<!--<?php
+include_once PrintEot('top');
+if(!$action){print <<<EOT
+-->
+<table width=98% border=0 align=center cellspacing=1 class=tableborder>
+<tr><td class=header>提示信息</td></tr>
+<tr><td class=bg style="padding: 20px; line-height: 2em;">此功能可将未验证会员组的用户编入普通会员组</td></tr>
+</table>
+<br />
+
+<form action=$basename method=post>
+<input type=hidden name=action value='check'>
+<table width=98% border=0 align=center cellspacing=1 class=tableborder>
+<tr><td class="header" colspan=5>需要验证的用户</td></tr>
+<tr align=center>
+	<td width='10%'>ID</td>
+	<td width='25%'>用户名</td>
+	<td width='25%'>注册时间</td>
+	<td width='30%'>Email</td>
+	<td width='10%'>操作</td>
+</tr>
+<!--
+EOT;
+foreach($memdb as $mem){
+print <<<EOT
+-->
+<tr align=center>
+<td class=bg>$mem[uid]</td>
+<td class=bg><a href="$admin_file?adminjob=setuser&action=edit&uid=$mem[uid]">$mem[username]</a></td>
+<td class=bg>$mem[regdate]</td>
+<td class=bg>$mem[email]</td>
+<td class=bg><input type='checkbox' name='yzmem[]' value=$mem[uid]></td>
+</tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+</table>
+<div style="text-align: right; width: 98%; ">$pages</div>
+<center><input type=radio name="type" value=del>删除<input type=radio name="type" checked='checked' value=pass>通过<br /><br />
+<input type="button" name="chkall" value="全 选" onclick="CheckAll(this.form)">
+<input type="submit" name="hello" value="提 交"></center></form>
+<!--
+EOT;
+}include_once PrintEot('adminbottom');
+?>-->

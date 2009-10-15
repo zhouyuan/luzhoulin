@@ -1,0 +1,737 @@
+<!--<?php
+include_once PrintEot('top');
+print <<<EOT
+-->
+
+<form action="$basename" method="post">
+	<input type=hidden name="action" value="unsubmit">
+	<!--
+EOT;
+if($type=='wwwset' || $type=='all'){print <<<EOT
+-->
+	<table width=98% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+		<tr class=header>
+			<td height=25 colspan="2">
+				网站基本设置
+			</td>
+		</tr>
+		<tr class=bg>
+			<td width="60%">
+				网站状态<br>
+				当需要进行网站维护或者升级时，可以使用此功能暂时关闭网站
+			</td>
+			<td>
+				<input type=radio value=1 name="config[siteifopen]" $siteifopen_Y>
+				开启
+				<input type=radio value=0 name="config[siteifopen]" $siteifopen_N>
+				关闭
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				网站关闭的原因 (支持html代码)<br>
+				关闭网站后生成首页访问时显示关闭原因
+			</td>
+			<td>
+				<textarea name="config[whyclose]" rows=6 cols=50>$db_whyclose</textarea>
+			</td>
+		</tr>
+		<tr class=bg>
+			<td height=25>
+				网站名称
+			</td>
+			<td>
+				<input type=text name="config[wwwname]" size=35 value="$db_wwwname">
+			</td>
+		</tr>
+		<tr class=bg>
+			<td height=25>
+				网站地址
+			</td>
+			<td>
+				<input size=35 name="config[wwwurl]" value="$db_wwwurl">
+			</td>
+		</tr>
+		<tr class=bg>
+			<td height=25>
+				网站首页调用文件
+			</td>
+			<td>
+				<input size=35 name="config[bfn]" value="$db_bfn">
+			</td>
+		</tr>
+		<tr class=bg>
+			<td height=25>
+				联系我们URL (出现在页尾)
+			</td>
+			<td>
+				<input size=35 name="config[ceoconnect]" value="$db_ceoconnect">
+			</td>
+		</tr>
+		<tr class=bg>
+			<td height=25>
+				管理员信箱
+			</td>
+			<td>
+				<input size=35 name="config[ceoemail]" value="$db_ceoemail">
+			</td>
+		</tr>
+		<tr class=bg>
+			<td height=25>
+				Meta 关键词<br>
+				为所有页面输入 Meta 关键词,让搜索引擎更容易找到您的网站
+			</td>
+			<td>
+				<input type=text name="config[keywords]" size=35 value="$db_keywords">
+			</td>
+		</tr>
+		<tr class=bg>
+			<td height=25>
+				Meta 描述 <br>
+				为所有页面输入 Meta 描述,以便能够在搜索引擎中正确搜索到您的网站
+			</td>
+			<td>
+				<input type=text name="config[description]" size=35 value="$db_description">
+			</td>
+		</tr>
+		<tr class=bg>
+			<td height=25>
+				版权信息 (支持html代码)<br>
+				显示于网站底部版权信息
+			</td>
+			<td>
+				<textarea name="config[copyright]" rows=6 cols=50>$db_copyright</textarea>
+			</td>
+		</tr>
+		<tr class=bg>
+			<td height=25>
+				ICP备案信息
+			</td>
+			<td>
+				<input size=35 name="config[icp]" value="$db_icp">
+			</td>
+		</tr>
+		<tr class=bg>
+			<td height=25>
+				ICP备案信息链接地址
+			</td>
+			<td>
+				<input size=35 name="config[icpurl]" value="$db_icpurl">
+			</td>
+		</tr>
+	</table>
+	<br />
+	<!--
+EOT;
+}if($type=='function' || $type=='all'){print <<<EOT
+-->
+
+	<table width=98% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+		<tr class=header>
+			<td height=25 colspan="2">
+				核心功能设置
+			</td>
+		</tr>
+		<tr class=bg>
+			<td width="60%">
+				GZIP 压缩输出<br>
+				允许系统通过 gzip 输出页面，明显的降低带宽需求，需要客户端支持，并会加大服务器系统开销
+			</td>
+			<td>
+				<input type=radio value=1 name="config[obstart]" $obstart_Y>
+				开启
+				<input type=radio value=0 name="config[obstart]" $obstart_N>
+				关闭
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				DEBUG 模式运行网站<br>
+				不屏蔽程序报错，网站出现异常时启动，将错误信息提交给我们，以便尽快得到解决
+			</td>
+			<td>
+				<input type=radio value=1 name="config[debug]" $debug_Y>
+				开启
+				<input type=radio value=0 name="config[debug]" $debug_N>
+				关闭
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				是否使用自动跳转(如果服务器为NT.如果关闭此选项而出现无法登录.请开启)
+			</td>
+			<td>
+				<input type=radio value=1 name="config[ifjump]" $ifjump_Y>
+				开启
+				<input type=radio value=0 name="config[ifjump]" $ifjump_N>
+				关闭
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+            	CC攻击防护：<br>
+                不使用 &nbsp; &nbsp;: 关闭CC攻击防护<br>
+                普通模式 : 建议使用这种模式，可预防论坛遭受cc攻击<br>
+                加强模式 : 当网站正遭受CC攻击而导致访问速度很慢时，请开启此种模式可阻止攻击
+			</td>
+			<td>
+				<select name="config[cc]">
+                	<option value=0 $cc_0>不使用</option>
+                	<option value=1 $cc_1>普通模式</option>
+                	<option value=2 $cc_2>加强模式</option>                                        
+				</select>
+			</td>
+		</tr>        
+		<tr class=bg>
+			<td>
+				默认编码设置<br>
+				请检查您使用的版本编码是否与此处设置相同，如无需要请不要随意更改
+			</td>
+			<td>
+				<select name="config[charset]">
+					<option value="gbk" $charset_gbk>简体中文 (gbk)</option>
+					<option value="big5" $charset_big5>繁体中文 (big5)</option>
+					<option value="utf-8" $charset_utf8>UTF8编码 (utf-8)</option>
+				</select>
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+            	强制设置编码：<br />
+                解决国外的空间乱码问题，<font color="#FF0000">如无需要请不要随意更改</font>。
+			</td>
+			<td>
+				<input name="config[forcecharset]" type="radio" value="1" $forcecharset_Y> 开启
+				<input name="config[forcecharset]" type="radio" value="0" $forcecharset_N> 关闭
+			</td>
+		</tr>        
+        
+		<tr class=bg>
+			<td>
+				默认时区设置<br>
+				网站所在时区的设置，游客和新注册用户的时间按此设置显示
+			</td>
+			<td>
+				<select name="config[timedf]">
+					<!--
+EOT;
+include PrintEot('timezone');
+print <<<EOT
+-->
+				</select>
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				默认时间显示格式<br />
+				格式如:yyyy-mm-dd，yy-m-d<br />
+				yyyy代表4位数年份，yy代表2位数年份<br />
+				mm代表有前导零01-12，m代表没前导零1-12<br />
+				dd代表有前导零01-31，d代表没前导零1-31<br />
+			</td>
+			<td>
+				<input name="config[datefm]" value="$db_datefm"><br><br>
+				<input name="time_f" value="24" type="radio" $check_24>24小时制
+				<input name="time_f" value="12" type="radio" $check_12>12小时制
+
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				网站默认风格
+			</td>
+			<td>
+				<select name="config[defaultstyle]">
+					
+					$choseskin
+				
+				</select>
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				风格模板自动刷新
+			</td>
+			<td>
+				<input name="config[tplrefresh]" type="radio" value="1" $tplrefresh_Y> 开启
+				<input name="config[tplrefresh]" type="radio" value="0" $tplrefresh_N> 关闭
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				是否开启头像上传功能<br />
+				此处为全局控制，此功能关闭则所有用户都不能使用头像上传功能
+			</td>
+			<td>
+				<input name="config[iconupload]" type="radio" value="1" $iconupload_Y> 开启
+				<input name="config[iconupload]" type="radio" value="0" $iconupload_N> 关闭
+				<br /><br />
+				头像大小: <input size="10" value="$db_iconsize" name="config[iconsize]"> KB
+			</td>
+		</tr>
+
+	</table>
+	<br />
+	<!--
+EOT;
+}if($type=='ck' || $type=='all'){print <<<EOT
+-->
+
+	<table width=98% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+		<tr class=header>
+			<td height=25 colspan="2">
+				认证码设置
+			</td>
+		</tr>
+		<tr class=bg>
+			<td width="60%">
+				注册认证码
+			</td>
+			<td>
+				<input type=radio value=1 name="gdcheck[reg]" $reggd_Y>
+				开启
+				<input type=radio value=0 name="gdcheck[reg]" $reggd_N>
+				关闭
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				前台登陆认证码
+			</td>
+			<td>
+				<input type=radio value=1 name="gdcheck[login]" $logingd_Y>
+				开启
+				<input type=radio value=0 name="gdcheck[login]" $logingd_N>
+				关闭
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				后台登陆认证码
+			</td>
+			<td>
+				<input type=radio value=1 name="gdcheck[admin]" $admingd_Y>
+				开启
+				<input type=radio value=0 name="gdcheck[admin]" $admingd_N>
+				关闭
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				发表认证码
+			</td>
+			<td>
+				<input type=radio value=1 name="gdcheck[post]" $postgd_Y>
+				开启
+				<input type=radio value=0 name="gdcheck[post]" $postgd_N>
+				关闭
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				短消息认证码
+			</td>
+			<td>
+				<input type=radio value=1 name="gdcheck[msg]" $msggd_Y>
+				开启
+				<input type=radio value=0 name="gdcheck[msg]" $msggd_N>
+				关闭
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				其他认证码
+			</td>
+			<td>
+				<input type=radio value=1 name="gdcheck[other]" $othergd_Y>
+				开启
+				<input type=radio value=0 name="gdcheck[other]" $othergd_N>
+				关闭
+			</td>
+		</tr>
+	</table>
+	<br />
+	<!--
+EOT;
+}if($type=='info' || $type=='all'){print <<<EOT
+-->
+
+	<table width=98% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+		<tr class=header>
+			<td height=25 colspan="2">
+				页面细节设置
+			</td>
+		</tr>
+		<tr class=bg>
+			<td	width="60%">
+				首页显示友情连接
+			</td>
+			<td>
+				<input type=radio value=1 name="config[indexlink]" $indexlink_Y>
+				开启
+				<input type=radio value=0 name="config[indexlink]" $indexlink_N>
+				关闭
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				滚动显示友情链接
+			</td>
+			<td>
+				<input type=radio value=1 name="config[indexmqlink]" $indexmqlink_Y>
+				开启
+				<input type=radio value=0 name="config[indexmqlink]" $indexmqlink_N>
+				关闭
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				后台每页显示项目数
+			</td>
+			<td>
+				<input type=text name="config[adminperpage]" size=35 value="$db_adminperpage">
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				前台每页显示项目数
+			</td>
+			<td>
+				<input type=text name="config[perpage]" size=35 value="$db_perpage">
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				视频每页显示评论数
+			</td>
+			<td>
+				<input type=text name="config[readperpage]" size=35 value="$db_readperpage">
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				提交评论时内容最小字节
+			</td>
+			<td>
+				<input type=text name="config[postmin]" size=35 value="$db_postmin">
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				提交评论内容最大字节
+			</td>
+			<td>
+				<input type=text name="config[postmax]" size=35 value="$db_postmax">
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				视频详细页显示会员评论
+			</td>
+			<td>
+				<input type=radio value=1 name="config[reply]" $reply_Y>
+				开启
+				<input type=radio value=0 name="config[reply]" $reply_N>
+				关闭
+			</td>
+		</tr>
+	</table>
+	<br />
+<!--
+EOT;
+}if($type=='pathset' || $type=='all'){print <<<EOT
+-->
+
+	<table width=98% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+		<tr class=header>
+			<td height=25 colspan="2">
+				动态目录设置
+			</td>
+		</tr>
+		<tr class=bg>
+			<td width="60%">
+				图片保存目录 (如果发现不可更改，请确认目录可写入)
+			</td>
+			<td>
+				<input size=35 name="set[picpath]" value="$picpath" $imgdisabled>
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				附件保存目录 (如果发现不可更改，请确认目录可写入)
+			</td>
+			<td>
+				<input size=35 name="set[attachpath]" value="$attachname" $attdisabled>
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				定期自动更改图片链
+			</td>
+			<td>
+				<input type=radio value=1 name="config[autochange]" $autochange_Y>
+				开启
+				<input type=radio value=0 name="config[autochange]" $autochange_N>
+				关闭
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				定时更改图片目录防止图片盗链(小时)<br />
+				(如果上一选项选否,此项无效)
+			</td>
+			<td>
+				<select name="config[hour]">
+					<option value=4 $hour_sel[4]>4</option>
+					<option value=6 $hour_sel[6]>6</option>
+					<option value=8 $hour_sel[8]>8</option>
+					<option value=12 $hour_sel[12]>12</option>
+					<option value=24 $hour_sel[24]>24</option>
+				</select>
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				使用跨台固定图片链<br />
+				(不设置请填"N")
+			</td>
+			<td>
+				<input size=35 name="config[http]" value="$db_http">
+			</td>
+		</tr>
+	</table>
+	<br />
+<!--
+EOT;
+}if($type=='sethtm' || $type=='all'){print <<<EOT
+-->
+	<table width=98% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+	<tr class=header>
+		<td height=25 colspan=2>静态目录部署</td>
+	</tr>
+	<tr class="bg">
+		<td width="60%">是否开启静态目录部署功能</td>
+		<td>
+			<input type="radio" name="config[htmifopen]" value="1" $htmifopen_Y>是
+			<input type="radio" name="config[htmifopen]" value="0" $htmifopen_N>否
+		</td>
+	</tr>
+	<tr class="bg">
+		<td>静态目录</td>
+		<td><input size=35 value="$db_dir" name="config[dir]"></td>
+	</tr>
+	<tr class="bg">
+		<td>静态目录扩展名设置</td>
+		<td><input size=35 value="$db_ext" name="config[ext]"></td>
+	</tr>
+	</table>
+	<br />
+
+<!--
+EOT;
+}if($type=='upfile' || $type=='all'){print <<<EOT
+-->
+
+	<table width=98% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+		<tr class=header>
+			<td height=25 colspan="2">
+				海报上传设置
+			</td>
+		</tr>
+		<tr class=bg>
+			<td width="60%">
+				海报上传功能
+			</td>
+			<td>
+				<input type=radio value=1 name="config[uploadvodpic]" $uploadvodpic_Y>
+				开启
+				<input type=radio value=0 name="config[uploadvodpic]" $uploadvodpic_N>
+				关闭
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				允许上传海报格式(用","半角逗号隔开)
+			</td>
+			<td>
+				<input type=text name="config[picfiletype]" size=35 value="$db_picfiletype">
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				上传附件大小上限(KB)
+			</td>
+			<td>
+				<input size=35 name="config[picmaxsize]" value="$db_picmaxsize">
+			</td>
+		</tr>
+	</table>
+	<br />
+
+<!--
+EOT;
+}if($type=='regset' || $type=='all'){print <<<EOT
+-->
+
+	<table width=98% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+		<tr class=header>
+			<td height=25 colspan="2">
+				会员注册设置
+			</td>
+		</tr>
+		<tr class=bg>
+			<td width="60%">
+				允许新用户注册
+			</td>
+			<td>
+				<input type=radio value=1 name="reg[allowregister]" $allowregister_Y>
+				开启
+				<input type=radio value=0 name="reg[allowregister]" $allowregister_N>
+				关闭
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				注册时显示详细注册信息 (不开启将显示简易注册)
+			</td>
+			<td>
+				<input type=radio value=1 name="reg[regdetail]" $regdetail_Y>
+				开启
+				<input type=radio value=0 name="reg[regdetail]" $regdetail_N>
+				关闭
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				新用户注册是否需要管理员在后台进行审核
+			</td>
+			<td>
+				<input type=radio value=1 name="reg[ifcheck]" $ifcheck_Y>
+				开启
+				<input type=radio value=0 name="reg[ifcheck]" $ifcheck_N>
+				关闭
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				会员名最短长度 (用户在注册时的最小的用户名字符长度)
+			</td>
+			<td>
+				<input size=35 name="reg[regminname]" value="$rg_regminname">
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				会员名最长长度 (系统稳定性考虑,请不要超过 12 字节)
+			</td>
+			<td>
+				<input size=35 name="reg[regmaxname]" value="$rg_regmaxname">
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				自定义头衔最长长度
+			</td>
+			<td>
+				<input size=35 name="reg[regmaxhonor]" value="$rg_regmaxhonor">
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				个性签名最长长度
+			</td>
+			<td>
+				<input size=35 name="reg[regmaxsign]" value="$rg_regmaxsign">
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				注册时初始威望
+			</td>
+			<td>
+				<input size=35 name="reg[regrvrc]" value="$rg_regrvrc">
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				注册时初始金钱
+			</td>
+			<td>
+				<input size=35 name="reg[regmoney]" value="$rg_regmoney">
+			</td>
+		</tr>
+		<tr class=bg>
+			<td>
+				<font color=blue>禁止在注册用户名中使用的关键词，多个词用","分隔</font><br>
+				例：如果禁用了"<font color=blue>站长</font>"，那么所有含有"<font color=blue>站长</font>"(如：我是<font color=blue>站长</font>)的用户名将被禁止使用
+			</td>
+			<td>
+				<textarea name="reg[banname]" rows=6 cols=50>$rg_banname</textarea>
+			</td>
+		</tr>
+	</table>
+	<br />
+	<!--
+EOT;
+}if($type=='atcset' || $type=='all'){print <<<EOT
+-->
+
+	<table width=98% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+		<tr>
+			<td class=header colspan=5>
+				视频奖惩设置
+			</td>
+		</tr>
+		<tr align="center">
+			<td width="20%">名称</td>
+			<td width="20%">发布视频(+)</td>
+			<td width="20%">发布评论(+)</td>
+			<td width="20%">删除视频(-)</td>
+			<td width="20%">删除评论(-)</td>
+		</tr>
+		<tr class="bg" align="center">
+			<td>金钱</td>
+			<td><INPUT size=5 value="{$credit[money][Post]}" name="creditdb[money][Post]"></td>
+			<td><INPUT size=5 value="{$credit[money][Reply]}" name="creditdb[money][Reply]"></td>
+			<td><INPUT size=5 value="{$credit[money][Delete]}" name="creditdb[money][Delete]"></td>
+			<td><INPUT size=5 value="{$credit[money][Deleterp]}" name="creditdb[money][Deleterp]"></td>
+		</tr>
+		<tr class="bg" align="center">
+			<td>威望</td>
+			<td><INPUT size=5 value="{$credit[rvrc][Post]}" name="creditdb[rvrc][Post]"></td>
+			<td><INPUT size=5 value="{$credit[rvrc][Reply]}" name="creditdb[rvrc][Reply]"></td>
+			<td><INPUT size=5 value="{$credit[rvrc][Delete]}" name="creditdb[rvrc][Delete]"></td>
+			<td><INPUT size=5 value="{$credit[rvrc][Deleterp]}" name="creditdb[rvrc][Deleterp]"></td>
+		</tr>
+
+<!--
+EOT;
+foreach($_CREDITDB as $key => $value){
+print <<<EOT
+-->
+		<tr class="bg" align="center">
+			<td>{$value[0]}</td>
+			<td><input size=5 value="{$credit[$key][Post]}" name="creditdb[$key][Post]"></td>
+			<td><input size=5 value="{$credit[$key][Reply]}" name="creditdb[$key][Reply]"></td>
+			<td><input size=5 value="{$credit[$key][Delete]}" name="creditdb[$key][Delete]"></td>
+			<td><input size=5 value="{$credit[$key][Deleterp]}" name="creditdb[$key][Deleterp]"></td>
+		</tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+
+	</table><br />
+<!--
+EOT;
+}print <<<EOT
+-->
+	<center>
+		<input type=submit value="提 交" >
+	</center>
+</form>
+<!--
+EOT;
+include_once PrintEot('adminbottom');
+?>
+-->

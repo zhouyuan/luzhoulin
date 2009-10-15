@@ -1,0 +1,87 @@
+<!--<?php
+include_once PrintEot('top');
+if (empty($action)){
+print <<<EOT
+-->
+
+<table width=98% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+	<tr><td class=header>提示信息</td></tr>
+	<tr><td class=bg style="padding: 20px;">提示：删除符合条件的短消息,用于清理论坛冗余数据,此操作不可恢复,请谨慎使用！</td></tr>
+</table><br>
+
+<form action="$basename&" method=post>
+<input type=hidden name=action value=del>
+<table width=98% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+<tr><td class=header colspan="2">删除短消息</td></tr>
+
+<tr>
+<td class=bg width=20%>信箱类型</td>
+<td class=bg><select name=type>
+<option value='all'>无限制</option>
+<option value='rebox'>收件箱</option>
+<option value='sebox'>发件箱</option>
+</select>
+<input type=checkbox name="keepnew" value=1 checked><font color=blue> 保留新消息</font>
+</td></tr>
+
+<tr><td class=bg>发件人</td>
+<td class=bg><input type=text size=20 name="fromuser"> 可使用通配符 "*"</td></tr>
+
+<tr class=bg><td width=20%>收件人</td>
+<td><input type=text size=20 name="touser"> 可使用通配符 "*"</td></tr>
+
+<tr><td class=bg>删除</td>
+<td class=bg><input type=text size=20 name="msgdate"> 天前的短消息
+</td></tr>
+
+<tr><td class=bg>关键字包含(多个关键字用","分隔)</td>
+<td class=bg><input type=text size=20 name="keyword"> 可使用通配符 "*"</td></tr>
+
+<tr><td class=bg>每页显示行数</td>
+<td class=bg><input type=text size=5 name="lines" value="30"> <input type=checkbox name="direct" value='1'> 直接删除(直接删除符合条件的项目)</td>
+</tr>
+</table>
+
+<br><center><input type=submit value="提 交"></center>
+</form>
+<!--
+EOT;
+}elseif($action=='del' && !$step){print <<<EOT
+-->
+<form action="$basename&" method=post>
+<input type=hidden name=action value='$action'>
+<input type=hidden name=step value=2>
+<table width=98% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+<tr><td class=header colspan="6">短消息列表</td></tr>
+<tr align=center>
+<td>ID</td>
+<td>标题</td>
+<td>发件人</td>
+<td>收件人</td>
+<td>时间</td>
+<td>删除</td></tr>
+<!--
+EOT;
+foreach($messagedb as $key=>$message){
+if(!$message[title])continue;
+print <<<EOT
+-->
+<tr align=center>
+<td class="bg">$message[mid]</td>
+<td class="bg">$message[title]</td>
+<td class="bg">$message[fromuser]</td>
+<td class="bg">$message[touser]</td>
+<td class="bg">$message[date]</td>
+<td class="bg"><input type=checkbox name=delid[] value=$message[mid]></td></tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+</table>
+<div style="text-align: right; width: 98%; ">$pages</div>
+<center><input type='button' name='chkall' value='全 选' onclick='CheckAll(this.form)'>
+<input type=submit value='提 交'></center></form>
+<!--
+EOT;
+}include_once PrintEot('adminbottom');
+?>-->
