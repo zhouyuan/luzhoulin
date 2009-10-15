@@ -138,3 +138,15 @@
 <?die;?>|lippman||/vod/admin.php?adminjob=setstyles|127.0.0.1|1255610373||
 <?die;?>|lippman||/vod/admin.php?adminjob=record|127.0.0.1|1255610380||
 <?die;?>|lippman||/vod/admin.php?adminjob=admin|127.0.0.1|1255610477||
+<?die;?>|lippman||/vod/admin.php?|127.0.0.1|1255614776||
+<?die;?>|lippman||/vod/admin.php?adminjob=left|127.0.0.1|1255614776||
+<?die;?>|lippman||/vod/admin.php?adminjob=admin|127.0.0.1|1255614776||
+<?die;?>|lippman||/vod/admin.php?adminjob=nation|127.0.0.1|1255615495||
+<?die;?>|lippman||/vod/admin.php?adminjob=class|127.0.0.1|1255615496||
+<?die;?>|lippman||/vod/admin.php?adminjob=class|127.0.0.1|1255615516|action=add_board, name=普陀小学, |
+<?die;?>|lippman||/vod/admin.php?adminjob=class|127.0.0.1|1255615531||
+<?die;?>|lippman||/vod/admin.php?adminjob=class&action=delete&cid=29|127.0.0.1|1255615534||
+<?die;?>|lippman||/vod/admin.php?adminjob=class|127.0.0.1|1255615536||
+<?die;?>|lippman||/vod/admin.php?adminjob=class|127.0.0.1|1255615547|action=add_sub, caption=普陀小学, cup=28, |
+<?die;?>|lippman||/vod/admin.php?adminjob=setvideo|127.0.0.1|1255615649||
+<?die;?>|lippman||/vod/admin.php?adminjob=setvideo&|127.0.0.1|1255615650|action=search, author=, author_s=1, subject=, subject_s=1, content=, playactor=, director=, best=all, bj=0, hits=, postdate=all, orderway=postdate, asc=ASC, lines=100, |

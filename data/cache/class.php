@@ -240,6 +240,26 @@ $class = array(
 			'allowpost'=>'',
 			'allowrp'=>'',
 		),
+		'30'=>array(
+			'cid'=>'30',
+			'cup'=>'28',
+			'lv'=>'1',
+			'fathers'=>'28',
+			'caption'=>'普陀小学',
+			'vieworder'=>'0',
+			'type'=>'free',
+			'orderway'=>'postdate',
+			'orderasc'=>'1',
+			'atccheck'=>'0',
+			'rvrcneed'=>'0',
+			'moneyneed'=>'0',
+			'postneed'=>'0',
+			'password'=>'',
+			'allowvisit'=>'',
+			'allowplay'=>'',
+			'allowpost'=>'',
+			'allowrp'=>'',
+		),
 );
 $class_opt = '
 			<option value="1">闵行区</option>
@@ -254,5 +274,6 @@ $class_opt = '
 			<option value="14">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;杨浦初中</option>
 			<option value="15">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;杨浦高中</option>
 			<option value="28">普陀区</option>
+			<option value="30">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;普陀小学</option>
 ';
 ?>
