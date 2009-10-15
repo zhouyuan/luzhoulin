@@ -1,0 +1,102 @@
+<!--<?php
+include_once PrintEot('top');
+if(empty($action)){
+print <<<EOT
+-->
+<table width=98% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+<tr><td class=header>提示信息</td></tr>
+<tr><td class=bg style="padding: 20px;">请确认 data/player/ 目录属性为 777</td></tr>
+</table>
+<br/>
+
+<table class="tableborder" align="center" border="0" cellpadding="0" cellspacing="1" width="98%">
+<tr><td class=bg>
+[<strong>播放器列表</strong>]
+[<a href="$basename&action=add">添加/编辑播放器</a>]
+</td></tr></table>
+<br />
+
+<form method="post" action="$basename">
+<input name=action type=hidden value="del">
+<table width=98% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+<tr><td class=header colspan="6">管理播放器</td></tr>
+<tr align="center">
+  <td width="5%">启动</td>
+  <td width="20%">播放器名称</td>
+  <td>描述</td>
+  <td width="15%">播放器文件名</td>
+  <td width="5%">操作</td>
+  <td width="5%">删除</td>
+</tr>
+<!--
+EOT;
+foreach($playerdb as $key => $value){
+$hidden = $value[hidden] ? 'checked' : '';
+print <<<EOT
+-->
+<tr align="center">
+  <td class=bg><input type='checkbox' name='applyid[]' value="$value[pid]" $hidden></td>
+  <td class=bg><a href="$basename&action=edit&pid=$value[pid]">$value[name]</a></td>
+  <td class=bg>$value[subject]</td>
+  <td class=bg>$value[playpath]</td>
+  <td class=bg><a href="$basename&action=edit&pid=$value[pid]">编辑</a></td>
+  <td class=bg><input type='checkbox' name='selid[]' value="$value[pid]"></td>
+</tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+</table>
+<br><center><input type="submit" value="提 交"></center>
+</form>
+<!--
+EOT;
+}elseif($action=='add' || $action=='edit'){
+print <<<EOT
+-->
+<table width=98% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+<tr><td class=header>提示信息</td></tr>
+<tr><td class=bg style="padding: 20px;">请确认 data/player/ 目录属性为 777</td></tr>
+</table>
+<br/>
+
+<table class="tableborder" align="center" border="0" cellpadding="0" cellspacing="1" width="98%">
+<tr><td class=bg>
+[<a href="$basename">播放器列表</a>]
+[<strong>添加/编辑播放器</strong>]
+</td></tr></table>
+<br />
+
+<form action="$basename" method=post>
+<input type=hidden value=$pid name=pid>
+<input type=hidden value=2 name=step>
+<input type=hidden value="$action" name=action>
+
+<table width=98% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+
+<tr><td class=header colspan="2">新增/编辑播放器</td></tr>
+
+<tr><td class=bg width=40%>启动</td>
+<td class=bg><input name="hidden" type="radio" value="1" $hidden_Y>启动 
+<input name="hidden" type="radio" value="0" $hidden_N>不启动</td></tr>
+
+<tr><td class=bg>播放器名称</td>
+<td class=bg><input type="text" name="name" value="$name"></td></tr>
+
+<tr><td class=bg>描述</td>
+<td class=bg><input type="text" name="subject" value="$subject"></td></tr>
+
+<tr><td class=bg>播放器文件名<br />例: real.htm</td>
+<td class=bg><input type="text" name="playpath" value="$playpath"></td></tr>
+
+<tr><td class=bg>播放器代码<br />相关参数:<br />\$urlpath &nbsp;&nbsp;本集地址<br />\$nextpage &nbsp;&nbsp下一集播放页面地址<br />\$nexturl &nbsp;&nbsp下一集地址</td>
+<td class=bg><textarea name="content" id="content" rows=6 cols=50>$content</textarea></td></tr>
+</table>
+
+<br /><center><input type="submit" value="提 交"></center>
+</form>
+<!--
+EOT;
+}include_once PrintEot('adminbottom');
+?>
+-->

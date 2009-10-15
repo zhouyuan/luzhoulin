@@ -1,0 +1,76 @@
+<!--<?php
+include_once PrintEot('top');
+if (empty($action)){
+print <<<EOT
+-->
+<table width=98% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+	<tr><td class=header colspan=2>提示信息</td></tr>
+	<tr><td class=bg style="padding: 20px; line-height: 2em;">修复表 : 此操作可修复数据库在进行查询，删除，更新等操作时产生的错误<br>优化表 : 此操作可优化数据库表结构，以获得更好的数据库运行效率</td></tr>
+</table>
+<br>
+<form action="$basename&" method=post>
+<table width=98% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+<tr><td class=header colspan=3>数据库优化</td></tr>
+<tr align=center>
+	<td width="5%">ID</td>
+	<td>数据库表</td>
+	<td width="8%">选择</td>
+</tr>
+<!--
+EOT;
+$id=0;
+foreach($tabledb as $key=>$table){
+$id++;
+print <<<EOT
+-->
+<tr>
+	<td class=bg align=center>$id</td>
+	<td class=bg>$table</td>
+	<td class=bg align=center><input type=checkbox name=tabledb[] value=$table></td>
+</tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+</table>
+<br>
+<center>
+	<input type="radio" name="action" value="repair">修复表
+	<input type="radio" name="action" value="optimize" checked>优化表<br><br>
+	<input type="button" name="chkall" value="全 选" onclick="CheckAll(this.form)">
+	<input type='submit' value='提 交'>
+</center>
+</form>
+<!--
+EOT;
+} else{
+print <<<EOT
+-->
+<table width=98% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+<tr><td class=header colspan=3>数据库优化信息</td></tr>
+<tr align=center>
+<td width=20%>数据库表</td>
+<td width=20%>操作</td>
+<td>信息</td>
+</tr>
+<!--
+EOT;
+foreach($msgdb as $msg){
+print <<<EOT
+-->
+<tr>
+	<td class=bg>$msg[Table]</td>
+	<td class=bg align=center>$msg[Op]</td>
+	<td class=bg align=left>$msg[Msg_type]:$msg[Msg_text]</td>
+</tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+</table>
+<br />
+<center><input type='button' value='返回上一步' onclick='javascript:history.go(-1);'></center>
+<!--
+EOT;
+}include_once PrintEot('adminbottom');
+?>-->

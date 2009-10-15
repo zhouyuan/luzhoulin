@@ -1,0 +1,10 @@
+#
+# robots.txt for PHPvod
+# Version 1.x
+#
+
+User-agent: *
+Disallow: /admin/
+Disallow: /require/
+Disallow: /data/
+Disallow: /template/

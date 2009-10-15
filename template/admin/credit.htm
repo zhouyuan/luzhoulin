@@ -1,0 +1,167 @@
+<!--<?php
+include_once PrintEot('top');
+print <<<EOT
+-->
+<table width=98% border=0 align=center cellspacing=1 cellpadding=0 class=tableborder>
+<tr><td class=header>提示信息</td></tr>
+<tr><td class=bg style="padding: 20px; line-height: 1em; ">
+1、自定义积分将加入系统评分，积分排行榜<br><br>2、用户可以根据特定需要增加自定义积分
+</td></tr></table><br>
+<!--
+EOT;
+if(empty($action)){
+print <<<EOT
+-->
+<table width=98% border=0 align=center cellspacing=1 cellpadding=0 class=tableborder>
+<tr><td class="bg">
+[<strong>自定义积分管理</strong>]
+[<a href="$basename&action=newcredit">添加/编辑自定义积分</a>]
+[<a href="$basename&action=usercredit">会员自定义积分管理</a>]
+</td></tr></table><br>
+
+<form action="$basename" method=post onsubmit="return deletecheck();">
+<input type=hidden name=action value='delete'>
+<table width=98% border=0 align=center cellspacing=1 cellpadding=0 class=tableborder>
+<tr><td class=header colspan=5>自定义积分列表</td></tr>
+<tr align=center>
+	<td width=5%>ID</td>
+	<td>名称</td>
+	<td>说明</td>
+	<td width=5%>编辑</td>
+	<td width=5%>删除</td>
+</tr>
+<!--
+EOT;
+while($creditdb=$db->fetch_array($credit)){
+print <<<EOT
+-->
+<tr align=center class=bg>
+	<td >$creditdb[cid]</td>
+	<td>$creditdb[name]</td>
+	<td>$creditdb[description]</td>
+	<td><a href="$basename&action=edit&cid=$creditdb[cid]">编辑</a></td>
+	<td><input type=checkbox name=delcid[] value='$creditdb[cid]'></td>
+</tr>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+</table><br>
+<center>
+	<input type='button' name='chkall' value='全 选' onclick='CheckAll(this.form)'>
+	<input type=submit value='提 交'>
+</center>
+</form>
+
+<script language="javascript">
+function deletecheck(){
+	if(confirm('确定要删除自定义积分吗?删除自定义积分将同时删除会员该项积分数据!')){
+		return true;
+	} else {
+		return false;
+	}
+}
+</script>
+
+<!--
+EOT;
+} elseif($action=='edit' || $action=='newcredit'){
+print <<<EOT
+-->
+<table width=98% border=0 align=center cellspacing=1 cellpadding=0 class=tableborder>
+<tr><td class="bg">
+[<a href="$basename">自定义积分管理</a>]
+[<strong>添加/编辑自定义积分</strong>]
+[<a href="$basename&action=usercredit">会员自定义积分管理</a>]
+</td></tr></table><br>
+
+<form action="$basename" method=post>
+<input type=hidden name=action value='$action'>
+<input type=hidden name=cid value='$cid'>
+<input type=hidden name=step value=2>
+
+<table width=98% border=0 align=center cellspacing=1 cellpadding=0 class=tableborder>
+<tr><td class=header colspan=2>自定义积分</td></tr>
+
+<tr class=bg>
+	<td width=30%>名称</td>
+	<td><input type=text name='name' size=40 value='$creditdb[name]'></td>
+</tr>
+
+<tr class=bg>
+	<td>说明</td>
+	<td><input type=text name='description' size=40 value='$creditdb[description]'></td>
+</tr>
+</table>
+<br><center><input type=submit value='提 交'></center></form>
+<!--
+EOT;
+} elseif($action=='usercredit'){
+print <<<EOT
+-->
+<table width=98% border=0 align=center cellspacing=1 cellpadding=0 class=tableborder>
+<tr><td class="bg">
+[<a href="$basename">自定义积分管理</a>]
+[<a href="$basename&action=newcredit">添加/编辑自定义积分</a>]
+[<strong>会员自定义积分管理</strong>]
+</td></tr></table><br>
+<!--
+EOT;
+if(!$step){
+print <<<EOT
+-->
+<form action="$basename&action=usercredit" method="post">
+<input type="hidden" name="step" value="1">
+<table width=98% border=0 align=center cellspacing=1 cellpadding=0 class=tableborder>
+<tr><td class=header colspan=2>自定义积分管理</td></tr>
+<tr class=bg>
+	<td width=30%>用户名</td>
+	<td><input type="text" name="username" size=40></td>
+</tr>
+</table>
+<br><center><input type=submit value='提 交'></center>
+</form>
+<!--
+EOT;
+}elseif($step=='1'){
+print <<<EOT
+-->
+<form action="$basename&action=usercredit" method="post">
+<input type="hidden" name="step" value="2">
+<input type="hidden" name="uid" value="$rt[uid]">
+<table width=98% border=0 align=center cellspacing=1 cellpadding=0 class=tableborder>
+<tr><td class=header colspan=2>自定义积分管理</td></tr>
+<tr class=bg>
+	<td width=30%>用户名</td>
+	<td>$rt[username]</td>
+</tr>
+<!--
+EOT;
+foreach($credit as $key => $value){
+if($_CREDITDB[$key]){
+print <<<EOT
+-->
+<tr class=bg>
+	<td>$value[0]</td>
+	<td><input type="text" name="creditdb[$key]" value="$value[1]"></td>
+</tr>
+<!--
+EOT;
+}}print <<<EOT
+-->
+</table>
+<br><center><input type=submit value='提 交'></center>
+</form>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+
+<!--
+EOT;
+}
+include_once PrintEot('adminbottom');
+?>
+-->

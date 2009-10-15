@@ -1,0 +1,274 @@
+<!--<?php
+include_once PrintEot('top');
+if (empty($action)){
+print <<<EOT
+-->
+<form action="$basename&" method=post>
+<input type=hidden name=action value=search>
+<table width=98% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+<tr><td class=header colspan="2">编辑用户</td></tr>
+<tr>
+	<td class=bg width="40%">用户组</td>
+	<td class=bg>
+		<select name=groupid>
+			<option value=''>不限制</option>
+			$groupselect
+		</select>
+	</td>
+</tr>
+<tr>
+	<td class=bg width="40%">用户名包含<br>(可使用通配符 "*")</td>
+	<td class=bg><input type=text size=20 maxlength=14 name="schname"> <input name=schname_s type=checkbox value=1 checked='checked'>  精确匹配</td>
+</tr>
+<tr>
+	<td class=bg>邮箱<br>(可使用通配符 "*")</td>
+	<td class=bg><input type=text size=20 name="schemail"></td>
+</tr>
+<tr>
+	<td class=bg>最后登录IP<br>(可使用通配符 "*")</td>
+	<td class=bg><input type=text size=20 name="userip"></td>
+</tr>
+<tr>
+	<td class=bg>注册时间大于</td>
+	<td class=bg>
+		<select name=regdate>
+			<OPTION value="all">不限制</OPTION>
+			<OPTION value="86400">一天</OPTION>
+			<OPTION value="172800">二天</OPTION>
+			<OPTION value="604800">一星期</OPTION>
+			<OPTION value="2592000">一个月</OPTION>
+			<OPTION value="7776000">三个月</OPTION>
+			<OPTION value="15552000">六个月</OPTION>
+			<OPTION value="31536000">一年</OPTION>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td class=bg>排序方式</td>
+	<td class=bg>
+		<select name=orderway>
+			<option value="regdate">注册时间</option>
+			<option value="username">用户名</option>
+			<option value="uid">用户ID</option>
+			<option value="postnum">视频发布数</option>
+		</select> 
+		<input type=radio size=5 name="asc" value='' checked> 升序 
+		<input type=radio size=5 name="asc" value='DESC'> 降序
+	</td>
+</tr>
+<tr>
+	<td	class=bg>每页显示行数</td>
+	<td class=bg><input type=text size=5 name="lines" value=100></td>
+</tr>
+</table>
+<br /><center><input type=submit value="提 交"></center>
+</form>
+<br />
+
+<form action="$basename&" method=post>
+<input type=hidden name=action value=addnew>
+<table width=98% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+<tr><td class=header colspan="2">添加用户</td></tr>
+<tr>
+	<td class=bg width="40%">用户名</td>
+	<td class=bg><input type=text size=20 maxlength=14 name="username" /></td>
+</tr>
+<tr>
+	<td class=bg>密码</td>
+	<td class=bg><input type=password name="password" /></td>
+</tr>
+<tr>
+	<td class=bg>Email</td>
+	<td class=bg><input type=text name="email" /></td>
+</tr>
+<tr>
+	<td class=bg>用户组</td>
+	<td class=bg>
+		<select name=groupid>$groupselect</select>
+	</td>
+</tr>
+</table>
+<br /><center><input type=submit value="提 交" /></center>
+</form>
+
+<!--
+EOT;
+}elseif($action==search){print <<<EOT
+-->
+<table width=98% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+<tr><td class=header>编辑用户</td></tr>
+<tr><td class=bg style="padding: 20px;">
+说明：此功能可以批量修改会员头衔 
+</td></tr>
+</table>
+<br />
+
+<form action="$basename&" method=post>
+<input type=hidden name='action' value='editgroup'>
+<table width=98% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+<tr><td class=header colspan="9">用户列表</td></tr>
+<tr align="center">
+<td>ID</td>
+<td>用户名</td>
+<td>Email</td>
+<td>头衔</td>
+<td>注册时间</td>
+<td>发表数</td>
+<td>IP</td>
+<td>编辑</td>
+<td width="5%">删除</td>
+</tr>
+<!--
+EOT;
+foreach($schdb as $key=>$sch){
+if(!$sch[username])continue;
+$uid=$sch[uid];
+print <<<EOT
+-->
+<tr align="center">
+<td class=bg>$uid</td>
+<td class=bg>$sch[username]</td>
+<td class=bg>$sch[email]</td>
+<td class=bg><select name='gid[$uid]'>$sch[groupselect]</select></td>
+<td class=bg>$sch[regdate]</td>
+<td class=bg>$sch[postnum]</td>
+<td class=bg>$sch[onlineip]</td>
+<td class=bg><a href="$basename&action=edit&uid=$sch[uid]">编辑</a></td>
+<td class=bg><input type='checkbox' name='selid[]' value="$sch[uid]"></td>
+</tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+</table>
+<div style="text-align: right; width: 98%; ">$pages</div>
+<center><input type="button" name="chkall" value="全 选" onClick="CheckAll(this.form)"> <input type=submit value="提 交"></center></form>
+<!--
+EOT;
+}elseif($action==edit){
+print <<<EOT
+-->
+<form action="$basename&" method=post>
+<input type=hidden name='action' value=edit>
+<input type=hidden name=uid value=$uid>
+<input type=hidden name=step value=2>
+
+<table width=98% align=center cellspacing=1 cellpadding=0 class=tableborder>
+
+<tr><td class=header colspan="2">用户设置</td></tr>
+
+<tr><td class=bg width="50%">系统等级</td>
+<td class=bg><select name=groupid>$groupselect</select></td></tr>
+
+<tr><td class=bg>用户名(<font color=blue>如无特殊需要请不要修改</font>)</td>
+<td class=bg><input type=text size=20 name="username" value="$username"></td></tr>
+
+<tr><td class=bg>新密码(<font color=blue>如不更改请留空</font>)</td>
+<td class=bg><input type=text size=20 name="password" value=''></td></tr>
+
+<tr><td class=bg>确认密码(<font color=blue>修改密码时需要输入</font>)</td>
+<td class=bg><input type=text size=20 name="check_pwd"></td></tr>
+
+<tr><td class=bg>Email</td>
+<td class=bg><input type=text size=20 name="email"value='$email'>
+<input name=publicmail type=checkbox value=1 $ifchecked>公开邮箱</td></tr>
+
+<tr><td class=bg>是否接受邮件</td>
+<td class=bg> <input type=radio name='receivemail' value='1' $email_open> 是
+ <input type=radio name='receivemail' value='0' $email_close> 否</td></tr>
+
+<tr><td class=bg>视频发布数</td>
+<td class=bg><input type=text size=20 name=postnum value='$postnum'></td></tr>
+
+<tr><td class=bg>威望</td>
+<td class=bg><input type=text size=20 name=rvrc value='$rvrc'></td></tr>
+
+<tr><td class=bg>金钱</td>
+<td class=bg><input type=text size=20 name=money value='$money'></td></tr>
+
+<tr><td class=bg>注册日期(<font color=blue>格式: yyyy-mm-dd</font>)</td>
+<td class=bg><input type=text size=20 name=regdate value='$regdate'></td></tr>
+
+<tr><td class=bg>IP</td>
+<td class=bg><input type=text size=20 name=userip value='$onlineip'></td></tr>
+
+<tr><td class=bg>头像</td>
+<td class=bg>
+<input type=text name="icon" value='$icon'/>
+</td></tr>
+
+<tr><td class=bg>腾讯QQ</td>
+<td class=bg><input type=text size=20 name=oicq value='$oicq'></td></tr>
+
+<tr><td class=bg>MSN</td>
+<td class=bg><input type=text size=20 name=msn value='$msn'></td></tr>
+
+<tr><td class=bg>个人主页</td>
+<td class=bg><input type=text size=20 name=site value='$site'></td></tr>
+
+<tr><td class=bg>自定义头衔</td>
+<td class=bg><input type=text size=20 maxlength=75 name=honor value='$honor'></td></tr>
+
+<tr><td class=bg>性别</td>
+<td class=bg>
+<select name=gender>
+	<option value=0 $sexselect[0]>保密</option>
+	<option value=1 $sexselect[1]>男</option>
+	<option value=2 $sexselect[2]>女</option>
+</select></td></tr>
+
+<tr><td class=bg>生日</td>
+<td class=bg><select name=year>
+<option value=''></option>
+<!--
+EOT;
+for($i=1960;$i<=2008;$i++){
+print <<<EOT
+-->
+<option value=$i $yearslect[$i]>$i</option>
+<!--
+EOT;
+}print <<<EOT
+-->
+</select>年 
+<select name=month>
+<option value=''></option>
+<!--
+EOT;
+for($i=1;$i<13;$i++){
+print <<<EOT
+-->
+<option value=$i $monthslect[$i]>$i</option>
+<!--
+EOT;
+}print <<<EOT
+-->
+</select>月 
+<select name=day>
+<option value=''></option>
+<!--
+EOT;
+for($i=1;$i<32;$i++){
+print <<<EOT
+-->
+<option value=$i $dayslect[$i]>$i</option>
+<!--
+EOT;
+}print <<<EOT
+-->
+</select>日
+</td></tr>
+
+<tr><td class=bg>个性签名</td>
+<td class=bg><textarea cols=50 name=signature rows="4">$signature</textarea></td></tr>
+
+
+</table>
+<br />
+<center><input type=submit value="提 交"></center>
+</form>
+
+<!--
+EOT;
+}include_once PrintEot('adminbottom');
+?>-->

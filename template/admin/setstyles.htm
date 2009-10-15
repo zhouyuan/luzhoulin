@@ -1,0 +1,79 @@
+<!--<?php
+include_once PrintEot('top');
+if(!$action){
+print <<<EOT
+-->
+<table class="tableborder" align="center" border="0" cellpadding="0" cellspacing="1" width="98%">
+<tr class="bg"><td>
+[<strong>风格列表</strong>]
+[<a href="$basename&action=add">添加/编辑风格</a>]
+</td></tr></table>
+<br />
+
+<table width=98% border=0 align=center cellspacing=1 cellpadding=18 class=tableborder>
+<tr><td class=header colspan=3>风格列表</td></tr>
+<tr align="center">
+	<td width="10%">ID</td>
+	<td width="70%">风格名称</td>
+	<td>操作</td>
+</tr>
+
+<!--
+EOT;
+foreach($styles as $key=>$value){
+$delstr='';
+if($value[name]!='phpvod') $delstr="<a href=\"$basename&action=del&name=$value[name]\">删除</a>";
+print <<<EOT
+-->
+<tr align="center">
+	<td class=bg>$value[sid]</td>
+	<td class=bg>$value[name]</td>
+	<td class=bg><a href="$basename&action=edit&name=$value[name]">编辑</a> $delstr</td>
+</tr>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+</table>
+<br />
+
+<!--
+EOT;
+}
+if ($action=='add' || $action=='edit')
+{
+print <<<EOT
+-->
+<table class="tableborder" align="center" border="0" cellpadding="0" cellspacing="1" width="98%">
+<tr class="bg"><td>
+[<a href="$basename">风格列表</a>]
+[<strong>添加/编辑风格</strong>]
+</td></tr></table>
+<br />
+
+<form action="$basename" method="post">
+<input type="hidden" name="action" value="$action" />
+<input type="hidden" name="oldname" value="$stylename" />
+<input type="hidden" name="step" value="2" />
+<table width=98% border=0 align=center cellspacing=1 cellpadding=18 class=tableborder>
+<tr><td class=header colspan=2>添加/编辑风格</td></tr>
+<tr>
+	<td class=bg width=60%>风格名称</td>
+	<td class=bg><input type="text" name="style[name]" value="$stylename" /></td>
+</tr>
+<tr>
+	<td class=bg>此风格在image目录下的文件夹名称:<br />(请不要任意修改,如果需要请先手动修改image下的目录名)</td>
+	<td class=bg><input type="text" name="style[image]" value="$stylepath" /></td>
+</tr>
+<tr>
+	<td class=bg>此风格在template目录下的风格文件夹名称:</td>
+	<td class=bg><input type="text" name="style[tpl]" value="$tplpath" /></td>
+</tr>
+</table><br />
+<center><input type="submit" value="提 交" /></center></form>
+<!--
+EOT;
+}
+include_once PrintEot('adminbottom');
+?>-->

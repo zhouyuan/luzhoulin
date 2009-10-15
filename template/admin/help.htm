@@ -1,0 +1,77 @@
+<!--<?php
+include_once PrintEot('top');
+print <<<EOT
+-->
+<table width=98% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+<tr><td class=header>提示信息</td></tr>
+<tr><td class="bg" style="padding: 20px;">自定义帮助说明功能：可以帮助站点更好的规范管理和运行机制。(支持html代码)</td></tr>
+</table><br />
+
+<!--
+EOT;
+if(!$action){ print <<<EOT
+-->
+<table class="tableborder" align="center" border="0" cellpadding="0" cellspacing="1" width="98%">
+<tr><td class="bg">
+[<strong>帮助列表</strong>]
+[<a href="$basename&action=add">添加/编辑帮助</a>]
+</td></tr></table><br />
+
+<form action="$basename" method="post">
+<input type="hidden" name="action" value="del" />
+<table width=98% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+	<tr><td class="header" colspan="4"> 自定义帮助</td></tr>
+	<tr align="center">
+		<td width="6%">ID</td>
+		<td>自定义帮助标题</td>
+		<td width="6%">编辑</td>
+		<td width="6%">删除</td>
+	</tr>
+<!--
+EOT;
+foreach($helpdb as $key=>$help){ 
+print <<<EOT
+-->
+	<tr align="center">
+		<td class="bg">$help[id]</td>
+		<td class="bg">$help[title]</td>
+		<td class="bg"><a href="$basename&action=edit&id=$help[id]">编辑</td>
+		<td class="bg"><input type="checkbox" name="selid[]" value="$help[id]" /></td>
+	</tr>
+<!--
+EOT;
+} print <<<EOT
+-->
+</table><br />
+<center><input type="button" name="chkall" value="全 选" onclick="CheckAll(this.form)">
+<input type="submit" value="提 交" /></center></form>
+<!--
+EOT;
+}elseif($action=='add' || $action=='edit'){ print <<<EOT
+-->
+<table class="tableborder" align="center" border="0" cellpadding="0" cellspacing="1" width="98%">
+<tr><td class="bg">
+[<a href="$basename">帮助列表</a>]
+[<strong>添加/编辑帮助</strong>]
+</td></tr></table><br />
+
+<form action="$basename" method="post">
+<input type="hidden" name="action" value="$action" />
+<input type="hidden" name="id" value="$id" />
+<input type="hidden" name="step" value="2" />
+<table width=98% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+<tr><td class="header" colspan="2">自定义帮助</td></tr>
+<tr>
+	<td class="bg" width="40%">自定义帮助标题</td>
+	<td class="bg"><input type="text" name="title" value="$title" /></td>
+</tr>
+<tr>
+	<td class="bg">自定义帮助内容<br>(支持html代码)</td>
+	<td class="bg"><textarea name="content" id="content" rows=6 cols=50>$content</textarea></td>
+</tr>
+</table><br />
+<center><input type="submit" value="提 交" /></center></form>
+<!--
+EOT;
+}include_once PrintEot('adminbottom');
+?>-->

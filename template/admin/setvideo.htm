@@ -1,0 +1,134 @@
+<!--<?php
+include_once PrintEot('top');
+if (empty($action)){
+print <<<EOT
+-->
+<table width=98% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+	<tr><td class=header>提示信息</td></tr>
+	<tr><td class=bg style="padding: 20px; line-height: 2em;">
+		1、按条件查询需要管理的视频<br />
+		2、直接单击提交按钮显示所有视频
+	</td></tr>
+</table><br>
+
+<form action="$basename&" method=post>
+<input type=hidden name=action value=search>
+<table width=98% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+<tr><td class=header colspan="2">视频管理索引</td></tr>
+<tr>
+<td class=bg width=40%>发表会员名包含<br />(可使用通配符"*")</td>
+<td class=bg><input type=text size=20 maxlength=14 name="author"> <input name=author_s type=checkbox value=1 checked='checked'>  精确匹配</td>
+</tr>
+<tr>
+<td class=bg>视频标题包含<br />(可使用通配符"*")</td>
+<td class=bg><input type=text size=20 maxlength=14 name="subject"> <input name=subject_s type=checkbox value=1 checked='checked'>  精确匹配</td>
+</tr>
+<tr>
+<td class=bg>内容简介包含<br />(可使用通配符"*")</td>
+<td class=bg><input type=text size=20 maxlength=14 name="content"></td>
+</tr>
+<tr>
+<td class=bg>主演包含</td>
+<td class=bg><input type=text size=20 maxlength=14 name="playactor"></td>
+</tr>
+<tr>
+<td class=bg>导演包含</td>
+<td class=bg><input type=text size=20 maxlength=14 name="director"></td>
+</tr>
+
+<tr>
+<td class=bg>推荐</td>
+<td class=bg>
+	<select name="best">
+		<option value="all">无限制</option>
+		<option value="0">不推荐</option>
+		<option value="1">首页推荐</option>
+		<option value="2">栏目推荐</option>
+		<option value="3">首页栏目推荐</option>
+	</select>
+</td>
+</tr>
+
+<tr>
+<td class=bg>点击数</td>
+<td class=bg>
+	<select name="bj">
+		<option value=0>小于</option>
+		<option value=1>大于</option>
+	</select>
+	<input type=text size=20 maxlength=14 name="hits">
+</td>
+</tr>
+<tr>
+<td class=bg>发表时间大于</td>
+<td class=bg><select name="postdate">
+<OPTION value="all">不限制</OPTION>
+<OPTION value="86400">一天</OPTION>
+<OPTION value="172800">二天</OPTION>
+<OPTION value="604800">一星期</OPTION>
+<OPTION value="2592000">一个月</OPTION>
+<OPTION value="7776000">三个月</OPTION>
+<OPTION value="15552000">六个月</OPTION>
+<OPTION value="31536000">一年</OPTION></select></td>
+</tr>
+<tr>
+<td class=bg>排序方式</td>
+<td class=bg><select name=orderway>
+<option value="postdate">发表时间</option>
+<option value="lostdate">修改时间</option>
+<option value="vid">视频ID</option>
+<option value="username">会员名</option>
+<option value="postnum">点击数</option></select>
+<input type=radio size=5 name="asc" value='ASC' checked>升序
+<input type=radio size=5 name="asc" value='DESC'>降序</td>
+</tr>
+<tr>
+<td class=bg>每页显示行数</td>
+<td class=bg><input type=text size=5 name="lines" value=100></td>
+</tr>
+</table>
+<br><center><input type=submit value="提 交"></center>
+</form>
+<!--
+EOT;
+}elseif($action==search){print <<<EOT
+-->
+<form action="$basename&" method=post>
+<input type=hidden name='action' value='setvideo'>
+<table width=98% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+<tr><td class=header colspan="7">视频列表</td></tr>
+<tr align="center">
+<td width="5%">ID</td>
+<td width="10%">发表人</td>
+<td>标题</td>
+<td width="15%">推荐</td>
+<td width="10%">点击数</td>
+<td width="15%">发表时间</td>
+<td width="5%">删除</td>
+</tr>
+<!--
+EOT;
+foreach($videodb as $key=>$val){
+print <<<EOT
+-->
+<tr align="center">
+<td class=bg>$val[vid]</td>
+<td class=bg><a href="profile.php?action=show&id=$val[authorid]" target="_blank">$val[author]</a></td>
+<td class=bg><a href="read.php?vid=$val[vid]" target="_blank">$val[subject]</a></td>
+<td class=bg><select name="best[$val[vid]]">$val[option]</select></td>
+<td class=bg>$val[hits]</td>
+<td class=bg>$val[postdate]</td>
+<td class=bg><input type='checkbox' name='selid[]' value="$val[vid]"></td>
+</tr>
+<!--
+EOT;
+}print <<<EOT
+-->
+</table>
+<div style="text-align: right; width: 98%; ">$pages</div>
+<center><input type="button" name="chkall" value="全 选" onClick="CheckAll(this.form)"> <input type=submit value="提 交"></center></form>
+
+<!--
+EOT;
+}include_once PrintEot('adminbottom');
+?>-->

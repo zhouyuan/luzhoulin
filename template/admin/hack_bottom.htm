@@ -1,0 +1,10 @@
+<br />
+<hr size="1" width="70%" color="#dadada">
+<center><span style="color:#999999">Copyright 2007-2009 <a href="http://www.phpvod.com" target="_blank"><b style="color:#000000">PHPvod</b><b style="color:#FF9900">.com</b></a> All Rights Reserved.</span><br /><br /><br /><br /></center>
+</body></html>
+<?php
+	$output = ob_get_contents();
+	ob_end_clean();
+	$db_obstart == 1 && function_exists('ob_gzhandler') ? ob_start('ob_gzhandler') : ob_start(); 
+	echo $output;
+?>

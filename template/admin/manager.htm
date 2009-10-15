@@ -1,0 +1,31 @@
+<!--<?php
+include_once PrintEot('top');
+if(empty($action)){
+print <<<EOT
+-->
+<table width=98% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+<tr class=header>
+  <td height=25>&nbsp;提示信息</td>
+</tr>
+<tr>
+  <td class=bg><br><ul>1. 可以更改网站创始人<br><br><font color=blue>注</font>：若无特殊需要请别更改，这可能造成安全问题</ul></td>
+</tr>
+</table><br>
+<form action="$basename&" method=POST>
+<input type=hidden name=action value='submit'>
+<table width=98% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+<tr class=header><td height=25 colspan="2"> 创始人设置</td></tr>
+<tr class=bg><td height=25 width=20%>创始人用户名</td>
+<td><input type=text name='username' size=40 value='$rs[username]'></td></tr>
+<tr class=bg><td height=25 width=20%>新密码 (不改密码请留空)</td>
+<td><input type=text name='password' size=40 value=''></td></tr>
+<tr class=bg><td height=25 width=20%>确认密码</td>
+<td><input type=text name='check_pwd' size=40 value=''></td></tr>
+</table>
+<br /><center><input type='submit' value='提 交'></center>
+</form>
+<!--
+EOT;
+}include_once PrintEot('adminbottom');
+?>
+-->

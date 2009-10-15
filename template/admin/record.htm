@@ -1,0 +1,29 @@
+<!--<?php
+include_once PrintEot('top');
+print <<<EOT
+-->
+<table width=98% border=0 align=center cellspacing=1 class=tableborder>
+<tr><td class=header>提示信息</td></tr>
+<tr>
+  <td class=bg style="padding: 20px; line-height: 2em;">1、为了保证后台的安全性,系统只允许创始人操作日记<br />2、系统必须保留前100条后台管理日志</td>
+</tr>
+</table><br>
+<table width='98%' align=center cellspacing=1 class=tableborder style='word-break:break-all;'>
+<tr><td class=header colspan=9><b>管理日志</b></td></tr>
+<tr align="center">
+	<td width="10%">用户名</td>
+	<td width="10%">错误密码</td>
+	<td width="30%">操作日志</td>
+	<td width="10%">IP</td>
+	<td width="15%">操作时间</td>
+	<td width="30%">其他</td>
+</tr>
+$adlogfor
+</table><br>
+<div style="text-align: right; width: 98%; ">$pages</div>
+<center><a href="$basename&action=del"><b>删除多余管理日志</b></a></center>
+<!--
+EOT;
+include_once PrintEot('adminbottom');
+?>
+-->

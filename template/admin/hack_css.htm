@@ -1,0 +1,37 @@
+<html>
+<head>
+<title><?=$db_wwwname?> - powered by phpvod.com</title>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$db_charset?>">
+<style type="text/css">
+*{margin: 0px auto; padding: 0px;}
+body,td,th,input,select,textarea{font-family: Tahoma; font-size: 12px;}
+body{background: #F7F7F7;}
+table{margin-bottom: 4px;}
+td,th{padding: 3px}
+img{border: 0px;}
+a{text-decoration: none; color: #003366;}
+a:hover{text-decoration: underline; color: red;}
+.header{color: #FFFFFF; font-weight: bold; background-color: #698CC3; padding: 5px;}
+.header a{color: #FFFFFF;}
+.tableborder{background: #DBEAF5; border: solid 1px #698CC3;}
+.bg{background: #F7F7F7;}
+</style>
+<script>
+ifcheck = true;
+function CheckAll(form)
+{
+	for (var i=0;i<form.elements.length-2;i++)
+	{
+		var e = form.elements[i];
+		e.checked = ifcheck;
+	}
+	ifcheck = ifcheck == true ? false : true;
+}
+function $(id) {
+	return document.getElementById(id);
+}
+function level_jump(admin_file){
+	var URL=document.mod.selectfid.options[document.mod.selectfid.selectedIndex].value;
+	location.href=admin_file+"?adminjob=level&action=editgroup&gid="+URL;
+}
+</script>

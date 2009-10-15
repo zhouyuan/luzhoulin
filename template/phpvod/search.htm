@@ -1,0 +1,100 @@
+<!--{if !$action}-->
+<hr />
+<form method="post" action="search.php">
+<input type="hidden" name="action" value="search" />
+<table class="table table_w960">
+<tr><th colspan="2">
+	<img src="$imgpath/$stylepath/index/home.gif" align="absmiddle"> <a href="$db_bfn">$db_wwwname</a> &raquo; 搜索视频
+</th></tr>
+
+<tr>
+	<td class="w40">关键词</td>
+	<td>
+		<select name="field">
+			<option value="subject">标题</option>
+			<option value="playactor">演员</option>
+			<option value="director">导演</option>
+			<option value="author">会员</option>
+			<option value="tag">标签</option>
+		</select>
+		<input type="input" name="keyword" value="" class="text" />
+	</td>
+</tr>
+
+<tr>
+	<td>所属类别</td>
+	<td>
+		<select name="cid">
+			<option value="">无限制</option>
+			$class_opt
+		</select>
+	</td>
+</tr>
+
+<tr>
+	<td>国家地区</td>
+	<td>
+		<select name="nid">
+			<option value="">无限制</option>
+			$nation_opt
+	</td>
+</tr>
+
+<tr>
+	<td>排序类型</td>
+	<td>
+		<select name="orderway">
+			<option value="postdate">发表时间</option>
+			<option value="lostdate">更新时间</option>
+			<option value="hits">人气</option>
+			<option value="replier">评论</option>
+		</select>
+
+		<select name="asc">
+			<option value="ASC">升序</option>
+			<option value="DESC" selected>降序</option>
+		</select>
+	</td>
+</tr>
+
+<tr>
+	<td>每页显示行数</td>
+	<td>
+		<input type="text" size="5" value="$db_perpage" name="lines" class="text"/>
+	</td>
+</tr>
+
+</table><br />
+<center><input type="submit" value="提 交" class="button" /></center><br />
+</form>
+<!--{elseif $action=='search'}-->
+<hr />
+<table class="table table_w960">
+	<tr><th colspan="7">
+		<img src="$imgpath/$stylepath/index/home.gif" align="absmiddle"> <a href="$db_bfn">$db_wwwname</a> &raquo; 搜索"<span style="color: #C00;">{$keyword}</span>"结果: 共有$rt[sum]个视频
+	</th></tr>
+
+	<tr class="caption">
+		<td width="10%">ID</td>
+		<td width="25%">标题</td>
+		<td width="20%">会员</td>
+		<td width="15%">更新时间</td>
+		<td width="10%">人气</td>
+		<td width="10%">评论数</td>
+		<td width="10%">审核</td>
+	</tr>
+<!--{loop $searchdb $value}-->
+	<tr class="text_center">
+		<td>$value[vid]</td>
+		<td><a href="read.php?vid=$value[vid]" target="_blank">$value[subject]</a></td>
+		<td><a href="profile.php?action=show&id=$value[authorid]" target="_blank">$value[author]</a></td>
+		<td>$value[lostdate]</td>
+		<td>$value[hits]</td>
+		<td>$value[replier]</td>
+		<td>$value[yz]</td>
+	</tr>
+<!--{/loop}-->
+</table>
+<div class="page">$pages</div>
+<center><input type="button" class="button" value="返 回" onclick="javascript:history.go(-1);" /></center>
+<!--{/if}-->

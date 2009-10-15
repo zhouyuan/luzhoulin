@@ -1,0 +1,82 @@
+<!--<?php
+include_once PrintEot('top');
+if(empty($action)){
+print <<<EOT
+-->
+<table width=98% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+	<tr>
+		<td class=header>
+			添加 国家/地区
+		</td>
+	</tr>
+	<tr>
+		<td class=bg style="padding: 20px;">
+			<form action="$basename" method=POST>
+				<input type=hidden name="action" value="add">
+				新课程类型名称: 
+				<input type=text name="subject" />
+				<input type=submit value="提 交">
+			</form>
+		</td>
+	</tr>
+</table>
+<br />
+
+<form method="post" action="$basename">
+<input name=action type=hidden value="edit">
+	<table width=98% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+		<tr>
+			<td class=header colspan="4">
+				管理课程类型
+			</td>
+		</tr>
+		<tr align="center">
+			<td width="5%">
+				ID
+			</td>
+			<td width="10%">
+				顺序
+			</td>
+			<td>
+				课程类型
+			</td>
+			<td width="5%">
+				删除
+			</td>
+		</tr>
+		<!--
+EOT;
+foreach($nationdb as $key=> $value){
+$key=$value[id];
+print <<<EOT
+-->
+		<tr align="center">
+			<td class=bg>
+				$key
+			</td>
+			<td class=bg>
+				<input type=text name="vieworder[$key]" value='$value[vieworder]' size=5>
+			</td>
+			<td class=bg>
+				<input type=text name="subject[$key]" size=30 value='$value[subject]'>
+			</td>
+			<td class=bg>
+				<a href="$basename&action=del&id=$value[id]">删除</a>
+			</td>
+		</tr>
+		<!--
+EOT;
+}print <<<EOT
+-->
+	</table>
+	
+	<br>
+	<center>
+		<input type="submit" value="提 交">
+	</center>
+</form>
+<!--
+EOT;
+}include_once PrintEot('adminbottom');
+?>
+-->
