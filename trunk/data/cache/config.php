@@ -30,7 +30,7 @@ $db_ceoconnect='http://localhost/vod';
 $db_ceoemail='phpvod@qq.com';
 $db_keywords='中小学，视频，课件';
 $db_description='';
-$db_copyright='<font color=#999999>Copyright 2007-2009 版权所有 <a href=http://www.phpvod.com/ target=_blank><b>PHPvod</b><b style=color:#FF9900>.com</b></a></font>';
+$db_copyright='<font color=#999999>Copyright 2007-2009 <b>上海市中小学视频点播网</b></a></font>';
 $db_obstart='0';
 $db_debug='0';
 $db_ifjump='1';
