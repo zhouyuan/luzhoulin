@@ -43,7 +43,7 @@ include_once(R_P.'data/cache/hack.php');
 include_once(R_P.'admin/cache.php');
 include_once(R_P."data/style/{$db_defaultstyle}.php");
 
-$version = "1.1";
+$version = "1.0";
 $imgpath = $db_http	!= 'N' ? $db_http : "$picpath";
 $imgdir     = R_P.$picpath;
 $skin   = $db_defaultstyle;
