@@ -34,7 +34,7 @@ if($db_debug){
 	error_reporting(E_ALL ^ E_NOTICE);
 }
 
-$version = "1.1";
+$version = "1.0";
 
 !$_SERVER['PHP_SELF'] && $_SERVER['PHP_SELF']=$_SERVER['SCRIPT_NAME'];
 $REQUEST_URI  = $_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'];
