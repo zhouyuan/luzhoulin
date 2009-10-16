@@ -1,9 +1,10 @@
 <?php
 $nation_opt='
-<option value="1">国产</option>
-<option value="2">港台</option>
-<option value="3">欧美</option>
-<option value="4">韩日</option>
+<option value="6">政治</option>
+<option value="1">语文</option>
+<option value="2">数学</option>
+<option value="3">英语</option>
+<option value="4">历史</option>
 <option value="5">其他</option>
 ';
 ?>
