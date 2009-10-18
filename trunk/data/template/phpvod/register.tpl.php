@@ -22,6 +22,15 @@
 <td><input type="text" class="text" name="regname" /></td>
 </tr>
 
+    <tr>
+        <td class="w40"><strong>所属区/学校<span style="color:red;">*</span></strong></td>
+        <td>
+            <select name="cid">
+                <?=$class_opt?>
+            </select>
+        </td>
+    </tr>
+    
 <tr>
 <td><strong>密码<span style="color: red;">*</span></strong><br />英文字母或数字等不少于6位</td>
 <td><input type="password" class="text" name="regpwd" onchange="checkpwd();" />&nbsp;<span id="pwd_info"></span></td>
@@ -41,8 +50,8 @@
 <td><strong>性别</strong></td>
 <td>
 <select name="regsex">
-<option value="1">帅哥</option>
-<option value="2">靓女</option>
+<option value="1">男生</option>
+<option value="2">女生</option>
 <option value="0" selected>保密</option>
 </select>
 </td>
@@ -60,10 +69,10 @@
 </td>
 </tr>
 
-<tr>
+<!--	<tr>
 <td><strong>自定义头衔</strong></td>
 <td><input type="text" class="text" name="honor" /></td>
-</tr>
+</tr>-->
 
 <tr>
 <td><strong>选择您的头像</strong></td>
@@ -77,15 +86,15 @@
 </td>
 </tr>
 
-<tr>
-<td><strong>腾讯QQ</strong></td>
-<td><input type="text" class="text" name="oicq" /></td>
+<!--	<tr>
+<td><strong>区</strong></td>
+<td><input type="text" class="text" name="region" /></td>
 </tr>
 
 <tr>
-<td><strong>MSN</strong></td>
-<td><input type="text" class="text" name="msn" /></td>
-</tr>
+<td><strong>学校</strong></td>
+<td><input type="text" class="text" name="school" /></td>
+</tr>-->
 
 <tr>
 <td><strong>个人主页</strong></td>

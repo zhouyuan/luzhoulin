@@ -15,29 +15,19 @@
 </th></tr>
 <tr><td class="w40">UID</td><td><?=$userdb[uid]?></td></tr>
 <tr><td>用户名</td><td><?=$userdb[username]?></td></tr>
-<tr><td>系统头衔</td><td><?=$userdb[grouptitle]?></td></tr>
+   	<tr><td>区</td><td><?=$userdb[region]?></td></tr>
+<tr><td>学校</td><td><?=$userdb[school]?></td></tr>
 <tr><td>会员头衔</td><td><?=$userdb[membertitle]?></td></tr>
-<tr>
-<td>勋章</td>
-<td>
-<? if($userdb['medals']) { if(is_array($userdb['medals'])) { foreach($userdb['medals'] as $key => $value) { if($medaldb[$value][picurl]) { ?>
-<img src="<?=$imgpath?>/medal/<?=$medaldb[$value][picurl]?>" alt="<?=$medaldb[$value][name]?>" /> 
-<? } } } } else { ?>
-用户还没有获得勋章
-<? } ?>
-</td>
-</tr>
-<tr><td>自定义头衔</td><td><?=$userdb[honor]?></td></tr>
-<tr><td>最后登录IP</td><td><?=$userdb[ip]?></td></tr>
-<tr><td>综合积分</td><td><?=$userdb[credit]?></td></tr>
+    <tr><td>最后登录IP</td><td><?=$userdb[ip]?></td></tr>
+<!--	<tr><td>自定义头衔</td><td><?=$userdb[honor]?></td></tr>-->
+<!--	<tr><td>系统头衔</td><td><?=$userdb[grouptitle]?></td></tr>-->
+<!--	<tr><td>综合积分</td><td><?=$userdb[credit]?></td></tr>
 <tr><td>视频数</td><td><?=$userdb[postnum]?></td></tr>
 <tr><td>威望</td><td><?=$userdb[rvrc]?></td></tr>
-<tr><td>金钱</td><td><?=$userdb[money]?></td></tr><? if(is_array($creditdb)) { foreach($creditdb as $key => $value) { if($_CREDITDB[$key]) { ?>
-<tr><td><?=$value[0]?></td><td><?=$value[1]?></td></tr>
-<? } } } ?><tr><td>头像</td><td><img src="<?=$userdb[icon]?>" width="100" height="120" /></td></tr>
+<tr><td>金钱</td><td><?=$userdb[money]?></td></tr>-->
+
+<tr><td>头像</td><td><img src="<?=$userdb[icon]?>" width="100" height="120" /></td></tr>
 <tr><td>Email</td><td><?=$userdb[email]?></td></tr>
-<tr><td>腾讯QQ</td><td><?=$userdb[oicq]?></td></tr>
-<tr><td>Msn</td><td><?=$userdb[msn]?></td></tr>
 <tr><td>性别</td><td><?=$userdb[gender]?></td></tr>
 <tr><td>生日</td><td><?=$userdb[bday]?></td></tr>
 <tr><td>个人主页</td><td><a href="<?=$userdb[site]?>" target="_blank"><?=$userdb[site]?></a></td></tr>
@@ -100,10 +90,10 @@
 </tr>
 
 <? if($gp_allowhonor=='1') { ?>
-<tr>
+<!--	<tr>
 <td><strong>自定义头衔</strong></td>
 <td><input type="text" class="text" name="prohonor" value="<?=$user[honor]?>"/></td>
-</tr>
+</tr>-->
 <? } ?>
 <tr>
 <td><strong>选择您的头像</strong></td>
@@ -128,14 +118,22 @@
 </tr>
 
 <tr>
-<td><strong>腾讯QQ</strong></td>
-<td><input type="text" class="text" name="prooicq" value="<?=$user[oicq]?>"/></td>
+        <td class="w40"><strong>所属区/学校</strong></td>
+        <td>
+            <select name="school">
+                <?=$class_opt?>
+            </select>
+        </td>
+    </tr>
+<!--	<tr>
+<td><strong>区</strong></td>
+<td><input type="text" class="text" name="proregion" readonly="readonly" value="<?=$user[region]?>"/></td>
 </tr>
 
 <tr>
-<td><strong>MSN</strong></td>
-<td><input type="text" class="text" name="promsn" value="<?=$user[msn]?>"/></td>
-</tr>
+<td><strong>学校</strong></td>
+<td><input type="text" class="text" name="proschool" readonly="readonly" value="<?=$user[school]?>"/></td>
+</tr>-->
 
 <tr>
 <td><strong>个人主页</strong></td>

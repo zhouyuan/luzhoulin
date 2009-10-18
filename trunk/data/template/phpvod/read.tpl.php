@@ -59,8 +59,94 @@ document.getElementById("post").disabled = false;
 alert("提交评论发生异常，请重试。");
 }
 
+//cookie相关函数
+function getCookieVal(offset){ 
+var endstr = document.cookie.indexOf (";", offset); 
+if (endstr == -1) endstr = document.cookie.length; 
+return unescape(document.cookie.substring(offset, endstr)); 
+} 
+function getCookie(name){
+var arg = name + "="; 
+var alen = arg.length; 
+var clen = document.cookie.length; 
+var i = 0; 
+while (i < clen) { 
+var j = i + alen; 
+if (document.cookie.substring(i, j) == arg) return getCookieVal (j); 
+i = document.cookie.indexOf(" ", i) + 1; 
+if (i == 0) break; 
+} 
+return null; 
+} 
+function setCookie(name,value){ 
+var exp = new Date(); 
+exp.setTime (exp.getTime()+3600000000); 
+document.cookie = name + "=" + value + "; expires=" + exp.toGMTString(); 
+}
+function glog(evt){
+evt=evt?evt:window.event;
+var srcElem=(evt.target)?evt.target:evt.srcElement;
+try{
+while(srcElem.parentNode&&srcElem!=srcElem.parentNode){
+if(srcElem.tagName&&srcElem.tagName.toUpperCase()=="A"){
+linkname=srcElem.innerHTML;
+address1=srcElem.href;
+var play=false;
+if(address1.indexOf('play')!=-1){
+play=true;
+}
+address=srcElem.href+"_www.zzsky.cn_";
+wlink=linkname+"+"+address;	
+old_info=getCookie("history_info");
+var insert=true;
+if(old_info==null&&play){//判断cookie是否为空
+insert=true;
+}
+else{	
+var old_link=old_info.split("_www.zzsky.cn_");
+for(var j=0;j<=5;j++){
+if(old_link[j].indexOf(linkname)!=-1)
+insert=false;
+if(old_link[j]=="null")
+break;
+}
+}
+if(insert&&play){
+wlink+=getCookie("history_info");
+setCookie("history_info",wlink);
+history_show().reload();
+break;
+}
+}
+srcElem = srcElem.parentNode;
+}
+}
+catch(e){}
+return true;
+}
+document.onclick=glog;
+function history_show(){			
+var history_info=getCookie("history_info");
+var content="";	
+if(history_info!=null){
+history_arg=history_info.split("_www.zzsky.cn_");
+var i;
+for(i=0;i<=5;i++){
+if(history_arg[i]!="null"){
+var wlink=history_arg[i].split("+");
+content+=("<font color='#ff000'>↑</font>"+"<a href='"+wlink[1]+"' target='_blank'>"+wlink[0]+"</a><br>");
+}
+document.getElementById("history").innerHTML=content;
+}
+}
+else{
+document.getElementById("history").innerHTML="您没有任何浏览记录！";
+}
+}
 
 </script>
+
+
 
 <div id="class_menu" >
 <ul>
@@ -188,6 +274,17 @@ alert("提交评论发生异常，请重试。");
 <span class="left"><a href="read.php?vid=<?=$other[vid]?>"><?=$other[subject]?></a></span>
 <span class="right"><?=$other[postdate]?></span>
 </li><? } } ?></ul>
+</div>
+</div>	
+
+<div class="box_border box_border_w220">
+<div class="box_caption box_caption_w220"><h1>最近浏览</h1></div>
+<div class="box_content box_content_w220">
+<ul class="order"><? if(is_array($otherdb)) { foreach($otherdb as $other) { } } ?></ul>
+<div>您最近关注的内容（只显示6个最近关注的内容并且不会重复出现）：</div>
+<div id="history">
+<script language="javascript">history_show();</script>
+</div>
 </div>
 </div>	
 
