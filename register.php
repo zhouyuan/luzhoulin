@@ -2,11 +2,11 @@
 require_once('global.php');
 include_once(R_P."data/cache/dbreg.php");
 include_once(R_P."data/cache/level.php");
+include_once(R_P.'data/cache/class.php');
 !$rg_allowregister && Showmsg('reg_close');
 $groupid!='guest' && Showmsg('reg_repeat');
 
 list($reggd)=explode("\t",$db_gdcheck);
-
 if(!$step){
 	require_once(R_P.'require/header.php');
 	$rg_regdetail && $adv="checked";
@@ -56,10 +56,6 @@ if(!$step){
 		Showmsg('undefined_action');
 	}
 
-	if(strlen($honor) > $rg_regmaxhonor){
-		Showmsg('honor_limit');
-	}
-
 	if(strlen($regsign) > $rg_regmaxsign){
 	    Showmsg('sign_limit');
 	}
@@ -67,8 +63,8 @@ if(!$step){
 	$regname = Char_cv($regname);
 	$regpwd  = md5(Char_cv($regpwd));
 	$regicon = Char_cv($regicon);
-	$oicq = Char_cv($oicq);
-	$msn = Char_cv($msn);
+	$region = Char_cv($region);
+	$school = Char_cv($school);
 	$site = Char_cv($site);
 	$regsign = Char_cv($regsign);
 
@@ -83,11 +79,16 @@ if(!$step){
 	if($rs['count']>0) {
 		Showmsg('username_same');
 	}
-
+	
+	$tempRs = $db->get_one("select fathers,caption from pv_class where cid = '$cid'");
+	$self = $tempRs['caption'];
+	$tempRs = $db->get_one("select caption from pv_class where cid = '".$tempRs['fathers']."'");
+	$father = $tempRs['caption'];
+	
 	asort($lneed);
 	$memberid=key($lneed);
-
-	$db->update("INSERT INTO pv_members (username, password, email, publicmail, groupid, memberid, icon, gender, regdate, signature,  oicq, msn, site, honor, bday, receivemail, yz, newpm, medals) VALUES ('$regname','$regpwd','$regemail','$regemailtoall','$groupid','$memberid','$regicon','$regsex','$timestamp','$regsign','$oicq','$msn','$site','$honor','$rg_birth','$receivemail','1','0','')");
+	
+	$db->update("INSERT INTO pv_members (username, password, email, publicmail, groupid, memberid, icon, gender, regdate, signature,  region, school, site, bday, receivemail, yz, newpm, medals) VALUES ('$regname','$regpwd','$regemail','$regemailtoall','$groupid','$memberid','$regicon','$regsex','$timestamp','$regsign','$father','$self','$site','$rg_birth','$receivemail','1','0','')");
 	$phpvod_uid=$db->insert_id();
 	$db->update("INSERT INTO pv_memberdata (uid,postnum,rvrc,money,onlineip) VALUES ('$phpvod_uid','0','$rg_regrvrc','$rg_regmoney','$onlineip')");
 	$db->update("UPDATE pv_siteinfo SET newmember='$regname',totalmember=totalmember+1 WHERE id='1'");
