@@ -35,10 +35,10 @@ $lang=array(
 		'reply'=>"<a target=main href='$admin_file?adminjob=reply'>会员评论管理</a>",
 		'credit'=>"<a target=main href='$admin_file?adminjob=credit'>自定义积分管理</a>",
 	),
-	'插件风格'=>array(
+/*	'插件风格'=>array(
 		'插件中心'=>"<a target=main href='$admin_file?adminjob=hackcenter'>插件中心</a>",
 		'风格模板'=>"<a target=main href='$admin_file?adminjob=setstyles'>风格模板</a>",
-	),
+	),*/
 	'信息管理'=>array(
 		'announce'=>"<a target=main href='$admin_file?adminjob=announce'>网站公告</a>",
 		'sharelinks'=>"<a target=main href='$admin_file?adminjob=sharelinks'>友情链接</a>",
