@@ -113,6 +113,8 @@ function updatecache_class()
 	cache_value($arr);
 	$class="\$class = array(";
 	$class_opt="\$class_opt = '";
+	$region = "\$region = '";
+	$school = "\$school = '";
 	foreach ($arr as $row)
 	{
 		$class.="
@@ -136,15 +138,23 @@ function updatecache_class()
 			'allowpost'=>'$row[allowpost]',
 			'allowrp'=>'$row[allowrp]',
 		),";
-
 		$pre='';
 		for($i=0;$i<$row['lv'];$i++) $pre.='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-		$class_opt.="
+		if($row['lv'] == 0)$class_opt.="
+			<optgroup label=\"$row[caption]\"></optgroup>";
+		else $class_opt.="
 			<option value=\"$row[cid]\">{$pre}{$row[caption]}</option>";
+		
+		if($row['lv'] == 0)$region.="
+			<option value=\"$row[cid]\">{$row[caption]}</option>";
+		else $school.= "
+			<option value=\"$row[cid]\">{$row[caption]}</option>";
 	}
 	$class.="\r\n);";
 	$class_opt.="\r\n';";
-	writeover(R_P.'data/cache/class.php',"<?php\r\n".$class."\r\n".$class_opt."\r\n?>");
+	$region .="\r\n';";
+	$school .="\r\n';";
+	writeover(R_P.'data/cache/class.php',"<?php\r\n".$class."\r\n".$class_opt."\r\n".$region."\r\n".$school."\r\n?>");
 }
 
 function updatecache_sy($name=''){

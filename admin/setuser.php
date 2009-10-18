@@ -175,7 +175,7 @@ if (!$action){
 			$db->update("UPDATE pv_announce SET author='$username' WHERE author='".addslashes($oldinfo['username'])."'");
 		}
 
-		$db->update("UPDATE pv_members SET username='$username' $setpassword,groupid='$groupid',gender='$gender',email='$email',regdate='$regdate',publicmail='".(int)$publicmail."',receivemail='$receivemail',icon='$icon',bday='$bday',honor='$honor',signature='$signature',oicq='$oicq',msn='$msn',site='$site' WHERE uid='$uid'");
+		$db->update("UPDATE pv_members SET username='$username' $setpassword,groupid='$groupid',gender='$gender',email='$email',regdate='$regdate',publicmail='".(int)$publicmail."',receivemail='$receivemail',icon='$icon',bday='$bday',honor='$honor',signature='$signature',region='$region',school='$school',site='$site' WHERE uid='$uid'");
 		$db->update("UPDATE pv_memberdata SET postnum='$postnum',rvrc='$rvrc',money='$money',onlineip='$userip' WHERE uid='$uid'");
 
 		update_memberid($uid);
