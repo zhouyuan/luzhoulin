@@ -1,10 +1,10 @@
 <?php
 $gp_gid='8';
 $gp_gptype='member';
-$gp_grouptitle='Ê¥ÆïÊ¿';
-$gp_groupimg='12';
-$gp_grouppost='500';
-$gp_maxmsg='100';
+$gp_grouptitle='ÏÀ¿Í';
+$gp_groupimg='10';
+$gp_grouppost='100';
+$gp_maxmsg='30';
 $gp_allowread='1';
 $gp_allowrp='1';
 $gp_allowhonor='1';
@@ -13,8 +13,8 @@ $gp_allowdelatc='1';
 $gp_allowpost='1';
 $gp_allowmessage='1';
 $gp_allowplay='1';
-$gp_atccheck='0';
-$gp_rpcheck='0';
+$gp_atccheck='1';
+$gp_rpcheck='1';
 $gp_allowprofile='1';
 $gp_allowseticon='1';
 $gp_allowupicon='1';

@@ -1,7 +1,7 @@
 <?php
 $gp_gid='3';
 $gp_gptype='system';
-$gp_grouptitle='管理员';
+$gp_grouptitle='校级管理员';
 $gp_groupimg='3';
 $gp_grouppost='0';
 $gp_maxmsg='500';

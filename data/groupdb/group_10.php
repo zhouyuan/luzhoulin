@@ -1,10 +1,10 @@
 <?php
 $gp_gid='10';
 $gp_gptype='member';
-$gp_grouptitle='风云使者';
-$gp_groupimg='14';
-$gp_grouppost='2000';
-$gp_maxmsg='150';
+$gp_grouptitle='圣骑士';
+$gp_groupimg='12';
+$gp_grouppost='500';
+$gp_maxmsg='100';
 $gp_allowread='1';
 $gp_allowrp='1';
 $gp_allowhonor='1';
