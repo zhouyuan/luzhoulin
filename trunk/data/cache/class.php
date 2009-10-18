@@ -220,8 +220,8 @@ $class = array(
 			'allowpost'=>'',
 			'allowrp'=>'',
 		),
-		'28'=>array(
-			'cid'=>'28',
+		'3'=>array(
+			'cid'=>'3',
 			'cup'=>'0',
 			'lv'=>'0',
 			'fathers'=>'',
@@ -242,9 +242,9 @@ $class = array(
 		),
 		'30'=>array(
 			'cid'=>'30',
-			'cup'=>'28',
+			'cup'=>'3',
 			'lv'=>'1',
-			'fathers'=>'28',
+			'fathers'=>'3',
 			'caption'=>'普陀小学',
 			'vieworder'=>'0',
 			'type'=>'free',
@@ -262,18 +262,35 @@ $class = array(
 		),
 );
 $class_opt = '
-			<option value="1">闵行区</option>
+			<optgroup label="闵行区"></optgroup>
 			<option value="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第一小学</option>
 			<option value="6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第二小学</option>
 			<option value="7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第三小学</option>
 			<option value="8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第四小学</option>
 			<option value="9">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第五小学</option>
 			<option value="10">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第六小学</option>
-			<option value="2">杨浦区</option>
+			<optgroup label="杨浦区"></optgroup>
 			<option value="13">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;杨浦小学</option>
 			<option value="14">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;杨浦初中</option>
 			<option value="15">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;杨浦高中</option>
-			<option value="28">普陀区</option>
+			<optgroup label="普陀区"></optgroup>
 			<option value="30">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;普陀小学</option>
+';
+$region = '
+			<option value="1">闵行区</option>
+			<option value="2">杨浦区</option>
+			<option value="3">普陀区</option>
+';
+$school = '
+			<option value="5">第一小学</option>
+			<option value="6">第二小学</option>
+			<option value="7">第三小学</option>
+			<option value="8">第四小学</option>
+			<option value="9">第五小学</option>
+			<option value="10">第六小学</option>
+			<option value="13">杨浦小学</option>
+			<option value="14">杨浦初中</option>
+			<option value="15">杨浦高中</option>
+			<option value="30">普陀小学</option>
 ';
 ?>
