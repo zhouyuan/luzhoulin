@@ -1,10 +1,10 @@
 <?php
-$gp_gid='7';
+$gp_gid='14';
 $gp_gptype='member';
-$gp_grouptitle='新手上路';
-$gp_groupimg='9';
-$gp_grouppost='0';
-$gp_maxmsg='10';
+$gp_grouptitle='天使';
+$gp_groupimg='16';
+$gp_grouppost='10000';
+$gp_maxmsg='300';
 $gp_allowread='1';
 $gp_allowrp='1';
 $gp_allowhonor='1';
@@ -13,8 +13,8 @@ $gp_allowdelatc='1';
 $gp_allowpost='1';
 $gp_allowmessage='1';
 $gp_allowplay='1';
-$gp_atccheck='1';
-$gp_rpcheck='1';
+$gp_atccheck='0';
+$gp_rpcheck='0';
 $gp_allowprofile='1';
 $gp_allowseticon='1';
 $gp_allowupicon='1';
