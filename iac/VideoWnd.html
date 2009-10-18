@@ -1,0 +1,101 @@
+<!--
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>IACPlayer Video Wnd</title>
+
+</head>
+
+<script language ="javascript" >
+
+function getParameter( url, name) 
+{
+	    //var url = parent.location.href; // VERY IMPORTANT: PARENT
+	    var start = url.indexOf("?")+1;
+	    if (start==0) {
+	        return "";
+	    }
+
+	    var value = "";
+	    var queryString = url.substring(start);
+	    var paraNames = queryString.split("&");
+	    for (var i=0; i < paraNames.length; i++) 
+		{
+	        if (name==getParameterName(paraNames[i])) 
+			{
+	            value = getParameterValue(paraNames[i])
+	        }
+	    }
+	    return value;
+	}
+
+function getParameterName(str) 
+{
+	    var start = str.indexOf("=");
+	    if (start==-1) 
+		{
+	        return str;
+	    }
+	    return str.substring(0,start);
+}
+
+function getParameterValue(str) 
+{
+	    var start = str.indexOf("=");
+	    if (start==-1) 
+		{
+	        return "";
+	    }
+	    return str.substring(start+1);
+}
+</script>
+
+<script language="javascript" FOR="window" EVENT="onload">
+	var url = location.href;
+	var nIndex = getParameter(url, "nIndex");
+	playerVideo.SetVideoWnd(parseInt(nIndex));
+	
+	if( nIndex == "0" )
+	{	//设置事件通知窗口
+		playerVideo.SetNotifyWnd();
+	}
+
+	var addControl = getParameter(url, "AddControl");
+	if( addControl == "") openFile="0";
+	var nAddControl = parseInt(addControl);
+	if( nAddControl == 1 )
+		playerVideo.AddControlWnd();
+		
+	var openFile = getParameter(url, "OpenFile");
+	if( openFile == "") openFile="0";
+	var nOpenFile = parseInt(openFile);
+	
+	if(  nOpenFile == 1 )
+	{
+		var filename = location.href;
+		var nIndex = filename.indexOf("?");//get file location
+		filename = filename.substring(0,nIndex-13);//videownd.html
+		filename = filename + "default.iac";
+		alert(filename);
+		playerVideo.OpenFile(filename, "VideoHeadTime=10&VideoTailTime=10&VideoTailInfo=谢谢！&VHFontSize=-24", 1 );
+	}
+	
+	
+</script>
+
+<script language="javascript" FOR="window" EVENT="onunload">
+	playerVideo.StopFile();
+</script>
+
+
+<body>
+<object classid="clsid:9ED4C0A9-C1ED-49DB-932D-3382422EAC5B" CODEBASE="iacplayer.cab#version=1,0,1009,9271" width="100%" height="100%" hspace="0" vspace="0" id="playerVideo"/>
+
+</body>
+
+
+
+</html>
