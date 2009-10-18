@@ -21,7 +21,7 @@
 </tr>
 <!--{/if}-->
 <tr>
-	<td class="w40">所属类别<span style="color:red;">*</span></td>
+	<td class="w40">所属学校<span style="color:red;">*</span></td>
 	<td>
 		<select name="cid">
 			$class_opt
@@ -30,7 +30,7 @@
 </tr>
 
 <tr>
-	<td>国家/地区<span style="color:red;">*</span></td>
+	<td>科目<span style="color:red;">*</span></td>
 	<td>
 		<select name="nid">
 			$nation_opt
@@ -41,6 +41,7 @@
 <tr>
 	<td>标题<span style="color:red;">*</span></td>
 	<td><input type="text" name="subject" size="30" class="text" value="$subject" /></td>
+
 </tr>
 
 <tr>
@@ -53,12 +54,21 @@
 </tr>
 
 <tr>
-	<td>领衔主演</td>
-	<td><input type="text" name="playactor" value="$playactor" class="text" /> (多个演员或导演请用空格或","隔开)</td>
+	<td>所属年级</td>
+	<!--<td><input type="text" name="playactor" value="$playactor" class="text" /> (多个演员或导演请用空格或","隔开)</td>-->
+<td>
+		<select name="field">
+			<option value="subject">标题</option>
+			<option value="playactor">演员</option>
+			<option value="director">导演</option>
+			<option value="author">会员</option>
+			<option value="tag">标签</option>
+		</select>
+	</td>
 </tr>
 
 <tr>
-	<td>导演</td>
+	<td>主讲老师</td>
 	<td><input type="text" name="director" value="$director" class="text" /></td>
 </tr>
 
