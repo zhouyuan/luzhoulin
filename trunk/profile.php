@@ -3,6 +3,7 @@ require_once('global.php');
 require_once(R_P.'data/cache/dbreg.php');
 require_once(R_P.'data/cache/level.php');
 require_once(R_P.'data/cache/medaldb.php');
+include_once(R_P.'data/cache/class.php');
 require_once(R_P.'require/header.php');
 
 if ($action=="show"){
@@ -93,7 +94,7 @@ if ($action=="show"){
 			$value==$user['icon'] ? $c='selected' : $c='';
 			$imgselect.="<option value='$value' $c>$value</option>";
 		}
-
+		$class_opt = str_replace(">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$user[school]</option>"," selected>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$user[school]</option>",$class_opt);
 		require_once PrintEot('profile');footer();
 	}else{
 		if($propwd || $check_pwd){
@@ -118,10 +119,6 @@ if ($action=="show"){
 		}
 
 		$bday = (!$proyear||!$promonth||!$proday) ? '0000-00-00' : $proyear."-".$promonth."-".$proday;
-
-		if(strlen($prohonor) > $rg_regmaxhonor){
-			Showmsg('honor_limit');
-		}
 
 		if(strlen($prosign) > $rg_regmaxsign){
 		    Showmsg('sign_limit');
@@ -168,9 +165,15 @@ if ($action=="show"){
 			}
 			else Showmsg('pro_loadimg_ext');
 		}
+		
+		$tempid = $_POST["school"];
+		$tempRs = $db->get_one("select fathers,caption from pv_class where cid = '$tempid'");
+		$proschool = $tempRs['caption'];
+		$tempRs = $db->get_one("select caption from pv_class where cid = '".$tempRs['fathers']."'");
+		$proregion = $tempRs['caption'];
+			 
 
-
-		$db->update("UPDATE pv_members SET $pwdadd email='$proemail', publicmail='$propublicemail', receivemail='$proreceivemail', honor='$prohonor', icon='$proicon', gender='$progender', oicq='$prooicq', msn='$promsn', site='$prosite', bday='$bday', signature='$prosign' WHERE uid='$uid'");
+		$db->update("UPDATE pv_members SET $pwdadd email='$proemail', publicmail='$propublicemail', receivemail='$proreceivemail', icon='$proicon', gender='$progender', region='$proregion', school='$proschool', site='$prosite', bday='$bday', signature='$prosign' WHERE uid='$uid'");
 
 		refreshto("./profile.php?action=show&id=$uid",'operate_success');
 	}
