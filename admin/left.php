@@ -1,12 +1,12 @@
 <?php
 !function_exists('adminmsg') && exit('Forbidden');
 require GetLang('left');
-
-$leftdb=$lang;
+if($admin['grouptitle'] == '系统管理员') $leftdb=$lang;
+else $leftdb=$lang_region;
 unset($lang);
 $leftinfo='';
 $i=3;
-
+//print_r($admin);exit;
 $imgtype=$styletype=array();
 list($imgtype[a0],$styletype[a0])=GetDeploy('a0');
 list($imgtype[a1],$styletype[a1])=GetDeploy('a1');
