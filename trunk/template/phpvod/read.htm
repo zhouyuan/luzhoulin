@@ -196,7 +196,7 @@ function history_show(){
 <!--{/if}-->
 
 <!--{if $buy_show=='1' && $need_show=='1'}-->
-
+<!--{loop $urldb $server $url}-->
 	<div class="box_border box_border_w720">
 		<div class="box_caption box_caption_w720"><h1>≤•∑≈µÿ÷∑</h1><h2>$url[0][name]</h2></div>
 		<div class="box_content box_content_w720">
@@ -208,7 +208,7 @@ function history_show(){
 			</ul>
 		</div>
 	</div>
-
+<!--{/loop}-->
 <!--{/if}-->
 
 	<div class="box_border box_border_w720">
