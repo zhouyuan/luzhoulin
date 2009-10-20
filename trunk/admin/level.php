@@ -101,7 +101,7 @@ if (empty($action)){
 		ifcheck($allowadminedit,'allowadminedit');
 		ifcheck($allowadmindel,'allowadmindel');
 		ifcheck($allowadminshow,'allowadminshow');
-		ifcheck($allowadminviewhide,'allowadminviewhide');
+		//ifcheck($allowadminviewhide,'allowadminviewhide');
 
 		include PrintEot('level');exit;
 
