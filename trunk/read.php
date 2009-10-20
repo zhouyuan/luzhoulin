@@ -168,10 +168,10 @@ $video['content'] = ieconvert($video['content']);
 $editvideo=$delvideo='';
 if($groupid=='guest') $uid=0;
 if(($video['authorid']==$uid && $gp_alloweditatc=='1') || $SYSTEM['allowadminedit']=='1')
-	$editvideo = " | <a href=\"post.php?action=modify&vid=$video[vid]\">编辑</a>";
+	$editvideo = " | <a href=\"post.php?postaction=modify&vid=$video[vid]\">编辑</a>";
 
 if(($video['authorid']==$uid && $gp_allowdelatc=='1') || $SYSTEM['allowadmindel']=='1')
-	$delvideo = " | <a href=\"post.php?action=del&vid=$video[vid]\" onclick=\"return window.confirm('您确定要删除视频 $video[subject] 吗？');\">删除</a>";	
+	$delvideo = " | <a href=\"post.php?postaction=del&vid=$video[vid]\" onclick=\"return window.confirm('您确定要删除视频 $video[subject] 吗？');\">删除</a>";	
 
 $servers=array();
 $query=$db->query("SELECT server FROM pv_urls WHERE vid='$vid' GROUP BY server");
@@ -186,7 +186,8 @@ foreach($servers as $server)
 	$query=$db->query("SELECT series,uid,caption,server,name FROM pv_urls LEFT JOIN pv_player ON pv_urls.pid = pv_player.pid WHERE vid='$vid' AND server='$server' ORDER BY series ASC");
 	while($url=$db->fetch_array($query))
 	{
-		$url['caption']=='' && $url['caption']='第'.$url['series'].'集';
+		//$url['caption']=='' && $url['caption']='第'.$url['series'].'集';
+		$url['caption']=='' && $url['caption']=$video['subject'];
 		strlen($url['caption'])>12 ? $url['caption_str']=substrs($url['caption'],12) : $url['caption_str']=$url['caption'];
 		$urldb[$server][]=$url;
 	}

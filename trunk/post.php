@@ -6,11 +6,15 @@ include_once(R_P.'data/cache/nation.php');
 include_once(R_P.'data/cache/player.php');
 include_once(R_P.'data/cache/dbset.php');
 include_once(R_P.'data/cache/creditdb.php');
-
+//print($_POST['upfile']['savepath']	);
+$urlreal = $_POST['upfile']['savepath'];
+$pid['0']=10;
+print $nid;
+//print $urlreal;
 list(,,,$postgd)=explode("\t",$db_gdcheck);
-!$action && $action="new";
+!$postaction && $postaction="new";
 
-$img = $action=='new' ? $imgpath."/pic/nopic.gif" : $pic;
+$img = $postaction=='new' ? $imgpath."/pic/nopic.gif" : $pic;
 
 if($groupid=='guest')
 {
@@ -18,7 +22,7 @@ if($groupid=='guest')
 	$username = '游客';
 }
 
-if ($action=="new"){
+if ($postaction=="new"){
 	!$step && $step="1";
 	if($step=='1'){
 		/* 用户组权限 */
@@ -61,7 +65,7 @@ if ($action=="new"){
 		$urls = Char_cv($urls);
 		$tag=implode("\t",$tag);
 		
-		if(empty($subject) || empty($cid) || empty($nid) || empty($pid) || empty($urls)){
+		if(empty($subject) || empty($cid) || empty($nid) || empty($pid) /*|| empty($urls)*/){
 			Showmsg('form_error');			
 		}
 
@@ -80,8 +84,8 @@ if ($action=="new"){
 		else
 			$need='';
 		
-		$db->update("INSERT INTO pv_video(cid,nid,author,authorid,postdate,lostdate,subject,playactor,director,tag,content,yz) 
-		VALUES('$cid','$nid','$username','$uid','$timestamp','$timestamp','$subject','$playactor','$director','$tag','$atc_content','$yz')");
+		$db->update("INSERT INTO pv_video(cid,nid,author,authorid,postdate,lostdate,subject,playactor,director,tag,content,yz,grade) 
+		VALUES('$cid','$nid','$username','$uid','$timestamp','$timestamp','$subject','$playactor','$director','$tag','$atc_content','$yz','$grade')");
 		$vid=$db->insert_id();		
 		$db->update("INSERT INTO pv_videodata SET vid='$vid',sale='$sale',need='$need'");
 		 
@@ -99,8 +103,10 @@ if ($action=="new"){
 				{
 					$caption = substr($url,$p+1);
 					$url = substr($url,0,$p);
+					
+					  $urlreal = $_POST['upfile']['savepath'];
 				}
-				$db->update("INSERT INTO pv_urls(vid,pid,url,series,server,caption) VALUES ('$vid','$playerid','$url','$s','$server','$caption')");
+				$db->update("INSERT INTO pv_urls(vid,pid,url,series,server,caption) VALUES ('$vid','$playerid','$urlreal','$s','$server','$caption')");
 				$s++;
 			}
 		}		
@@ -147,7 +153,7 @@ if ($action=="new"){
 			refreshto("./class.php?cid=$cid",'vid_success_check');
 	}
 
-}elseif ($action=="modify"){
+}elseif ($postaction=="modify"){
 	!$step && $step="1";
 	if($step=='1'){
 
@@ -266,11 +272,11 @@ if ($action=="new"){
 		$urls = Char_cv($urls);
 		$tag=implode("\t",$tag);
 
-		if(empty($subject) || empty($cid) || empty($nid) || empty($pid) || empty($urls)){
+		if(empty($subject) || empty($cid) || empty($nid) || empty($pid) /*|| empty($urls)*/){
 			Showmsg('form_error');			
 		}
 
-		$db->update("UPDATE pv_video SET cid='$cid',nid='$nid',subject='$subject',tag='$tag',playactor='$playactor',director='$director',content='$atc_content',lostdate='$timestamp' WHERE vid='$vid'");
+		$db->update("UPDATE pv_video SET cid='$cid',nid='$nid',subject='$subject',tag='$tag',playactor='$playactor',director='$director',content='$atc_content',lostdate='$timestamp', grade='$grade' WHERE vid='$vid'");
 
 		if(is_numeric($sale_value) && (int)$sale_value > 0)
 			$sale="{$sale_value}|{$sale_type}";
@@ -293,7 +299,7 @@ if ($action=="new"){
 		}
 
 		$str = substr($str,1);
-		$db->query("DELETE FROM pv_urls WHERE vid='$vid' AND server NOT IN ($str)");
+		//$db->query("DELETE FROM pv_urls WHERE vid='$vid' AND server NOT IN ($str)");
 		
 		foreach($urls as $key => $urlmsg) //遍历所有播放组
 		{
@@ -326,7 +332,7 @@ if ($action=="new"){
 					if($str=='') $str.=$row['uid']; else $str.=','.$row['uid'];
 				}
 				
-				$db->query("DELETE FROM pv_urls WHERE uid IN ($str)");
+				//$db->query("DELETE FROM pv_urls WHERE uid IN ($str)");
 			}
 
 			for($i=0;$i<$new_count;$i++)
@@ -394,7 +400,7 @@ if ($action=="new"){
 
 		refreshto("./read.php?vid=$vid",'operate_success');
 	}
-}elseif($action=='del'){
+}elseif($postaction=='del'){
 	
 	$video = $db->get_one("SELECT authorid,pic,yz,cid FROM pv_video WHERE vid='$vid'");
 	if(!$video) Showmsg('video_illegal');
@@ -406,7 +412,7 @@ if ($action=="new"){
 	}
 
 	if(file_exists("$imgdir/pic/$pic")) P_unlink("$imgdir/pic/$pic");
-
+//TODO 删除视频文件
 	if($yz=='1' && $groupid!='guest' && $authorid!='0')
 	{
 		@extract($db->get_one("SELECT postnum FROM pv_memberdata WHERE uid='$authorid'"));
