@@ -1,6 +1,7 @@
 <hr />
-<form method="post" name="from" action="post.php" enctype="multipart/form-data">
-<input type="hidden" name="action" value="<?=$action?>" />
+<form method="post" name="from" action="post.php" enctype="multipart/form-data"  >
+
+<input type="hidden" name="postaction" value="<?=$postaction?>" />
 <input type="hidden" value="2" name="step" />
 <input type="hidden" value="<?=$vid?>" name="vid" />
 <input type="hidden" value="<?=$pic?>" name="pic" />
@@ -9,7 +10,7 @@
 <tr><th colspan="2">
 <img src="<?=$imgpath?>/<?=$stylepath?>/index/home.gif" align="absmiddle"> <a href="<?=$db_bfn?>"><?=$db_wwwname?></a> &raquo; 发布视频
 </th></tr>
-<? if(($action=='new' || $action=='modify') && $step=='1') { if($postgd) { ?>
+<? if(($postaction=='new' || $postaction=='modify') && $step=='1') { if($postgd) { ?>
 <tr>
 <td>认证码<span style="color:red;">*</span></td>
 <td>
@@ -20,7 +21,7 @@
 </tr>
 <? } ?>
 <tr>
-<td class="w40">所属类别<span style="color:red;">*</span></td>
+<td class="w40">所属学校<span style="color:red;">*</span></td>
 <td>
 <select name="cid">
 <?=$class_opt?>
@@ -29,7 +30,7 @@
 </tr>
 
 <tr>
-<td>国家/地区<span style="color:red;">*</span></td>
+<td>科目<span style="color:red;">*</span></td>
 <td>
 <select name="nid">
 <?=$nation_opt?>
@@ -40,10 +41,11 @@
 <tr>
 <td>标题<span style="color:red;">*</span></td>
 <td><input type="text" name="subject" size="30" class="text" value="<?=$subject?>" /></td>
+
 </tr>
 
 <tr>
-<td>标签[<a href="#" onclick="this.blur();alert('其他用户可以通过标签方便的找到这个节目');return false;"><strong>?</strong></a>]</td>
+<td>知识点标签[<a href="#" onclick="this.blur();alert('其他用户可以通过标签方便的找到这个节目');return false;"><strong>?</strong></a>]</td>
 <td>
 标签1 <input name="tag[]" size="10" value="<?=$tag[0]?>" maxlength="10" class="text" /> 
 标签2 <input name="tag[]" size="10" value="<?=$tag[1]?>" maxlength="10" class="text" /> 
@@ -52,33 +54,48 @@
 </tr>
 
 <tr>
-<td>领衔主演</td>
-<td><input type="text" name="playactor" value="<?=$playactor?>" class="text" /> (多个演员或导演请用空格或","隔开)</td>
+<td>所属年级</td>
+<!--<td><input type="text" name="playactor" value="<?=$playactor?>" class="text" /> (多个演员或导演请用空格或","隔开)</td>-->
+<td>
+<select name="grade">
+<option value="小学一年级">小学一年级</option>
+<option value="小学二年级">小学二年级</option>
+<option value="小学三年级">小学三年级</option>
+</select>
+</td>
 </tr>
 
 <tr>
-<td>导演</td>
+<td>主讲老师</td>
 <td><input type="text" name="director" value="<?=$director?>" class="text" /></td>
 </tr>
 
 <tr>
 <td>内容简介</td>
-<td><textarea name="atc_content" cols=60 rows=8><?=$content?></textarea></td>
+<td><textarea name="atc_content" cols="60" rows="8"><?=$content?></textarea></td>
 </tr>
 
 
-<tr>
+<!--<tr>
 <td>海报 <br />允许上传格式: <?=$db_picfiletype?> <br />允许上传大小: <?=$db_picmaxsize?>KB</td>
 <td>
 <div id="preview_fake" style="width: 120px; height: 150px;"><img id="preview" src="<?=$img?>" style="width: 120px; height: 150px;" /></div>
-<? if($db_uploadvodpic) { ?>
+
 <input name="image" type="file" size="30" class="text" onchange="onUploadImgChange(this)"/> 
-<? } ?>
+
 </td>
 </tr>
+-->
 
-<? if($gp_allowsell=='1') { ?>
+<? if($postaction=='new') { ?>
 <tr>
+<td>视频 </td>
+<td>
+<input name="upfile" type="file" size="30" class="text" /> 
+</td>
+</tr>
+<? } if($gp_allowsell=='1') { ?>
+<!--<tr>
 <td>出售视频</td>
 <td>会员支付 <input class="text" maxLength=6 size=6 value="<?=$sale_value?>" name="sale_value">
 <select name="sale_type">
@@ -86,9 +103,9 @@
 </select>	
 才能播放视频
 </td>
-</tr>
+</tr>-->
 <? } if($gp_allowencode=='1') { ?>
-<tr>
+<!--<tr>
 <td>加密视频</td>
 <td>会员拥有 <input class="text" maxLength=6 size=6 value="<?=$need_value?>" name="need_value">
 <select name="need_type">
@@ -96,8 +113,8 @@
 </select>		
 以上才能播放视频
 </td>
-</tr>
-<? } if(is_array($urls)) { foreach($urls as $server => $value) { ?><tr>
+</tr>-->
+<? } if(is_array($urls)) { foreach($urls as $server => $value) { ?><!--<tr>
 <td>视频地址<span style="color:red;">*</span><br />
 每行输入一个视频地址<br />
 格式：<span style="color: green">视频地址</span>,<span style="color: red">标题</span><br />
@@ -109,7 +126,7 @@
 <br />
 <input type="button" class="button" onclick="add();" value="添加" /> <input type="button" class="button" onclick="del(this);" value="删除" />
 </td>
-</tr><? } } ?></table><br />
+</tr>--><? } } ?></table><br />
 <center><input type="submit" value="提 交" class="button" /></center><br />
 </form>
 

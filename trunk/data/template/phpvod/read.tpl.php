@@ -164,10 +164,10 @@ document.getElementById("history").innerHTML="您没有任何浏览记录！";
 <ul class="video">
 <li><img src="<?=$video[pic]?>" class="pic" /></li>
 <li class="subject"><h1><?=$video[subject]?></h1></li>
-<li class="msg">类别: <?=$video[caption]?></li>
-<li class="msg">影片产地: <?=$video[nation]?></li>
-<li class="msg">演员: <?=$playactor?></li>
-<li class="msg">导演: <?=$director?></li>
+<li class="msg">学校: <?=$video[caption]?></li>
+<li class="msg">科目: <?=$video[nation]?></li>
+<li class="msg">年级: <?=$video[grade]?></li>
+<li class="msg">主讲老师: <?=$director?></li>
 <li class="msg">标签: <?=$tag?></li>
 <li class="msg">人气: <?=$video[hits]?></li>
 <li class="msg">发布时间: <?=$video[postdate]?></li>
@@ -187,12 +187,17 @@ document.getElementById("history").innerHTML="您没有任何浏览记录！";
 <div class="sale_need_msg"><?=$sale_msg?></div>
 <? } if($need_msg!='') { ?>
 <div class="sale_need_msg"><?=$need_msg?></div>
-<? } if($buy_show=='1' && $need_show=='1') { if(is_array($urldb)) { foreach($urldb as $server => $url) { ?><div class="box_border box_border_w720">
-<div class="box_caption box_caption_w720"><h1>播放地址 <?=$server?></h1><h2><?=$url[0][name]?></h2></div>
+<? } if($buy_show=='1' && $need_show=='1') { ?>
+
+<div class="box_border box_border_w720">
+<div class="box_caption box_caption_w720"><h1>播放地址</h1><h2><?=$url[0][name]?></h2></div>
 <div class="box_content box_content_w720">
-<ul class="series"><? if(is_array($url)) { foreach($url as $urlmsg) { ?><li><a href="play.php?urlid=<?=$urlmsg[uid]?>" target="_blank" title="<?=$urlmsg[caption]?>"><?=$urlmsg[caption_str]?></a></li><? } } ?></ul>
+<ul class="series"><? if(is_array($url)) { foreach($url as $urlmsg) { ?><li><a href="play.php?urlid=<?=$urlmsg[uid]?>" target="_blank" title="<?=$urlmsg[caption]?>"><?=$urlmsg[caption_str]?></a></li>
+<!--<li><a href="play.php?urlid=<?=$urlmsg[uid]?>" target="_blank" title="<?=$urlmsg[caption]?>">点击获取地址</a></li>--><? } } ?></ul>
 </div>
-</div><? } } } ?>
+</div>
+
+<? } ?>
 
 <div class="box_border box_border_w720">
 <div class="box_caption box_caption_w720"><h1>视频简介</h1></div>

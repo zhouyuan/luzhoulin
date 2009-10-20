@@ -9,7 +9,7 @@
 <? } if(SCR=='read') { ?>
 <title><?=$video[subject]?> - <?=$db_wwwname?> - powered by PHPvod.com</title>		
 <? } if(SCR=='play') { ?>
-<title><?=$url[subject]?>(<?=$url[series]?>) - <?=$db_wwwname?> - powered by PHPvod.com</title>
+<title><?=$url[subject]?> - <?=$db_wwwname?> - powered by PHPvod.com</title>
 <? } ?>
 
 <meta http-equiv="Content-Type" content="text/html; charset=<?=$db_charset?>">
@@ -17,6 +17,7 @@
 <meta name="description" content="<?=$db_description?>" />	
 <script language="javascript" src="js/function.js"></script>
 <script language="javascript" src="js/ajax.js"></script>
+
 <base href="<?=$db_wwwurl?>/" />
 
 <!--CSS-->
