@@ -155,7 +155,7 @@ function checkpass($CK){
 		GdConfirm($lg_num);
 	}
 
-	$rt = $db->get_one("SELECT uid,password,groupid,allowadmincp,gptype,grouptitle FROM pv_members LEFT JOIN pv_usergroups ON pv_members.groupid=pv_usergroups.gid WHERE username='$CK[1]'");
+	$rt = $db->get_one("SELECT uid,password,groupid,allowadmincp,gptype,grouptitle,region,school FROM pv_members LEFT JOIN pv_usergroups ON pv_members.groupid=pv_usergroups.gid WHERE username='$CK[1]'");
 	if($CK[2] != $rt['password']) return false;
 	if($rt['gptype'] != 'system' || $rt['allowadmincp'] != 1) return false;
 	$admin = $rt;
