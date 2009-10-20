@@ -1,4 +1,5 @@
 <?php
+include_once(R_P.'data/cache/class.php');
 !function_exists('adminmsg') && exit('Forbidden');
 $basename = "$admin_file?adminjob=class";
 
@@ -7,15 +8,16 @@ if($action=='add_board') {
 	updatecache_class();
 	adminmsg('operate_success');
 }elseif ($action=='add_sub') {  
-	$lv=0;
+	$tempid = $_POST["newsubredion"];
+/*	$lv=0;
 	$fathers='';
 	if($cup!=0)
 	{
 		$up = $db->get_one("SELECT * FROM pv_class WHERE cid='$cup'");
 		$lv = $up['lv']+1;
 		$fathers = empty($up['fathers'])?$up['cid']:$up['fathers'].','.$up['cid'];
-	}
-	$db->update("INSERT INTO pv_class(cup,lv,fathers,caption) VALUES('$cup','$lv','$fathers','$caption')");
+	}*/
+	$db->update("INSERT INTO pv_class(cup,lv,fathers,caption) VALUES('$tempid',1,'$tempid','$caption')");
 	updatecache_class();
 	adminmsg('operate_success');
 } elseif ($action=='edit_board') {
