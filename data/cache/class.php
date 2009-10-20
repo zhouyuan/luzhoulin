@@ -220,6 +220,26 @@ $class = array(
 			'allowpost'=>'',
 			'allowrp'=>'',
 		),
+		'31'=>array(
+			'cid'=>'31',
+			'cup'=>'2',
+			'lv'=>'1',
+			'fathers'=>'2',
+			'caption'=>'杨浦第一小学',
+			'vieworder'=>'0',
+			'type'=>'free',
+			'orderway'=>'postdate',
+			'orderasc'=>'1',
+			'atccheck'=>'0',
+			'rvrcneed'=>'0',
+			'moneyneed'=>'0',
+			'postneed'=>'0',
+			'password'=>'',
+			'allowvisit'=>'',
+			'allowplay'=>'',
+			'allowpost'=>'',
+			'allowrp'=>'',
+		),
 		'3'=>array(
 			'cid'=>'3',
 			'cup'=>'0',
@@ -273,6 +293,7 @@ $class_opt = '
 			<option value="13">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;杨浦小学</option>
 			<option value="14">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;杨浦初中</option>
 			<option value="15">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;杨浦高中</option>
+			<option value="31">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;杨浦第一小学</option>
 			<optgroup label="普陀区"></optgroup>
 			<option value="30">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;普陀小学</option>
 ';
@@ -291,6 +312,7 @@ $school = '
 			<option value="13">杨浦小学</option>
 			<option value="14">杨浦初中</option>
 			<option value="15">杨浦高中</option>
+			<option value="31">杨浦第一小学</option>
 			<option value="30">普陀小学</option>
 ';
 ?>
