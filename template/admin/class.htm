@@ -4,22 +4,22 @@ if(!$action){
 print <<<EOT
 -->
 <table width=98% border=0 align=center cellspacing=1 cellpadding=0 class=tableborder>
-<tr><td class=header>新增版块/栏目</td></tr>
+<tr><td class=header>新增区/学校</td></tr>
 <tr><td class=bg style="padding: 20px; line-height: 1em; ">
 
-说明：可以添加新版块, 新栏目, 支持无限级栏目<br /><br />
+说明：可以添加新区名称, 新学校<br /><br />
 
 <form action="$basename" method="post"> 
 <input type="hidden" name="action" value="add_board" />
-版块名称: <input type="text" name="name" size="30" />
+学校所在区名称: <input type="text" name="name" size="30" />
 <input type="submit" class="btn" value="提 交" />
 </form>
 
 <br />
 <form action="$basename" method="post">
 <input type="hidden" name="action" value="add_sub" />
-栏目名称: <input type="text" name="caption" size="30" /> 
-上级栏目: <select name="cup">{$class_opt}</select> 
+学校所在区名称: <select name="newsubredion">{$region}</select> 
+学校名称: <input type="text" name="caption" size="30" /> 
 <input type="submit" class="btn" value="提 交" />
 </form>
 
@@ -31,7 +31,7 @@ print <<<EOT
 <form action="$basename" method="post">
 <input type="hidden" name="action" value="update" />
 <table width=98% border=0 align=center cellspacing=1 cellpadding=0 class=tableborder>
-<tr><td class=header colspan=4>栏目管理</td></tr>
+<tr><td class=header colspan=4>区/校管理</td></tr>
 <tr align=center>
 	<td width="5%">ID</td><td width="60%">标题</td><td width=20%>显示顺序</td><td width="15%">操作</td>
 </tr>

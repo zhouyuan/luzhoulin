@@ -169,6 +169,12 @@ print <<<EOT
 <tr><td class=bg>确认密码(<font color=blue>修改密码时需要输入</font>)</td>
 <td class=bg><input type=text size=20 name="check_pwd"></td></tr>
 
+<tr><td class=bg>区</td>
+<td class=bg><input type=text size=20 name=region value='$region'></td></tr>
+
+<tr><td class=bg>学校</td>
+<td class=bg><input type=text size=20 name=school value='$school'></td></tr>
+
 <tr><td class=bg>Email</td>
 <td class=bg><input type=text size=20 name="email"value='$email'>
 <input name=publicmail type=checkbox value=1 $ifchecked>公开邮箱</td></tr>
@@ -180,11 +186,11 @@ print <<<EOT
 <tr><td class=bg>视频发布数</td>
 <td class=bg><input type=text size=20 name=postnum value='$postnum'></td></tr>
 
-<tr><td class=bg>威望</td>
+<!--<tr><td class=bg>威望</td>
 <td class=bg><input type=text size=20 name=rvrc value='$rvrc'></td></tr>
 
 <tr><td class=bg>金钱</td>
-<td class=bg><input type=text size=20 name=money value='$money'></td></tr>
+<td class=bg><input type=text size=20 name=money value='$money'></td></tr>-->
 
 <tr><td class=bg>注册日期(<font color=blue>格式: yyyy-mm-dd</font>)</td>
 <td class=bg><input type=text size=20 name=regdate value='$regdate'></td></tr>
@@ -197,17 +203,11 @@ print <<<EOT
 <input type=text name="icon" value='$icon'/>
 </td></tr>
 
-<tr><td class=bg>区</td>
-<td class=bg><input type=text size=20 name=region value='$region'></td></tr>
-
-<tr><td class=bg>学校</td>
-<td class=bg><input type=text size=20 name=school value='$school'></td></tr>
-
 <tr><td class=bg>个人主页</td>
 <td class=bg><input type=text size=20 name=site value='$site'></td></tr>
 
-<tr><td class=bg>自定义头衔</td>
-<td class=bg><input type=text size=20 maxlength=75 name=honor value='$honor'></td></tr>
+<!--<tr><td class=bg>自定义头衔</td>
+<td class=bg><input type=text size=20 maxlength=75 name=honor value='$honor'></td></tr>-->
 
 <tr><td class=bg>性别</td>
 <td class=bg>
