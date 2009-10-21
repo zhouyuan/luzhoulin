@@ -5,7 +5,6 @@ include_once(R_P."data/cache/level.php");
 include_once(R_P.'data/cache/class.php');
 !$rg_allowregister && Showmsg('reg_close');
 $groupid!='guest' && Showmsg('reg_repeat');
-
 list($reggd)=explode("\t",$db_gdcheck);
 if(!$step){
 	require_once(R_P.'require/header.php');
@@ -79,11 +78,8 @@ if(!$step){
 	if($rs['count']>0) {
 		Showmsg('username_same');
 	}
-	
-	$tempRs = $db->get_one("select fathers,caption from pv_class where cid = '$cid'");
-	$self = $tempRs['caption'];
-	$tempRs = $db->get_one("select caption from pv_class where cid = '".$tempRs['fathers']."'");
-	$father = $tempRs['caption'];
+	$self = $class[$cid]['caption'];
+	$father = $class[$class[$cid]['fathers']]['caption'];
 	
 	asort($lneed);
 	$memberid=key($lneed);
