@@ -86,9 +86,11 @@ if ($postaction=="new"){
 			$need="{$need_value}|{$need_type}";
 		else
 			$need='';
+		$self = $class[$cid]['caption'];
+		$father = $class[$class[$cid]['fathers']]['caption'];
 		
-		$db->update("INSERT INTO pv_video(cid,nid,author,authorid,postdate,lostdate,subject,playactor,director,tag,content,yz,grade) 
-		VALUES('$cid','$nid','$username','$uid','$timestamp','$timestamp','$subject','$playactor','$director','$tag','$atc_content','$yz','$grade')");
+		$db->update("INSERT INTO pv_video(cid,nid,author,authorid,postdate,lostdate,subject,playactor,director,tag,content,yz,grade,region,class) 
+		VALUES('$cid','$nid','$username','$uid','$timestamp','$timestamp','$subject','$playactor','$director','$tag','$atc_content','$yz','$grade','$self','$father')");
 		$vid=$db->insert_id();		
 		$db->update("INSERT INTO pv_videodata SET vid='$vid',sale='$sale',need='$need'");
 		 
@@ -280,8 +282,10 @@ if ($postaction=="new"){
 		if(empty($subject) || empty($cid) || empty($nid) || empty($pid) /*|| empty($urls)*/){
 			Showmsg('form_error');			
 		}
-
-		$db->update("UPDATE pv_video SET cid='$cid',nid='$nid',subject='$subject',tag='$tag',playactor='$playactor',director='$director',content='$atc_content',lostdate='$timestamp', grade='$grade' WHERE vid='$vid'");
+		$self = $class[$cid]['caption'];
+		$father = $class[$class[$cid]['fathers']]['caption'];
+		
+		$db->update("UPDATE pv_video SET cid='$cid',nid='$nid',subject='$subject',tag='$tag',playactor='$playactor',director='$director',content='$atc_content',lostdate='$timestamp', grade='$grade' WHERE vid='$vid',region='$self',class='$father'");
 
 		if(is_numeric($sale_value) && (int)$sale_value > 0)
 			$sale="{$sale_value}|{$sale_type}";
