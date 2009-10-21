@@ -1,7 +1,7 @@
 <?php
 $gp_gid='7';
 $gp_gptype='member';
-$gp_grouptitle='新手上路';
+$gp_grouptitle='学前班';
 $gp_groupimg='9';
 $gp_grouppost='0';
 $gp_maxmsg='10';
