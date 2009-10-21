@@ -131,7 +131,10 @@ function history_show(){
 	if(history_info!=null){
 		history_arg=history_info.split("_www.zzsky.cn_");
 		var i;
-		for(i=0;i<=5;i++){
+		var maxlength = 5;
+		if(history_arg.length<6)maxlength = history_arg.length-1;
+			
+		for(i=0;i<=maxlength;i++){
 			if(history_arg[i]!="null"){
 				var wlink=history_arg[i].split("+");
 				content+=("<font color='#ff000'>¡ü</font>"+"<a href='"+wlink[1]+"' target='_blank'>"+wlink[0]+"</a><br>");
@@ -314,13 +317,7 @@ function history_show(){
 		<div class="box_caption box_caption_w220">
 			<h1>×î½üä¯ÀÀ</h1>
 		</div>
-		<div class="box_content box_content_w220">
-			<ul class="order">
-			<!--{loop $otherdb $other}-->
-				
-			<!--{/loop}-->
-			</ul>
-			<div></div>
+		<div class="box_content box_content_w220">			
 			<div id="history">
 				<script language="javascript">history_show();</script>
 			</div>
