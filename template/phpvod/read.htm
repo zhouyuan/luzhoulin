@@ -92,7 +92,7 @@ function glog(evt){
 				linkname=srcElem.innerHTML;
 				address1=srcElem.href;
 				var play=false;
-				if(address1.indexOf('play.php')!=-1){
+				if(address1.indexOf('iacplayer.php')!=-1){
 					play=true;
 				}
 				address=srcElem.href+"_www.zzsky.cn_";
@@ -113,6 +113,7 @@ function glog(evt){
 				}
 				if(insert&&play){
 					wlink+=getCookie("history_info");
+					alert(wlink);
 					setCookie("history_info",wlink);
 					history_show().reload();
 					break;
@@ -131,9 +132,8 @@ function history_show(){
 	if(history_info!=null){
 		history_arg=history_info.split("_www.zzsky.cn_");
 		var i;
-		var maxlength = 5;
-		if(history_arg.length<6)maxlength = history_arg.length-1;
-			
+		var maxlength = history_arg.length;
+		if(history_arg.length>5)maxlength = 5;
 		for(i=0;i<=maxlength;i++){
 			if(history_arg[i]!="null"){
 				var wlink=history_arg[i].split("+");
@@ -281,16 +281,16 @@ function history_show(){
 				<p class="normal">级别: $video[levelname]</p>
 				<p class="normal"><img src="$video[levelpic]" /></p>
 				<p class="normal">UID: $video[authorid]</p>
-				<p class="normal">头衔: $video[honor]</p>
+<!--				<p class="normal">头衔: $video[honor]</p>
 				<p class="normal">威望: $video[rvrc]</p>
-				<p class="normal">金钱: $video[money]</p>
+				<p class="normal">金钱: $video[money]</p>-->
 <!--{loop $creditdb $key $value}-->
 <!--{if $_CREDITDB[$key]}-->
-				<p class="normal">$value[0]: $value[1]</td></tr>
+				<!--<p class="normal">$value[0]: $value[1]</td></tr>-->
 <!--{/if}-->
 <!--{/loop}-->
-				<p class="normal">影片数: $video[postnum]</p>
-				<p class="normal">积分: $video[credit]</p>
+				<p class="normal">视频数: $video[postnum]</p>
+				<!--<p class="normal">积分: $video[credit]</p>-->
 				<p class="normal">注册时间: $video[regdate]</p>
 				<p class="normal">最后登录: $video[lastlogin]</p>
 				<p class="normal">最后登录IP: $video[ip]</p>
