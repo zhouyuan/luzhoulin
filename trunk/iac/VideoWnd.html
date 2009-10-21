@@ -76,10 +76,13 @@ function getParameterValue(str)
 	if(  nOpenFile == 1 )
 	{
 		var filename = location.href;
+		var pos = getParameter(url, "Pos");
+
 		var nIndex = filename.indexOf("?");//get file location
 		filename = filename.substring(0,nIndex-13);//videownd.html
-		filename = filename + "default.iac";
-		alert(filename);
+		filename = filename + "../";
+		filename = filename + pos;
+
 		playerVideo.OpenFile(filename, "VideoHeadTime=10&VideoTailTime=10&VideoTailInfo=Ð»Ð»£¡&VHFontSize=-24", 1 );
 	}
 	

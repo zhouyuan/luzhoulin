@@ -7,10 +7,11 @@ include_once(R_P.'data/cache/player.php');
 include_once(R_P.'data/cache/dbset.php');
 include_once(R_P.'data/cache/creditdb.php');
 //print($_POST['upfile']['savepath']	);
-$urlreal = $_POST['upfile']['savepath'];
+$urlreal = $_POST['realpos'];
+
 $pid['0']=10;
-print $nid;
-//print $urlreal;
+//print $nid;
+
 list(,,,$postgd)=explode("\t",$db_gdcheck);
 !$postaction && $postaction="new";
 
@@ -57,7 +58,9 @@ if ($postaction=="new"){
 		if($row['cup']=='0'){
 			Showmsg('post_type');
 		}
-
+		
+		
+		
 		$subject = Char_cv($subject);
 		$playactor = Char_cv($playactor);
 		$director = Char_cv($director);
@@ -89,7 +92,7 @@ if ($postaction=="new"){
 		$vid=$db->insert_id();		
 		$db->update("INSERT INTO pv_videodata SET vid='$vid',sale='$sale',need='$need'");
 		 
-		foreach($urls as $key => $vodurls)
+/*		foreach($urls as $key => $vodurls)
 		{
 			$array_urls = Split("\n","$vodurls");
 			$s=1;
@@ -104,13 +107,15 @@ if ($postaction=="new"){
 					$caption = substr($url,$p+1);
 					$url = substr($url,0,$p);
 					
-					  $urlreal = $_POST['upfile']['savepath'];
+					  $urlreal = $_POST['realpos'];
 				}
 				$db->update("INSERT INTO pv_urls(vid,pid,url,series,server,caption) VALUES ('$vid','$playerid','$urlreal','$s','$server','$caption')");
 				$s++;
 			}
-		}		
-
+		}	*/	
+		
+		$db->update("INSERT INTO pv_urls(vid,pid,url,series,server,caption) VALUES ('$vid','10','$urlreal','$s','$server','$caption')");
+		
 		if($yz=='1' && $groupid!='guest')
 		{
 			$credit = unserialize($db_creditset);

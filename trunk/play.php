@@ -106,7 +106,7 @@ if($url['need']!='' && $SYSTEM['allowadminviewhide']!='1' && $uid!=$url['authori
 	}
 }
 
-
+$url['url'] = base64_encode($url['url']);
 $player = readover(R_P.'data/player/'.$url['playpath']);
 $player = str_replace('$urlpath',$url['url'],$player);
 $player = str_replace('$nextpage',$nextpage,$player);
