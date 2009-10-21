@@ -15,7 +15,7 @@ function xuploadfiles_ver()
 
 		try {
 			if(obj.classid == 'clsid:18B9E4BF-F21F-46B9-AD50-5CA62145426A'){
-				alert("found");
+
 				break; 
 			}
 		} 
@@ -24,7 +24,7 @@ function xuploadfiles_ver()
 	}
 
 	var myver = 0;
-	//alert(obj.version());//bug
+
 	try { myver = obj.version(); } catch(e) { }
 	if (myver >= ver) return;
 	
