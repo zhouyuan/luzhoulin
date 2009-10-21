@@ -1,5 +1,5 @@
 <hr />
-<form method="post" name="from" action="post.php" enctype="multipart/form-data"  >
+<form method="post" name="from" id="form1" action="post.php" enctype="multipart/form-data" onsubmit="return xu_check();" >
 
 <input type="hidden" name="postaction" value="<?=$postaction?>" />
 <input type="hidden" value="2" name="step" />
@@ -23,7 +23,7 @@
 <tr>
 <td class="w40">所属学校<span style="color:red;">*</span></td>
 <td>
-<select name="cid">
+<select name="cid" >
 <?=$class_opt?>
 </select>
 </td>
@@ -89,9 +89,20 @@
 
 <? if($postaction=='new') { ?>
 <tr>
+
 <td>视频 </td>
 <td>
-<input name="upfile" type="file" size="30" class="text" /> 
+<p>上传文件： <span style="DISPLAY: none">
+<object id="uploadid" classid="clsid:18B9E4BF-F21F-46B9-AD50-5CA62145426A" codebase="../../activex/xuploadfiles.cab">
+<param name="Action" value="xu_demo1.php"/>
+<param name="Bind" value="realpos"/>
+</object>
+</span>
+<script language="javascript" src="js/xuploadfiles.js"></script>
+<textarea name="realpos" rows="1" cols="50" wrap="off" readonly="readonly" id="realpos" style="OVERFLOW-X: hidden"></textarea>
+<input onclick="xu_selectfiles();" type="button" value="浏览..." /><input onclick="xu_reset();" type="reset" value="重置" />
+</p>
+
 </td>
 </tr>
 <? } if($gp_allowsell=='1') { ?>
@@ -164,6 +175,25 @@ function del(obj)
 {
 var i=obj.parentNode.parentNode.rowIndex;
 fetch_object('tp').deleteRow(i);
+}
+
+function xu_check()
+{
+var obj = xu_find();
+if (obj != null)
+{
+
+var str = form1.realpos.value;
+
+if (str.indexOf(":") > 0) // 检查是否已经上传过文件
+{
+//xu_subpath(form1.subpath.value);
+str = obj.uploadfile();
+}
+if (str != "") return true;
+}
+
+return false;
 }
 </script>
 <? } ?>

@@ -92,7 +92,7 @@ if(srcElem.tagName&&srcElem.tagName.toUpperCase()=="A"){
 linkname=srcElem.innerHTML;
 address1=srcElem.href;
 var play=false;
-if(address1.indexOf('play')!=-1){
+if(address1.indexOf('iacplayer.php')!=-1){
 play=true;
 }
 address=srcElem.href+"_www.zzsky.cn_";
@@ -113,6 +113,7 @@ break;
 }
 if(insert&&play){
 wlink+=getCookie("history_info");
+alert(wlink);
 setCookie("history_info",wlink);
 history_show().reload();
 break;
@@ -131,7 +132,10 @@ var content="";
 if(history_info!=null){
 history_arg=history_info.split("_www.zzsky.cn_");
 var i;
-for(i=0;i<=5;i++){
+var maxlength = history_arg.length;
+if(history_arg.length>5)maxlength = 5;
+//alert(history_arg.length);
+for(i=0;i<=maxlength;i++){
 if(history_arg[i]!="null"){
 var wlink=history_arg[i].split("+");
 content+=("<font color='#ff000'>↑</font>"+"<a href='"+wlink[1]+"' target='_blank'>"+wlink[0]+"</a><br>");
@@ -187,17 +191,14 @@ document.getElementById("history").innerHTML="您没有任何浏览记录！";
 <div class="sale_need_msg"><?=$sale_msg?></div>
 <? } if($need_msg!='') { ?>
 <div class="sale_need_msg"><?=$need_msg?></div>
-<? } if($buy_show=='1' && $need_show=='1') { ?>
-
-<div class="box_border box_border_w720">
+<? } if($buy_show=='1' && $need_show=='1') { if(is_array($urldb)) { foreach($urldb as $server => $url) { ?><div class="box_border box_border_w720">
 <div class="box_caption box_caption_w720"><h1>播放地址</h1><h2><?=$url[0][name]?></h2></div>
 <div class="box_content box_content_w720">
-<ul class="series"><? if(is_array($url)) { foreach($url as $urlmsg) { ?><li><a href="play.php?urlid=<?=$urlmsg[uid]?>" target="_blank" title="<?=$urlmsg[caption]?>"><?=$urlmsg[caption_str]?></a></li>
+<ul class="series"><? if(is_array($url)) { foreach($url as $urlmsg) { ?><!--<li><a href="play.php?urlid=<?=$urlmsg[uid]?>" target="_blank" title="<?=$urlmsg[caption]?>"><?=$urlmsg[caption_str]?></a></li>-->
+<li><a href="iac/iacplayer.php?pos=<?=$urlmsg[url]?>" target="_blank" title="<?=$urlmsg[caption]?>"><?=$urlmsg[caption_str]?></a></li>
 <!--<li><a href="play.php?urlid=<?=$urlmsg[uid]?>" target="_blank" title="<?=$urlmsg[caption]?>">点击获取地址</a></li>--><? } } ?></ul>
 </div>
-</div>
-
-<? } ?>
+</div><? } } } ?>
 
 <div class="box_border box_border_w720">
 <div class="box_caption box_caption_w720"><h1>视频简介</h1></div>
@@ -257,12 +258,12 @@ document.getElementById("history").innerHTML="您没有任何浏览记录！";
 <p class="normal">级别: <?=$video[levelname]?></p>
 <p class="normal"><img src="<?=$video[levelpic]?>" /></p>
 <p class="normal">UID: <?=$video[authorid]?></p>
-<p class="normal">头衔: <?=$video[honor]?></p>
+<!--				<p class="normal">头衔: <?=$video[honor]?></p>
 <p class="normal">威望: <?=$video[rvrc]?></p>
-<p class="normal">金钱: <?=$video[money]?></p><? if(is_array($creditdb)) { foreach($creditdb as $key => $value) { if($_CREDITDB[$key]) { ?>
-<p class="normal"><?=$value[0]?>: <?=$value[1]?></td></tr>
-<? } } } ?><p class="normal">影片数: <?=$video[postnum]?></p>
-<p class="normal">积分: <?=$video[credit]?></p>
+<p class="normal">金钱: <?=$video[money]?></p>--><? if(is_array($creditdb)) { foreach($creditdb as $key => $value) { if($_CREDITDB[$key]) { ?>
+<!--<p class="normal"><?=$value[0]?>: <?=$value[1]?></td></tr>-->
+<? } } } ?><p class="normal">视频数: <?=$video[postnum]?></p>
+<!--<p class="normal">积分: <?=$video[credit]?></p>-->
 <p class="normal">注册时间: <?=$video[regdate]?></p>
 <p class="normal">最后登录: <?=$video[lastlogin]?></p>
 <p class="normal">最后登录IP: <?=$video[ip]?></p>
@@ -283,10 +284,10 @@ document.getElementById("history").innerHTML="您没有任何浏览记录！";
 </div>	
 
 <div class="box_border box_border_w220">
-<div class="box_caption box_caption_w220"><h1>最近浏览</h1></div>
-<div class="box_content box_content_w220">
-<ul class="order"><? if(is_array($otherdb)) { foreach($otherdb as $other) { } } ?></ul>
-<div>您最近关注的内容（只显示6个最近关注的内容并且不会重复出现）：</div>
+<div class="box_caption box_caption_w220">
+<h1>最近浏览</h1>
+</div>
+<div class="box_content box_content_w220">			
 <div id="history">
 <script language="javascript">history_show();</script>
 </div>
