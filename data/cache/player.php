@@ -1,3 +1,3 @@
 <?php
-$player='<option value="1">RealPlayer</option><option value="2">Window Media Player</option><option value="3">QVOD</option><option value="4">GVOD</option><option value="5">皮皮播放器</option><option value="6">酷6</option><option value="7">56</option><option value="8">土豆</option><option value="9">下载</option>';
+$player='<option value="1">RealPlayer</option><option value="2">Window Media Player</option><option value="3">QVOD</option><option value="4">GVOD</option><option value="5">皮皮播放器</option><option value="6">酷6</option><option value="7">56</option><option value="8">土豆</option><option value="9">下载</option><option value="10">IActivePlayer</option>';
 ?>
