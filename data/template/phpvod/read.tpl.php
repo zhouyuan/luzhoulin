@@ -134,7 +134,6 @@ history_arg=history_info.split("_www.zzsky.cn_");
 var i;
 var maxlength = history_arg.length;
 if(history_arg.length>5)maxlength = 5;
-//alert(history_arg.length);
 for(i=0;i<=maxlength;i++){
 if(history_arg[i]!="null"){
 var wlink=history_arg[i].split("+");
