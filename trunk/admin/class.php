@@ -3,6 +3,7 @@ include_once(R_P.'data/cache/class.php');
 !function_exists('adminmsg') && exit('Forbidden');
 $basename = "$admin_file?adminjob=class";
 $role = $admin['grouptitle'];
+if($role == '校级管理员')adminmsg('您没有权利添加其他区的学校！');
 if($action=='add_board') { 
 	$db->update("INSERT INTO pv_class(caption) VALUES('$name')");
 	updatecache_class();
@@ -74,9 +75,12 @@ if($action=='add_board') {
 	else {
 		$basename = "$admin_file?adminjob=class&action=edit_sub&cid=$cid";
 		$cup==$cid && adminmsg('board_fupsame');
+		if($admin['grouptitle']!= '系统管理员' && $class[$cup][caption] != $admin['region'])
+		{
+			adminmsg('您没有权利修改到其他区视频');exit;
+		}
 		$up = $db->get_one("SELECT * FROM pv_class WHERE cid='$cup'");
 		if(strpos($up['fathers'],$cid)!==false) adminmsg('board_fupsub');
-
 		$lv=0;
 		$fathers='';
 		if($cup!=0)
