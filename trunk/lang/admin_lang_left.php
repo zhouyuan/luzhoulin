@@ -55,4 +55,18 @@ $lang=array(
 		'repair'=>"<a target=main href='$admin_file?adminjob=repair'>数据库修复</a>",
 	)
 );
+$lang_region=array(
+	'分类管理'=>array(
+		'board'=>"<a target=main href='$admin_file?adminjob=class'>区校管理</a>",
+		'nation'=>"<a target=main href='$admin_file?adminjob=nation'>课程分类管理</a>",
+	),
+	'视频管理'=>array(
+		'video'=>"<a target=main href='$admin_file?adminjob=setvideo'>视频管理</a>",
+		'report'=>"<a target=main href='$admin_file?adminjob=report'>举报信管理</a>",
+	),
+	'会员频道'=>array(
+		'setuser'=>"<a target=main href='$admin_file?adminjob=setuser'>会员管理</a>",
+		'reply'=>"<a target=main href='$admin_file?adminjob=reply'>会员评论管理</a>",
+	)
+);
 ?>
