@@ -2,13 +2,21 @@
 include_once(R_P.'data/cache/class.php');
 !function_exists('adminmsg') && exit('Forbidden');
 $basename = "$admin_file?adminjob=class";
-
+$role = $admin['grouptitle'];
 if($action=='add_board') { 
 	$db->update("INSERT INTO pv_class(caption) VALUES('$name')");
 	updatecache_class();
 	adminmsg('operate_success');
 }elseif ($action=='add_sub') {  
 	$tempid = $_POST["newsubredion"];
+	
+	if($role == '区级管理员'){
+		$rs = $db->get_one("select caption from pv_class where cid = '$tempid'");
+		if($re['caption']!= $admin['region']){
+			adminmsg('您没有权利添加其他区的学校！');
+			exit;
+		}
+	}
 /*	$lv=0;
 	$fathers='';
 	if($cup!=0)
