@@ -21,7 +21,10 @@ print <<<EOT
 	</tr>
 </table>
 <br />
-
+<!--
+EOT;
+if($role =='系统管理员'){print <<<EOT
+-->
 <form method="post" action="$basename">
 <input name=action type=hidden value="edit">
 	<table width=98% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
@@ -75,6 +78,11 @@ EOT;
 		<input type="submit" value="提 交">
 	</center>
 </form>
+<!--
+EOT;
+}print <<<EOT
+-->
+
 <!--
 EOT;
 }include_once PrintEot('adminbottom');
