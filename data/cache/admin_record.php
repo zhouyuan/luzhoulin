@@ -881,3 +881,13 @@
 <?die;?>|test||/vod/admin.php?adminjob=setvideo|127.0.0.1|1256114456||
 <?die;?>|test||/vod/admin.php?adminjob=report|127.0.0.1|1256114459||
 <?die;?>|test||/vod/admin.php?adminjob=setvideo|127.0.0.1|1256114460||
+<?die;?>|test||/vod/admin.php?adminjob=setvideo|127.0.0.1|1256115160||
+<?die;?>|test||/vod/admin.php?adminjob=class|127.0.0.1|1256115594||
+<?die;?>|test||/vod/admin.php?adminjob=nation|127.0.0.1|1256115597||
+<?die;?>|test||/vod/admin.php?adminjob=setvideo|127.0.0.1|1256115599||
+<?die;?>|test||/vod/admin.php?adminjob=setvideo|127.0.0.1|1256115650||
+<?die;?>|test||/vod/admin.php?adminjob=setvideo|127.0.0.1|1256115684||
+<?die;?>|test||/vod/admin.php?adminjob=report|127.0.0.1|1256116335||
+<?die;?>|test||/vod/admin.php?adminjob=setvideo|127.0.0.1|1256116337||
+<?die;?>|test||/vod/admin.php?adminjob=setuser|127.0.0.1|1256116338||
+<?die;?>|test||/vod/admin.php?adminjob=setvideo|127.0.0.1|1256116341||
