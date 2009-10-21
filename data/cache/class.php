@@ -25,7 +25,7 @@ $class = array(
 			'cup'=>'1',
 			'lv'=>'1',
 			'fathers'=>'1',
-			'caption'=>'第一小学1',
+			'caption'=>'第一小学',
 			'vieworder'=>'0',
 			'type'=>'free',
 			'orderway'=>'postdate',
@@ -283,6 +283,7 @@ $class = array(
 );
 $class_opt = '
 			<optgroup label="闵行区"></optgroup>
+			<option value="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第一小学</option>
 			<option value="6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第二小学</option>
 			<option value="7">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第三小学</option>
 			<option value="8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第四小学</option>
@@ -295,15 +296,14 @@ $class_opt = '
 			<option value="31">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;杨浦第一小学</option>
 			<optgroup label="普陀区"></optgroup>
 			<option value="30">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;普陀小学</option>
-			<optgroup label="第一小学1"></optgroup>
 ';
 $region = '
 			<option value="1">闵行区</option>
 			<option value="2">杨浦区</option>
 			<option value="3">普陀区</option>
-			<option value="5">第一小学1</option>
 ';
 $school = '
+			<option value="5">第一小学</option>
 			<option value="6">第二小学</option>
 			<option value="7">第三小学</option>
 			<option value="8">第四小学</option>
