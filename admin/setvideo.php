@@ -23,13 +23,13 @@ if (!$action){
 		$content=str_replace('*','%',$content);
 		$sql.=" AND (m.content LIKE '%$content%')";
 	}
-	if($playactor!=''){
-		$playactor=str_replace('*','%',$playactor);
-		$sql.=" AND (m.playactor LIKE '%$playactor%')";
+	if($region_video!=''){
+		$region_video=str_replace('*','%',$region_video);
+		$sql.=" AND (m.region LIKE '%$region_video%')";
 	}
-	if($director!=''){
-		$director=str_replace('*','%',$director);
-		$sql.=" AND (m.director LIKE '%$director%')";
+	if($school_video!=''){
+		$school_video=str_replace('*','%',$school_video);
+		$sql.=" AND (m.school LIKE '%$school_video%')";
 	}
 	if($hits!=''){
 		if($bj=='0') $sql.=" AND md.hits <'$hits'";
@@ -42,6 +42,14 @@ if (!$action){
 	if($postdate!='all' && is_numeric($postdate)){
 		$schtime=$timestamp-$postdate;
 		$sql.=" AND m.postdate<'$schtime'";
+	}
+	if($admin['grouptitle']=='校级管理员'){
+		$sch = $admin['school'];
+		$sql.=" AND m.school = '$sch'";
+	}
+	else if($admin['grouptitle']=='区级管理员'){
+		$reg = $admin['region'];
+		$sql.=" AND m.region = '$reg'";
 	}
 	if($orderway){
 		$order="ORDER BY $orderway $asc";
