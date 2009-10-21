@@ -526,7 +526,7 @@ function pv_loop($type,$str_param)
 	$result = array();
 	if($SYSTEM['allowadminshow']!='1') $sql="yz='1'"; else $sql='1';
 
-	/* 影片循环 cid=1|showsub=1|best=1|order=?|limit=?|dateformat=1|subject_len=22|playactor_len=10|content_len=30 */
+	/* 视频循环 cid=1|showsub=1|best=1|order=?|limit=?|dateformat=1|subject_len=22|playactor_len=10|content_len=30 */
 	if($type=='video')
 	{
 		/* 	类别 [cid=?] -1表示所有类别, 0表示当前类别, 其余数字表示类别ID */
