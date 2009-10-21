@@ -285,9 +285,9 @@ if ($postaction=="new"){
 		$self = $class[$cid]['caption'];
 		$father = $class[$class[$cid]['fathers']]['caption'];
 		
-		$db->update("UPDATE pv_video SET cid='$cid',nid='$nid',subject='$subject',tag='$tag',playactor='$playactor',director='$director',content='$atc_content',lostdate='$timestamp', grade='$grade' WHERE vid='$vid',region='$father',school='$self'");
+		$db->update("UPDATE pv_video SET cid='$cid',nid='$nid',subject='$subject',tag='$tag',playactor='$playactor',director='$director',content='$atc_content',lostdate='$timestamp', grade='$grade',region='$father',school='$self' WHERE vid='$vid'");
 
-		if(is_numeric($sale_value) && (int)$sale_value > 0)
+	if(is_numeric($sale_value) && (int)$sale_value > 0)
 			$sale="{$sale_value}|{$sale_type}";
 		else
 			$sale='';
