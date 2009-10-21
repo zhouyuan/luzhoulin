@@ -89,8 +89,8 @@ if ($postaction=="new"){
 		$self = $class[$cid]['caption'];
 		$father = $class[$class[$cid]['fathers']]['caption'];
 		
-		$db->update("INSERT INTO pv_video(cid,nid,author,authorid,postdate,lostdate,subject,playactor,director,tag,content,yz,grade,region,class) 
-		VALUES('$cid','$nid','$username','$uid','$timestamp','$timestamp','$subject','$playactor','$director','$tag','$atc_content','$yz','$grade','$self','$father')");
+		$db->update("INSERT INTO pv_video(cid,nid,author,authorid,postdate,lostdate,subject,playactor,director,tag,content,yz,grade,region,school) 
+		VALUES('$cid','$nid','$username','$uid','$timestamp','$timestamp','$subject','$playactor','$director','$tag','$atc_content','$yz','$grade','$father','$self')");
 		$vid=$db->insert_id();		
 		$db->update("INSERT INTO pv_videodata SET vid='$vid',sale='$sale',need='$need'");
 		 
@@ -285,7 +285,7 @@ if ($postaction=="new"){
 		$self = $class[$cid]['caption'];
 		$father = $class[$class[$cid]['fathers']]['caption'];
 		
-		$db->update("UPDATE pv_video SET cid='$cid',nid='$nid',subject='$subject',tag='$tag',playactor='$playactor',director='$director',content='$atc_content',lostdate='$timestamp', grade='$grade' WHERE vid='$vid',region='$self',class='$father'");
+		$db->update("UPDATE pv_video SET cid='$cid',nid='$nid',subject='$subject',tag='$tag',playactor='$playactor',director='$director',content='$atc_content',lostdate='$timestamp', grade='$grade' WHERE vid='$vid',region='$father',school='$self'");
 
 		if(is_numeric($sale_value) && (int)$sale_value > 0)
 			$sale="{$sale_value}|{$sale_type}";
