@@ -188,6 +188,7 @@ foreach($servers as $server)
 	{
 		//$url['caption']=='' && $url['caption']='µÚ'.$url['series'].'¼¯';
 		$url['caption']=='' && $url['caption']=$video['subject'];
+	
 		strlen($url['caption'])>12 ? $url['caption_str']=substrs($url['caption'],12) : $url['caption_str']=$url['caption'];
 		$urldb[$server][]=$url;
 	}
