@@ -205,7 +205,8 @@ function history_show(){
 		<div class="box_content box_content_w720">
 			<ul class="series">
 			<!--{loop $url $urlmsg}-->
-				<li><a href="play.php?urlid=$urlmsg[uid]" target="_blank" title="$urlmsg[caption]">$urlmsg[caption_str]</a></li>
+				<!--<li><a href="play.php?urlid=$urlmsg[uid]" target="_blank" title="$urlmsg[caption]">$urlmsg[caption_str]</a></li>-->
+				<li><a href="iac/iacplayer.php?pos=$urlmsg[url]" target="_blank" title="$urlmsg[caption]">$urlmsg[caption_str]</a></li>
 				<!--<li><a href="play.php?urlid=$urlmsg[uid]" target="_blank" title="$urlmsg[caption]">点击获取地址</a></li>-->
 			<!--{/loop}-->
 			</ul>

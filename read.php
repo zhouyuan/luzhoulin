@@ -183,12 +183,12 @@ while($row=$db->fetch_array($query))
 $urldb=array();
 foreach($servers as $server)
 {
-	$query=$db->query("SELECT series,uid,caption,server,name FROM pv_urls LEFT JOIN pv_player ON pv_urls.pid = pv_player.pid WHERE vid='$vid' AND server='$server' ORDER BY series ASC");
+	$query=$db->query("SELECT series,uid,url,caption,server,name FROM pv_urls LEFT JOIN pv_player ON pv_urls.pid = pv_player.pid WHERE vid='$vid' AND server='$server' ORDER BY series ASC");
 	while($url=$db->fetch_array($query))
 	{
 		//$url['caption']=='' && $url['caption']='µÚ'.$url['series'].'¼¯';
 		$url['caption']=='' && $url['caption']=$video['subject'];
-	
+		$url['url'] = base64_encode($url['url']);
 		strlen($url['caption'])>12 ? $url['caption_str']=substrs($url['caption'],12) : $url['caption_str']=$url['caption'];
 		$urldb[$server][]=$url;
 	}
