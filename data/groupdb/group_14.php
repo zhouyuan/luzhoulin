@@ -1,7 +1,7 @@
 <?php
 $gp_gid='14';
 $gp_gptype='member';
-$gp_grouptitle='天使';
+$gp_grouptitle='博士后研究生';
 $gp_groupimg='16';
 $gp_grouppost='10000';
 $gp_maxmsg='300';

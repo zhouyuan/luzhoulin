@@ -1,7 +1,7 @@
 <?php
 $gp_gid='11';
 $gp_gptype='member';
-$gp_grouptitle='精灵王';
+$gp_grouptitle='大学生';
 $gp_groupimg='13';
 $gp_grouppost='1000';
 $gp_maxmsg='120';
