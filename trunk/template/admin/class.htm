@@ -100,7 +100,7 @@ EOT;
 <input type="hidden" name="cid" value="$cid" />
 <table width=98% border=0 align=center cellspacing=1 cellpadding=0 class=tableborder>
 <tr><td class=header colspan=2>编辑栏目</td></tr>
-<tr><td width="40%" class=bg>上级栏目</td><td class=bg><select name="cup">{$class_opt}</select></td></tr>
+<!--<tr><td width="40%" class=bg>上级栏目</td><td class=bg><select name="cup">{$class_opt}</select></td></tr>-->
 <tr><td class=bg>显示顺序</td><td class=bg><input type="text" class="input" name="vieworder" value="{$class[$cid][vieworder]}" size="10" /></td></tr>
 <tr><td class=bg>栏目名称</td><td class="bg"><input type="text" class="input" name="caption" value="{$class[$cid][caption]}" size="60" /></td></tr>
 <tr>
@@ -112,44 +112,44 @@ EOT;
 	<td class=bg><select name=type><option value=free $classtype_free>开放版块</option> <option value=members $classtype_members>正规版块</option></select></td>
 </tr>
 <tr>
-<td class=bg>影片排序关键字</td>
+<td class=bg>视频排序关键字</td>
 <td class=bg><SELECT name=orderway> <OPTION value=postdate $orderway_postdate>发布时间</OPTION> <OPTION value=hits $orderway_hits>人气</OPTION> <OPTION value=replies $orderway_replies>评论</OPTION></SELECT></td>
 </tr>
 <tr>
-<td class=bg>影片排序方式</td>
+<td class=bg>视频排序方式</td>
 <td class=bg><SELECT name=orderasc> <OPTION value=1 $orderasc_1>降序</OPTION> <OPTION value=0 $orderasc_0>升序</OPTION> </SELECT></td>
 </tr>
 <tr>
 <td class=bg>审核设置</td>
 <td class=bg><SELECT name=atccheck>
 	<OPTION value=0 $atccheck_0>无</OPTION>
-	<OPTION value=1 $atccheck_1>审核影片</OPTION>
+	<OPTION value=1 $atccheck_1>审核视频</OPTION>
 	<OPTION value=2 $atccheck_2>审核评论</OPTION>
-	<OPTION value=3 $atccheck_3>审核影片和评论</OPTION>
+	<OPTION value=3 $atccheck_3>审核视频和评论</OPTION>
 </SELECT></td>
 </tr>
 </table><br />
 
-<table width=98% border=0 align=center cellspacing=1 cellpadding=0 class=tableborder>
+<!--<table width=98% border=0 align=center cellspacing=1 cellpadding=0 class=tableborder>
 <tr><td class=header colspan=2>栏目访问积分设置</td></tr>
 <tr><td width=40% class=bg>至少需要威望</td><td class=bg><INPUT size=10 value={$class[$cid][rvrcneed]} name=rvrcneed></td></tr>
 <tr><td class=bg>至少需要金钱</td><td class=bg><INPUT size=10 value={$class[$cid][moneyneed]} name=moneyneed></td></tr>
-<tr><td class=bg>至少需要发布影片</td><td class=bg><INPUT size=10 value={$class[$cid][postneed]} name=postneed></td></tr>
+<tr><td class=bg>至少需要发布视频</td><td class=bg><INPUT size=10 value={$class[$cid][postneed]} name=postneed></td></tr>
 </table><br />
-
+-->
 <table width=98% border=0 align=center cellspacing=1 cellpadding=0 class=tableborder>
 <tr><td class=header colspan=2>栏目权限设置 - 全不选则默认为开放栏目</td></tr>
-<tr><td width=40% class=bg>栏目密码</td><td class=bg><input size=30 name=password value={$class[$cid][password]}> 不加密请清空!</td></tr>
+<!--<tr><td width=40% class=bg>栏目密码</td><td class=bg><input size=30 name=password value={$class[$cid][password]}> 不加密请清空!</td></tr>-->
 <tr>
 	<td class=bg>允许浏览栏目</td>
 	<td class=bg>{$viewvisit}</td>
 </tr>
 <tr>
-	<td class=bg>允许播放影片</td>
+	<td class=bg>允许播放视频</td>
 	<td class=bg>{$viewplay}</td>
 </tr>
 <tr>
-	<td class=bg>允许发布影片</td>
+	<td class=bg>允许发布视频</td>
 	<td class=bg>{$viewpost}</td>
 </tr>
 <tr>
