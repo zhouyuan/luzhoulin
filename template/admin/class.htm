@@ -8,21 +8,34 @@ print <<<EOT
 <tr><td class=bg style="padding: 20px; line-height: 1em; ">
 
 说明：可以添加新区名称, 新学校<br /><br />
-
+<!--
+EOT;
+if($role =='系统管理员'){print <<<EOT
+-->
 <form action="$basename" method="post"> 
 <input type="hidden" name="action" value="add_board" />
 学校所在区名称: <input type="text" name="name" size="30" />
 <input type="submit" class="btn" value="提 交" />
 </form>
-
+<!--
+EOT;
+}print <<<EOT
+-->
 <br />
+<!--
+EOT;
+if($role !='校级管理员'){ print <<<EOT
+-->
 <form action="$basename" method="post">
 <input type="hidden" name="action" value="add_sub" />
 学校所在区名称: <select name="newsubredion">{$region}</select> 
 学校名称: <input type="text" name="caption" size="30" /> 
 <input type="submit" class="btn" value="提 交" />
 </form>
-
+<!--
+EOT;
+}print <<<EOT
+-->
 </td></tr>
 
 
@@ -39,6 +52,11 @@ print <<<EOT
 EOT;
 foreach($listdb as $value){
 $edit = $value['cup']==0 ? 'edit_board' : 'edit_sub';
+if($role == '校级管理员')break;
+else if($role == '区级管理员'){
+	if($value[caption] == $admin['region']&&$value['cup']==0)$flag = true;
+    if($value[caption] != $admin['region']&&$value['cup']==0)$flag = false;
+    if($flag){
 print <<<EOT
 -->
 <tr>
@@ -52,7 +70,7 @@ print <<<EOT
 </tr>
 <!--
 EOT;
-}print <<<EOT
+}}}print <<<EOT
 -->
 </table><br />
 <center><input type="submit" class="btn" value="提 交" /></center></form>
