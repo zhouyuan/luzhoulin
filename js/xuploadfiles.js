@@ -6,18 +6,25 @@ function xuploadfiles_ver()
 {
 	// 客户端插件版本号、最新软件下载地址
 	var ver = 2100;	// 2.1.0.0
-	var updateURL = "http://localhost/xuploadfiles/activex/xuploadfiles"; 
+	var updateURL = "http://localhost/vod/activex/xuploadfiles"; 
 
 	var obj;
 
 	for(i=0;i<document.all.length;i++) {
 		obj = document.all(i);
-		try { if(obj.classid == 'clsid:18B9E4BF-F21F-46B9-AD50-5CA62145426A') break; } catch(e) { }
+
+		try {
+			if(obj.classid == 'clsid:18B9E4BF-F21F-46B9-AD50-5CA62145426A'){
+				alert("found");
+				break; 
+			}
+		} 
+		catch(e) { }
 		obj = null;
 	}
 
 	var myver = 0;
-	alert(obj.version());//bug
+	//alert(obj.version());//bug
 	try { myver = obj.version(); } catch(e) { }
 	if (myver >= ver) return;
 	
