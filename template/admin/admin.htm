@@ -3,32 +3,13 @@ include_once PrintEot('top');
 print <<<EOT
 -->
 
-<div style="text-align:center;margin-bottom:8px; font-size:14px;">欢迎光临 PHPvod $version 系统设置面板，版权所有&copy;2003-09 phpvod.com</div>
-<table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" class="tableborder">
-	<tr class="header"><th>系统公告</th></tr>
-	<tr><td class="bg" style="line-height: 2em;" align="center">
-		<script src="http://www.phpvod.com/system_notice.php"></script>
-	</td></tr>
-</table>
-<br />
-
-<table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" class="tableborder">
-	<tr class="header"><th>商业用户授权查证</th></tr>
-	<tr><td class="bg" style="line-height: 2em;">
-		如果您已经购买了PHPvod 商业用户授权，您可以在PHPvod 商业授权查询网站找到您的网站的相关商业授权信息；如果您没有找到您的网站的商业授权信息或者您的网站的商业授权信息与您购买的商业授权类型不符，说明您购买的可能非法的商业授权，请及时与我们取得联系!<br />
-		我们的联系方式：&nbsp; QQ：19855462 &nbsp; Email：<a href="mailto:phpvod@qq.com">phpvod@qq.com</a> <br />
-		<center><strong><a href="http://www.phpvod.com/vip/license.php" target="_blank">商业授权查询网站地址</a></strong></center>
-	</td></tr>
-</table>
-<br />
-
 <table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" class="tableborder">
 	<tr class="header">
 		<th colspan="2">系统信息</th>
 	</tr>
 	<tr class="bg">
 		<td width="50%" height="25">
-			程序版本: <a href="http://www.phpvod.com" target="_blank" title="点击查询您目前使用的版本信息"><b>PHPvod</b></a> <span style="color:#FF0000">v$version</span>
+			程序版本: <a href="$db_wwwurl" target="_blank" title="点击查询您目前使用的版本信息"><b>上海中小学视频点播网</b></a> <span style="color:#FF0000">v$version</span>
 		</td>
 		<td>
 			服务器端信息: $sysos
@@ -76,29 +57,6 @@ print <<<EOT
 	</tr>	
 </table>
 <br />
-
-<table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" class="tableborder">
-	<tr class="header">
-		<th colspan="2">PHPvod 官方</th>
-	</tr>
-	<tr>
-		<td width="50%" height="25" class="bg">
-			官方网站: <a href="http://www.phpvod.com" target="_blank">www.phpvod.com</a>
-		</td>
-		<td height="25" class="bg">
-			官方论坛: <a href="http://bbs.phpvod.com" target="_blank">bbs.phpvod.com</a>
-		</td>
-	</tr>
-	<tr>
-		<td class="bg">
-			商业平台: <a href="http://vip.phpvod.com" target="_blank">vip.phpvod.com</a>
-		</td>
-		<td class="bg">
-			技术支持: PHPvod Team &nbsp; QQ: 19855462 &nbsp; Email: <a href="mailto:phpvod@qq.com">phpvod@qq.com</a>
-		</td>
-
-	</tr>
-</table>
 
 <!--
 EOT;

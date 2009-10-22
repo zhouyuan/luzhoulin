@@ -3,13 +3,13 @@
 <head>
 
 <? if(SCR=='index') { ?>
-<title><?=$db_wwwname?> - powered by PHPvod.com</title>	
+<title><?=$db_wwwname?></title>	
 <? } if(SCR=='class') { ?>
-<title><?=$class[$cid][caption]?> - <?=$db_wwwname?> - powered by PHPvod.com</title>	
+<title><?=$class[$cid][caption]?> - <?=$db_wwwname?></title>	
 <? } if(SCR=='read') { ?>
-<title><?=$video[subject]?> - <?=$db_wwwname?> - powered by PHPvod.com</title>		
+<title><?=$video[subject]?> - <?=$db_wwwname?></title>		
 <? } if(SCR=='play') { ?>
-<title><?=$url[subject]?> - <?=$db_wwwname?> - powered by PHPvod.com</title>
+<title><?=$url[subject]?> - <?=$db_wwwname?></title>
 <? } ?>
 
 <meta http-equiv="Content-Type" content="text/html; charset=<?=$db_charset?>">
@@ -707,7 +707,7 @@ height: 120x;
 请 <a href="register.php">注册</a> 或 <a href="login.php">登录</a>
 <? } else { ?>
 <?=$username?>！<a href="login.php?action=quit">[退出]</a>
-┆ <a href="message.php">短消息</a>
+<!--┆ <a href="message.php">短消息</a>-->
 ┆ <a href="profile.php?action=show&id=<?=$uid?>">个人资料</a>
 <? } if($gp_allowpost=='1') { ?>
 ┆ <a href="post.php">发布视频</a>
@@ -716,7 +716,7 @@ height: 120x;
 <? } ?>
 
 ┆ <a href="search.php">搜索</a>
-┆ <a href="faq.php">帮助</a>
+<!--┆ <a href="faq.php">帮助</a>-->
 </div>
 </div>
 </div><!-- header end -->

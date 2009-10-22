@@ -250,7 +250,6 @@ function footer(){
 	$about = "<a href=\"$db_ceoconnect\" target=\"_blank\">关于$db_wwwname</a> ┆ <a href=\"mailto:$db_ceoemail\">联系我们</a>";
 	$RunTime = RunTime_End();
 	$db_icp && $db_icp = $db_icpurl ? "<a href=\"$db_icpurl\" target=\"_blank\">$db_icp</a>" : "<a href=\"http://www.miibeian.gov.cn\">$db_icp</a>";
-	$powered = "<a href='http://www.phpvod.com' target=\"_blank\">Powered by PHPvod $version</a>";
 	include PrintEot('footer');
 	$output = str_replace(array('<!--<!---->','<!---->'),array('',''),ob_get_contents());
 
