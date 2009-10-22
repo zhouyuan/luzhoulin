@@ -10,7 +10,13 @@ include_once(R_P.'data/cache/creditdb.php');
 $urlreal = $_POST['realpos'];
 
 $pid['0']=10;
-//print $nid;
+
+$rs = $db->get_one("SELECT
+  m.*,c.*
+FROM
+  pv_members m	LEFT JOIN pv_class c ON c.caption=m.school
+WHERE m.username='$username'");
+$cid=$rs[cid];
 
 list(,,,$postgd)=explode("\t",$db_gdcheck);
 !$postaction && $postaction="new";
