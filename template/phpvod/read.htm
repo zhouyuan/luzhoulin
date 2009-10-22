@@ -104,7 +104,7 @@ function glog(evt){
 				}
 				else{	
 					var old_link=old_info.split("_www.zzsky.cn_");
-					for(var j=0;j<=5;j++){
+					for(var j=0;j<6;j++){
 						if(old_link[j].indexOf(linkname)!=-1)
 							insert=false;
 							if(old_link[j]=="null")
@@ -113,7 +113,6 @@ function glog(evt){
 				}
 				if(insert&&play){
 					wlink+=getCookie("history_info");
-					alert(wlink);
 					setCookie("history_info",wlink);
 					history_show().reload();
 					break;
@@ -133,8 +132,8 @@ function history_show(){
 		history_arg=history_info.split("_www.zzsky.cn_");
 		var i;
 		var maxlength = history_arg.length;
-		if(history_arg.length>5)maxlength = 5;
-		for(i=0;i<=maxlength;i++){
+		if(history_arg.length>6)maxlength = 6;
+		for(i=0;i<maxlength;i++){
 			if(history_arg[i]!="null"){
 				var wlink=history_arg[i].split("+");
 				content+=("<font color='#ff000'>¡ü</font>"+"<a href='"+wlink[1]+"' target='_blank'>"+wlink[0]+"</a><br>");
