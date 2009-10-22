@@ -49,8 +49,9 @@
 <ul class="vlist"><? if(is_array($videodb)) { foreach($videodb as $video) { ?><li>
 <a href="read.php?vid=<?=$video[vid]?>"><img src="<?=$video[pic]?>" /></a>
 <h1><a href="read.php?vid=<?=$video[vid]?>"><?=$video[title]?></a></h1>
-<p>主演: <?=$video[playactor]?></p>
-<p>地区: <?=$video[nation]?></p>
+<p>主讲: <?=$video[playactor]?></p>
+<p>科目: <?=$video[nation]?></p>
+                    <p>年级: <?=$video[grade]?></p>
 <p>时间: <?=$video[postdate]?></p>
 <p>会员: <a href="profile.php?action=show&id=<?=$video[authorid]?>" target="_blank"><?=$video[author]?></a></p>
 <p>人气: <?=$video[hits]?></p>
