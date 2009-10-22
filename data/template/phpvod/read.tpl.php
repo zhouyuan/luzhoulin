@@ -256,12 +256,7 @@ document.getElementById("history").innerHTML="您没有任何浏览记录！";
 <p class="normal">级别: <?=$video[levelname]?></p>
 <p class="normal"><img src="<?=$video[levelpic]?>" /></p>
 <p class="normal">UID: <?=$video[authorid]?></p>
-<!--				<p class="normal">头衔: <?=$video[honor]?></p>
-<p class="normal">威望: <?=$video[rvrc]?></p>
-<p class="normal">金钱: <?=$video[money]?></p>--><? if(is_array($creditdb)) { foreach($creditdb as $key => $value) { if($_CREDITDB[$key]) { ?>
-<!--<p class="normal"><?=$value[0]?>: <?=$value[1]?></td></tr>-->
-<? } } } ?><p class="normal">视频数: <?=$video[postnum]?></p>
-<!--<p class="normal">积分: <?=$video[credit]?></p>-->
+<p class="normal">视频数: <?=$video[postnum]?></p>
 <p class="normal">注册时间: <?=$video[regdate]?></p>
 <p class="normal">最后登录: <?=$video[lastlogin]?></p>
 <p class="normal">最后登录IP: <?=$video[ip]?></p>
