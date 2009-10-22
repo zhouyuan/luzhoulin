@@ -10,7 +10,7 @@ if($type=='bakout'){
 		include PrintEot('bakup');exit;
 	}elseif($action=='bakout'){
 		$step;
-		$bak="#\n# PHPvod bakfile\n# Version:".$version."\n# Time: ".get_date($timestamp,'Y-m-d H:i')."\n# PHPvod: http://www.PHPvod.com\n# --------------------------------------------------------\n\n\n";
+		$bak="#\n# vod bakfile\n# Version:".$version."\n# Time: ".get_date($timestamp,'Y-m-d H:i')."\n# Vod: $db_wwwurl\n# --------------------------------------------------------\n\n\n";
 		$db->query("SET SQL_QUOTE_SHOW_CREATE = 0");
 
 		$start = intval($start);
