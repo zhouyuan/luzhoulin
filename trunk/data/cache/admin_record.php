@@ -1101,3 +1101,107 @@
 <?die;?>|test2||/vod/admin.php?adminjob=setuser&action=edit&uid=4|127.0.0.1|1256142558||
 <?die;?>|test2||/vod/admin.php?adminjob=setuser&action=edit&uid=2|127.0.0.1|1256142564||
 <?die;?>|lippman||/vod/admin.php?adminjob=level|127.0.0.1|1256142605||
+<?die;?>|test2||/vod/admin.php?adminjob=setuser|127.0.0.1|1256185193||
+<?die;?>|test2||/vod/admin.php?adminjob=setuser|127.0.0.1|1256185251||
+<?die;?>|test2||/vod/admin.php?adminjob=setuser|127.0.0.1|1256185408||
+<?die;?>|test2||/vod/admin.php?adminjob=setuser&|127.0.0.1|1256185529|action=search, groupid=, schname=, schname_s=1, schemail=, userip=, regdate=all, orderway=regdate, asc=, lines=100, |
+<?die;?>|test2||/vod/admin.php?adminjob=setuser&action=edit&uid=3|127.0.0.1|1256185533||
+<?die;?>|test2||/vod/admin.php?adminjob=setuser&action=edit&uid=2|127.0.0.1|1256185538||
+<?die;?>|test2||/vod/admin.php?adminjob=setuser|127.0.0.1|1256185860||
+<?die;?>|test2||/vod/admin.php?adminjob=setuser&|127.0.0.1|1256185862|action=search, groupid=, schname=, schname_s=1, schemail=, userip=, regdate=all, orderway=regdate, asc=, lines=100, |
+<?die;?>|lippman||/vod/admin.php?adminjob=setuser|127.0.0.1|1256185874||
+<?die;?>|lippman||/vod/admin.php?adminjob=setuser&|127.0.0.1|1256185876|action=search, groupid=, schname=, schname_s=1, schemail=, userip=, regdate=all, orderway=regdate, asc=, lines=100, |
+<?die;?>|test||/vod/admin.php?|127.0.0.1|1256185901||
+<?die;?>|test||/vod/admin.php?adminjob=left|127.0.0.1|1256185902||
+<?die;?>|test||/vod/admin.php?adminjob=admin|127.0.0.1|1256185902||
+<?die;?>|test||/vod/admin.php?adminjob=reply|127.0.0.1|1256185908||
+<?die;?>|test||/vod/admin.php?adminjob=setuser|127.0.0.1|1256185908||
+<?die;?>|test||/vod/admin.php?adminjob=setuser&|127.0.0.1|1256185910|action=search, groupid=, schname=, schname_s=1, schemail=, userip=, regdate=all, orderway=regdate, asc=, lines=100, |
+<?die;?>|test||/vod/admin.php?adminjob=setuser&action=edit&uid=12|127.0.0.1|1256185913||
+<?die;?>|test||/vod/admin.php?adminjob=setuser|127.0.0.1|1256185923||
+<?die;?>|test||/vod/admin.php?adminjob=reply|127.0.0.1|1256185926||
+<?die;?>|test||/vod/admin.php?adminjob=reply&|127.0.0.1|1256186144|action=search, author=, author_s=1, content=, postdate=all, yz=all, orderway=postdate, asc=, lines=100, |
+<?die;?>|test||/vod/admin.php?adminjob=reply&|127.0.0.1|1256186366|action=search, author=, author_s=1, content=, postdate=all, yz=all, orderway=postdate, asc=, lines=100, |
+<?die;?>|test||/vod/admin.php?adminjob=setuser|127.0.0.1|1256186503||
+<?die;?>|test||/vod/admin.php?adminjob=setuser&|127.0.0.1|1256186506|action=search, groupid=, schname=, schname_s=1, schemail=, userip=, regdate=all, orderway=regdate, asc=, lines=100, |
+<?die;?>|test||/vod/admin.php?adminjob=reply|127.0.0.1|1256186507||
+<?die;?>|test||/vod/admin.php?adminjob=reply&|127.0.0.1|1256186509|action=search, author=, author_s=1, content=, postdate=all, yz=all, orderway=postdate, asc=, lines=100, |
+<?die;?>|test||/vod/admin.php?adminjob=setuser|127.0.0.1|1256186541||
+<?die;?>|test||/vod/admin.php?adminjob=reply|127.0.0.1|1256186541||
+<?die;?>|test||/vod/admin.php?adminjob=reply&|127.0.0.1|1256186544|action=search, author=, author_s=1, content=, postdate=all, yz=all, orderway=postdate, asc=, lines=100, |
+<?die;?>|lippman||/vod/admin.php?adminjob=reply|127.0.0.1|1256186557||
+<?die;?>|lippman||/vod/admin.php?adminjob=reply&|127.0.0.1|1256186559|action=search, author=, author_s=1, content=, postdate=all, yz=all, orderway=postdate, asc=, lines=100, |
+<?die;?>|lippman||/vod/admin.php?adminjob=admin|127.0.0.1|1256186814||
+<?die;?>|lippman||/vod/admin.php?adminjob=admin|127.0.0.1|1256186935||
+<?die;?>|lippman||/vod/admin.php?adminjob=admin|127.0.0.1|1256186941||
+<?die;?>|lippman||/vod/admin.php?adminjob=admin|127.0.0.1|1256186995||
+<?die;?>|lippman||/vod/admin.php?adminjob=admin|127.0.0.1|1256186999||
+<?die;?>|lippman||/vod/admin.php?adminjob=settings&type=ck|127.0.0.1|1256187008||
+<?die;?>|lippman||/vod/admin.php?adminjob=settings&type=info|127.0.0.1|1256187019||
+<?die;?>|lippman||/vod/admin.php?adminjob=settings&type=function|127.0.0.1|1256187022||
+<?die;?>|lippman||/vod/admin.php?adminjob=class|127.0.0.1|1256187032||
+<?die;?>|lippman||/vod/admin.php?adminjob=nation|127.0.0.1|1256187034||
+<?die;?>|lippman||/vod/admin.php?adminjob=unite|127.0.0.1|1256187036||
+<?die;?>|lippman||/vod/admin.php?adminjob=settings&type=atcset|127.0.0.1|1256187038||
+<?die;?>|lippman||/vod/admin.php?adminjob=settings&type=regset|127.0.0.1|1256187040||
+<?die;?>|lippman||/vod/admin.php?adminjob=settings&type=upfile|127.0.0.1|1256187043||
+<?die;?>|lippman||/vod/admin.php?adminjob=settings&type=sethtm|127.0.0.1|1256187047||
+<?die;?>|lippman||/vod/admin.php?adminjob=settings&type=pathset|127.0.0.1|1256187049||
+<?die;?>|lippman||/vod/admin.php?adminjob=settings&type=info|127.0.0.1|1256187051||
+<?die;?>|lippman||/vod/admin.php?adminjob=settings&type=all|127.0.0.1|1256187053||
+<?die;?>|lippman||/vod/admin.php?adminjob=settings&type=pathset|127.0.0.1|1256187066||
+<?die;?>|lippman||/vod/admin.php?adminjob=settings&type=ck|127.0.0.1|1256187067||
+<?die;?>|lippman||/vod/admin.php?adminjob=settings&type=function|127.0.0.1|1256187072||
+<?die;?>|lippman||/vod/admin.php?adminjob=settings&type=info|127.0.0.1|1256187076||
+<?die;?>|lippman||/vod/admin.php?adminjob=settings&type=pathset|127.0.0.1|1256187078||
+<?die;?>|lippman||/vod/admin.php?adminjob=settings&type=sethtm|127.0.0.1|1256187079||
+<?die;?>|lippman||/vod/admin.php?adminjob=settings&type=upfile|127.0.0.1|1256187082||
+<?die;?>|lippman||/vod/admin.php?adminjob=settings&type=regset|127.0.0.1|1256187084||
+<?die;?>|lippman||/vod/admin.php?adminjob=admin|127.0.0.1|1256187220||
+<?die;?>|lippman||/vod/admin.php?|127.0.0.1|1256187224||
+<?die;?>|lippman||/vod/admin.php?adminjob=left|127.0.0.1|1256187224||
+<?die;?>|lippman||/vod/admin.php?adminjob=admin|127.0.0.1|1256187224||
+<?die;?>|lippman||/vod/admin.php?adminjob=setstyles|127.0.0.1|1256187227||
+<?die;?>|lippman||/vod/admin.php?adminjob=setstyles&action=edit&name=phpvod|127.0.0.1|1256187240||
+<?die;?>|lippman||/vod/admin.php?adminjob=setstyles|127.0.0.1|1256187257|action=edit, oldname=phpvod, step=2, style=array(name=redvod, image=redvod, tpl=redvod, )|
+<?die;?>|lippman||/vod/admin.php?adminjob=setstyles|127.0.0.1|1256187340||
+<?die;?>|lippman||/vod/admin.php?adminjob=setstyles&action=edit&name=redvod|127.0.0.1|1256187343||
+<?die;?>|lippman||/vod/admin.php?adminjob=setstyles|127.0.0.1|1256187358|action=edit, oldname=redvod, step=2, style=array(name=phpvod, image=phpvod, tpl=phpvod, )|
+<?die;?>|lippman||/vod/admin.php?adminjob=setstyles|127.0.0.1|1256187373||
+<?die;?>|lippman||/vod/admin.php?adminjob=setstyles&action=add|127.0.0.1|1256187374||
+<?die;?>|lippman||/vod/admin.php?adminjob=vodcheck|127.0.0.1|1256187390||
+<?die;?>|lippman||/vod/admin.php?adminjob=report|127.0.0.1|1256187391||
+<?die;?>|lippman||/vod/admin.php?adminjob=vodcheck|127.0.0.1|1256187393||
+<?die;?>|lippman||/vod/admin.php?adminjob=setvideo|127.0.0.1|1256187394||
+<?die;?>|lippman||/vod/admin.php?adminjob=setvideo&|127.0.0.1|1256187397|action=search, author=, author_s=1, subject=, subject_s=1, content=, region_video=, school_video=, best=all, bj=0, hits=, postdate=all, orderway=postdate, asc=ASC, lines=100, |
+<?die;?>|lippman||/vod/admin.php?adminjob=vodcheck|127.0.0.1|1256187410||
+<?die;?>|lippman||/vod/admin.php?adminjob=upgrade|127.0.0.1|1256187422||
+<?die;?>|lippman||/vod/admin.php?adminjob=report|127.0.0.1|1256187440||
+<?die;?>|lippman||/vod/admin.php?|127.0.0.1|1256187442||
+<?die;?>|lippman||/vod/admin.php?adminjob=left|127.0.0.1|1256187443||
+<?die;?>|lippman||/vod/admin.php?adminjob=admin|127.0.0.1|1256187443||
+<?die;?>|lippman||/vod/admin.php?adminjob=announce|127.0.0.1|1256187450||
+<?die;?>|lippman||/vod/admin.php?adminjob=sharelinks|127.0.0.1|1256187451||
+<?die;?>|lippman||/vod/admin.php?adminjob=record|127.0.0.1|1256187453||
+<?die;?>|lippman||/vod/admin.php?adminjob=updatecache|127.0.0.1|1256187456||
+<?die;?>|lippman||/vod/admin.php?adminjob=chmod|127.0.0.1|1256187458||
+<?die;?>|lippman||/vod/admin.php?adminjob=bakup&type=bakout|127.0.0.1|1256187461||
+<?die;?>|lippman||/vod/admin.php?adminjob=bakup&type=bakin|127.0.0.1|1256187462||
+<?die;?>|lippman||/vod/admin.php?adminjob=repair|127.0.0.1|1256187463||
+<?die;?>|lippman||/vod/admin.php?adminjob=settings&type=info|127.0.0.1|1256187476||
+<?die;?>|lippman||/vod/admin.php?adminjob=setstyles|127.0.0.1|1256187485||
+<?die;?>|lippman||/vod/admin.php?adminjob=delmsg|127.0.0.1|1256187492||
+<?die;?>|lippman||/vod/admin.php?adminjob=updatecache|127.0.0.1|1256187596||
+<?die;?>|lippman||/vod/admin.php?adminjob=updatecache&|127.0.0.1|1256187599|action=template_cache, |
+<?die;?>|lippman||/vod/admin.php?adminjob=updatecache|127.0.0.1|1256187604||
+<?die;?>|lippman||/vod/admin.php?adminjob=updatecache&|127.0.0.1|1256187609|action=cache, |
+<?die;?>|lippman||/vod/admin.php?|127.0.0.1|1256187703||
+<?die;?>|lippman||/vod/admin.php?adminjob=left|127.0.0.1|1256187704||
+<?die;?>|lippman||/vod/admin.php?adminjob=admin|127.0.0.1|1256187704||
+<?die;?>|lippman||/vod/admin.php?adminjob=updatecache|127.0.0.1|1256187854||
+<?die;?>|lippman||/vod/admin.php?adminjob=updatecache&|127.0.0.1|1256187856|action=cache, |
+<?die;?>|lippman||/vod/admin.php?|127.0.0.1|1256187862||
+<?die;?>|lippman||/vod/admin.php?adminjob=admin|127.0.0.1|1256187862||
+<?die;?>|lippman||/vod/admin.php?|127.0.0.1|1256187865||
+<?die;?>|lippman||/vod/admin.php?adminjob=admin|127.0.0.1|1256187866||
+<?die;?>|lippman||/vod/admin.php?adminjob=left|127.0.0.1|1256187866||

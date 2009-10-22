@@ -104,7 +104,7 @@ insert=true;
 }
 else{	
 var old_link=old_info.split("_www.zzsky.cn_");
-for(var j=0;j<=5;j++){
+for(var j=0;j<6;j++){
 if(old_link[j].indexOf(linkname)!=-1)
 insert=false;
 if(old_link[j]=="null")
@@ -113,7 +113,6 @@ break;
 }
 if(insert&&play){
 wlink+=getCookie("history_info");
-alert(wlink);
 setCookie("history_info",wlink);
 history_show().reload();
 break;
