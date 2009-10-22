@@ -1,6 +1,6 @@
 #
-# robots.txt for PHPvod
-# Version 1.x
+# robots.txt
+# Version 1.0
 #
 
 User-agent: *
