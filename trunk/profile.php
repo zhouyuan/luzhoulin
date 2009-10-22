@@ -11,7 +11,7 @@ if ($action=="show"){
 	if($id!=$uid && $gp_allowprofile=='0') Showmsg('profile_error');
 	
 	if($id=='0') Showmsg('guest_info');
-
+	
 	$userdb=array();
 	$userdb =$db->get_one("SELECT m.*,md.* FROM pv_members m LEFT JOIN pv_memberdata md ON m.uid=md.uid WHERE m.uid='$id'");
 	if(!$userdb) {
