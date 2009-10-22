@@ -1,7 +1,7 @@
 <?php
 !function_exists('adminmsg') && exit('Forbidden');
 $basename="$admin_file?adminjob=nation";
-
+$role = $admin['grouptitle'];
 if (!$action){
 	$nationdb=array();
 	$query=$db->query("SELECT * FROM pv_nations ORDER BY vieworder");

@@ -1,12 +1,18 @@
 <?php
+
 !function_exists('adminmsg') && exit('Forbidden');
 $basename="$admin_file?adminjob=setuser";
-
+$role = $admin['grouptitle'];
 if (!$action){
+	
 	$groupselect="<option value='-1'>普通会员</option>";
-	$query=$db->query("SELECT gid,gptype,grouptitle FROM pv_usergroups WHERE gptype<>'member' AND gptype<>'default' ORDER BY gid");
-	while($group=$db->fetch_array($query)){
-		$groupselect.="<option value=$group[gid]>$group[grouptitle]</option>";
+	if($role =="校级管理员")$groupselect.="<option value=6>未验证会员</option>";
+	else if($role == "区级管理员")$groupselect.="<option value=6>未验证会员</option><option value=3>校级管理员</option>";
+	else{
+		$query=$db->query("SELECT gid,gptype,grouptitle FROM pv_usergroups WHERE gptype<>'member' AND gptype<>'default' ORDER BY gid");
+		while($group=$db->fetch_array($query)){
+			$groupselect.="<option value=$group[gid]>$group[grouptitle]</option>";
+		}
 	}
 	include PrintEot('setuser');exit;
 } elseif($action=='addnew'){
@@ -84,21 +90,32 @@ if (!$action){
 	$pages=numofpage($count,$page,$numofpage,"$admin_file?adminjob=setuser&action=$action&schname=".rawurlencode($schname)."&schemail=$schemail&regdate=$regdate&orderway=$orderway&lines=$lines&");
 	$start=($page-1)*$lines;
 	$limit="LIMIT $start,$lines";
-	$groupselect="<option value='-1'>普通会员</option>";
+	/*$groupselect="<option value='-1'>普通会员</option>";
 	$query=$db->query("SELECT gid,gptype,grouptitle FROM pv_usergroups WHERE gptype<>'member' AND gptype<>'default' ORDER BY gid");
 	while($group=$db->fetch_array($query)){
 		$gid=$group['gid'];
 		$groupselect.="<option value='$gid'>$group[grouptitle]</option>";
+	}*/
+	$groupselect="<option value='-1'>普通会员</option>";
+	if($role =="校级管理员")$groupselect.="<option value='6'>未验证会员</option>";
+	else if($role == "区级管理员")$groupselect.="<option value='6'>未验证会员</option><option value='3'>校级管理员</option>";
+	else{
+		$query=$db->query("SELECT gid,gptype,grouptitle FROM pv_usergroups WHERE gptype<>'member' AND gptype<>'default' ORDER BY gid");
+		while($group=$db->fetch_array($query)){
+			$groupselect.="<option value='$group[gid]'>$group[grouptitle]</option>";
+		}
 	}
 	$schdb=array();
 	$query=$db->query("SELECT m.uid,m.username,m.email,m.groupid,m.regdate,md.postnum,md.onlineip FROM pv_members m LEFT JOIN pv_memberdata md ON md.uid=m.uid WHERE $sql $order $limit");
 	while($sch=$db->fetch_array($query)){
+	//print_r($ltitle);exit;
 		$sch['regdate']= get_date($sch['regdate']);
 		strpos($sch['onlineip'],'|') && $sch['onlineip']=substr($sch['onlineip'],0,strpos($sch['onlineip'],'|'));
 
 		if($sch['groupid']=='-1'){
 			$sch['groupselect']=str_replace("<option value='-1'>普通会员</option>","<option value='-1' selected>普通会员</option>",$groupselect);
 		} else{
+			//adminmsg($groupselect);exit;
 			$sch['groupselect']=str_replace("<option value='$sch[groupid]'>".$ltitle[$sch['groupid']]."</option>","<option value='$sch[groupid]' selected>".$ltitle[$sch['groupid']]."</option>",$groupselect);
 		}
 
@@ -128,9 +145,13 @@ if (!$action){
 		@extract($db->get_one("SELECT m.*,md.* FROM pv_members m LEFT JOIN pv_memberdata md ON md.uid=m.uid WHERE m.uid='$uid'"));
 
 		$groupselect="<option value='-1'>普通会员</option>";
-		$query=$db->query("SELECT gid,gptype,grouptitle FROM pv_usergroups WHERE gptype<>'member' AND gptype<>'default' ORDER BY gid");
-		while($group=$db->fetch_array($query)){
-			$groupselect.="<option value='$group[gid]'>$group[grouptitle]</option>";
+		if($role =="校级管理员")$groupselect.="<option value='6'>未验证会员</option>";
+		else if($role == "区级管理员")$groupselect.="<option value='6'>未验证会员</option><option value='3'>校级管理员</option>";
+		else{
+			$query=$db->query("SELECT gid,gptype,grouptitle FROM pv_usergroups WHERE gptype<>'member' AND gptype<>'default' ORDER BY gid");
+			while($group=$db->fetch_array($query)){
+				$groupselect.="<option value='$group[gid]'>$group[grouptitle]</option>";
+			}
 		}
 
 		$groupselect = str_replace("<option value='$groupid'>","<option value='$groupid' selected>",$groupselect);
