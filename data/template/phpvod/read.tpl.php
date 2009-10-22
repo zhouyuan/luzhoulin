@@ -133,8 +133,8 @@ if(history_info!=null){
 history_arg=history_info.split("_www.zzsky.cn_");
 var i;
 var maxlength = history_arg.length;
-if(history_arg.length>5)maxlength = 5;
-for(i=0;i<=maxlength;i++){
+if(history_arg.length>6)maxlength = 6;
+for(i=0;i<maxlength;i++){
 if(history_arg[i]!="null"){
 var wlink=history_arg[i].split("+");
 content+=("<font color='#ff000'>¡ü</font>"+"<a href='"+wlink[1]+"' target='_blank'>"+wlink[0]+"</a><br>");
