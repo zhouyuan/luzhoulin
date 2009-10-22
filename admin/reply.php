@@ -1,6 +1,9 @@
 <?php
 !function_exists('adminmsg') && exit('Forbidden');
 $basename="$admin_file?adminjob=reply";
+$role = $admin['grouptitle'];
+$userRegion = $admin['region'];
+$userSchool = $admin['school'];
 
 if (!$action){
 	include PrintEot('reply');exit;
@@ -22,11 +25,15 @@ if (!$action){
 	if($yz!='all' && is_numeric($yz)){
 		$sql.=" AND yz=$yz";
 	}
+	
+	if($role =="校级管理员")$sql.=" AND m.school = '$userSchool' AND groupid >5 OR groupid<3 ";
+	else if($role == "区级管理员")$sql.=" AND m.region = '$userRegion' AND groupid<>5 ";
+	
 	if($orderway){
 		$order="ORDER BY '$orderway'";
 		 $asc && $order.=$asc;
 	}
-	$rs=$db->get_one("SELECT COUNT(*) AS count FROM pv_replier WHERE $sql");
+	$rs=$db->get_one("SELECT COUNT(*) AS count FROM pv_replier inner join pv_members m on pv_replier.authorid = m.uid WHERE $sql");
 	$count=$rs['count'];
 	if(!is_numeric($lines))$lines=100;
 	(!is_numeric($page) || $page < 1) && $page=1;
@@ -39,7 +46,7 @@ if (!$action){
 	$limit="LIMIT $start,$lines";
 
 	$schdb=array();
-	$query=$db->query("SELECT * FROM pv_replier WHERE $sql $order $limit");
+	$query=$db->query("SELECT * FROM pv_replier inner join pv_members m on pv_replier.authorid = m.uid WHERE $sql $order $limit");
 	while($sch=$db->fetch_array($query)){
 		$sch['postdate']= get_date($sch['postdate']);
 		$sch['yz'] = $sch['yz']=='1' ? '已通过' : '未审核';

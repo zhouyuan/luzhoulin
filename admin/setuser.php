@@ -3,6 +3,8 @@
 !function_exists('adminmsg') && exit('Forbidden');
 $basename="$admin_file?adminjob=setuser";
 $role = $admin['grouptitle'];
+$userRegion = $admin['region'];
+$userSchool = $admin['school'];
 if (!$action){
 	
 	$groupselect="<option value='-1'>普通会员</option>";
@@ -75,6 +77,10 @@ if (!$action){
 		$schtime=$timestamp-$regdate;
 		$sql.=" AND m.regdate<'$schtime'";
 	}
+	
+	if($role =="校级管理员")$sql.=" AND m.school = '$userSchool' AND groupid >5 OR groupid<3 ";
+	else if($role == "区级管理员")$sql.=" AND m.region = '$userRegion' AND groupid<>5 ";
+	
 	if($orderway){
 		$order="ORDER BY '$orderway'";
 		$asc && $order.=$asc;
