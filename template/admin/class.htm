@@ -53,10 +53,10 @@ EOT;
 foreach($listdb as $value){
 $edit = $value['cup']==0 ? 'edit_board' : 'edit_sub';
 if($role == '校级管理员')break;
-else if($role == '区级管理员'){
+else {
 	if($value[caption] == $admin['region']&&$value['cup']==0)$flag = true;
     if($value[caption] != $admin['region']&&$value['cup']==0)$flag = false;
-    if($flag){
+    if($flag||$role == '系统管理员'){
 print <<<EOT
 -->
 <tr>
