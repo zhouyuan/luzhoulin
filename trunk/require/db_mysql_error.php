@@ -13,7 +13,7 @@ Class DB_ERROR {
 		echo"<table style='TABLE-LAYOUT:fixed;WORD-WRAP: break-word'><tr><td>$msg";
 		echo"<br><br><b>The URL Is</b>:<br>http://$_SERVER[HTTP_HOST]$REQUEST_URI";
 		echo"<br><br><b>MySQL Server Error</b>:<br>$sqlerror  ( $sqlerrno )";
-		echo"<br><br><b>You Can Get Help In</b>:<br><a target=_blank href=http://www.phpvod.com><b>http://www.phpvod.com</b></a>";
+		echo"<br><br><b>You Can Get Help In</b>:<br><a target=_blank href=$db_wwwurl><b>$db_wwwurl</b></a>";
 		echo"</td></tr></table>";
 		exit;
 	}
