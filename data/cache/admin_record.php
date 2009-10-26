@@ -128,3 +128,49 @@
 <?die;?>|lippman||/vod/admin.php?adminjob=updatecache|127.0.0.1|1256540240||
 <?die;?>|lippman||/vod/admin.php?adminjob=updatecache&|127.0.0.1|1256540241|action=cache, |
 <?die;?>|lippman||/vod/admin.php?adminjob=updatecache|127.0.0.1|1256540242||
+<?die;?>|lippman||/vod/admin.php?|127.0.0.1|1256542663||
+<?die;?>|lippman||/vod/admin.php?adminjob=left|127.0.0.1|1256542663||
+<?die;?>|lippman||/vod/admin.php?adminjob=admin|127.0.0.1|1256542663||
+<?die;?>|lippman||/vod/admin.php?adminjob=class|127.0.0.1|1256542665||
+<?die;?>|lippman||/vod/admin.php?adminjob=class&action=edit_board&cid=1|127.0.0.1|1256542667||
+<?die;?>|lippman||/vod/admin.php?adminjob=class|127.0.0.1|1256542675|action=edit_board, step=2, cid=1, vieworder=0, caption=小学, |
+<?die;?>|lippman||/vod/admin.php?adminjob=class&action=edit_board&cid=1|127.0.0.1|1256542676||
+<?die;?>|lippman||/vod/admin.php?adminjob=class|127.0.0.1|1256542678||
+<?die;?>|lippman||/vod/admin.php?adminjob=class&action=edit_board&cid=2|127.0.0.1|1256542682||
+<?die;?>|lippman||/vod/admin.php?adminjob=class|127.0.0.1|1256542687|action=edit_board, step=2, cid=2, vieworder=0, caption=初中, |
+<?die;?>|lippman||/vod/admin.php?adminjob=class&action=edit_board&cid=2|127.0.0.1|1256542688||
+<?die;?>|lippman||/vod/admin.php?adminjob=class|127.0.0.1|1256542690||
+<?die;?>|lippman||/vod/admin.php?adminjob=class&action=edit_board&cid=3|127.0.0.1|1256542692||
+<?die;?>|lippman||/vod/admin.php?adminjob=class|127.0.0.1|1256542697|action=edit_board, step=2, cid=3, vieworder=0, caption=高中, |
+<?die;?>|lippman||/vod/admin.php?adminjob=class&action=edit_board&cid=3|127.0.0.1|1256542698||
+<?die;?>|lippman||/vod/admin.php?adminjob=class|127.0.0.1|1256542700||
+<?die;?>|lippman||/vod/admin.php?|127.0.0.1|1256542770||
+<?die;?>|lippman||/vod/admin.php?adminjob=left|127.0.0.1|1256542770||
+<?die;?>|lippman||/vod/admin.php?adminjob=admin|127.0.0.1|1256542770||
+<?die;?>|lippman||/vod/admin.php?adminjob=class|127.0.0.1|1256542773||
+<?die;?>|lippman||/vod/admin.php?adminjob=class&action=edit_sub&cid=13|127.0.0.1|1256542778||
+<?die;?>|lippman||/vod/admin.php?adminjob=class|127.0.0.1|1256542788|action=edit_sub, step=2, cid=13, cup=1, vieworder=0, caption=第一小学, type=free, orderway=postdate, orderasc=1, atccheck=0, |
+<?die;?>|lippman||/vod/admin.php?adminjob=class&action=edit_sub&cid=13|127.0.0.1|1256542790||
+<?die;?>|lippman||/vod/admin.php?adminjob=class|127.0.0.1|1256542792||
+<?die;?>|lippman||/vod/admin.php?adminjob=class&action=edit_sub&cid=14|127.0.0.1|1256542799||
+<?die;?>|lippman||/vod/admin.php?adminjob=class|127.0.0.1|1256542809|action=edit_sub, step=2, cid=14, cup=2, vieworder=0, caption=第一初中, type=free, orderway=postdate, orderasc=1, atccheck=0, |
+<?die;?>|lippman||/vod/admin.php?adminjob=class&action=edit_sub&cid=14|127.0.0.1|1256542811||
+<?die;?>|lippman||/vod/admin.php?adminjob=class|127.0.0.1|1256542813||
+<?die;?>|lippman||/vod/admin.php?adminjob=class&action=delete&cid=13|127.0.0.1|1256542821||
+<?die;?>|lippman||/vod/admin.php?adminjob=class|127.0.0.1|1256542822||
+<?die;?>|lippman||/vod/admin.php?adminjob=class&action=edit_sub&cid=15|127.0.0.1|1256542825||
+<?die;?>|lippman||/vod/admin.php?adminjob=class|127.0.0.1|1256542834|action=edit_sub, step=2, cid=15, cup=2, vieworder=0, caption=第二初中, type=free, orderway=postdate, orderasc=1, atccheck=0, |
+<?die;?>|lippman||/vod/admin.php?adminjob=class&action=edit_sub&cid=15|127.0.0.1|1256542835||
+<?die;?>|lippman||/vod/admin.php?adminjob=class|127.0.0.1|1256542837||
+<?die;?>|lippman||/vod/admin.php?adminjob=class&action=edit_sub&cid=31|127.0.0.1|1256542841||
+<?die;?>|lippman||/vod/admin.php?adminjob=class|127.0.0.1|1256542847|action=edit_sub, step=2, cid=31, cup=1, vieworder=0, caption=第三初中, type=free, orderway=postdate, orderasc=1, atccheck=0, |
+<?die;?>|lippman||/vod/admin.php?adminjob=class&action=edit_sub&cid=31|127.0.0.1|1256542848||
+<?die;?>|lippman||/vod/admin.php?adminjob=class|127.0.0.1|1256542850||
+<?die;?>|lippman||/vod/admin.php?adminjob=class&action=edit_sub&cid=31|127.0.0.1|1256542852||
+<?die;?>|lippman||/vod/admin.php?adminjob=class|127.0.0.1|1256542855|action=edit_sub, step=2, cid=31, cup=2, vieworder=0, caption=第三初中, type=free, orderway=postdate, orderasc=1, atccheck=0, |
+<?die;?>|lippman||/vod/admin.php?adminjob=class&action=edit_sub&cid=31|127.0.0.1|1256542857||
+<?die;?>|lippman||/vod/admin.php?adminjob=class|127.0.0.1|1256542859||
+<?die;?>|lippman||/vod/admin.php?adminjob=class&action=edit_sub&cid=30|127.0.0.1|1256542861||
+<?die;?>|lippman||/vod/admin.php?adminjob=class|127.0.0.1|1256542869|action=edit_sub, step=2, cid=30, cup=3, vieworder=0, caption=第一高中, type=free, orderway=postdate, orderasc=1, atccheck=0, |
+<?die;?>|lippman||/vod/admin.php?adminjob=class&action=edit_sub&cid=30|127.0.0.1|1256542870||
+<?die;?>|lippman||/vod/admin.php?adminjob=class|127.0.0.1|1256542872||

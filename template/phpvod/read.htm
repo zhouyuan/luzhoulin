@@ -151,13 +151,7 @@ function history_show(){
 
 
 <div id="class_menu" >
-	<ul>
-		<li><a href="$db_bfn">首页</a></li>
-		<!--{loop:class:$value cid=$cup}-->
-		<li><a href="class.php?cid=$value[cid]">$value[caption]</a></li>
-		<!--{/loop:class}-->
-		<li><a href="$link">向上</a></li>
-	</ul>
+	<a href="$db_bfn">首页</a> -> {$class[$cid][caption]}
 </div>
 
 
