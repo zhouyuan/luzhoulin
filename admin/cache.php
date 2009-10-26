@@ -7,6 +7,8 @@ function updatecache($array=''){
 		updatecache_c();
 		updatecache_g();
 		updatecache_l();
+		updatecache_grade();
+		updatecache_tag();
 		updatecache_class();
 		updatecache_sy();		
 		updatecache_n();
@@ -106,6 +108,30 @@ function class_array($cup,&$array)
 	}
 }
 
+function updatecache_tag(){
+	global $db;
+	$tagcache='';
+	$tag="\$tag = array(";
+	$tagcache="\$tag_opt='";
+	$query=$db->query("SELECT * FROM pv_tags ORDER BY nationID");
+	while(@extract(db_cv($db->fetch_array($query)))){
+		$tagcache.="\r\n<option value=\"$subject\">{$subject}</option>";
+	}
+//	while($row = $db->fetch_array($query)){
+//		$array[]=$row;
+//		$query = $db->query("SELECT * FROM pv_tags ORDER BY gradeID");
+//		while($row = $db->fetch_array($query))
+//		{
+//			$array[][]=$row;
+//		}
+//	}
+//	
+	$tagcache .= "\r\n';";
+	writeover(R_P."data/cache/tag.php","<?php\r\n".$tagcache."\r\n?>");
+	
+
+}
+
 function updatecache_class()
 {
 	$arr = array();
@@ -157,6 +183,8 @@ function updatecache_class()
 	writeover(R_P.'data/cache/class.php',"<?php\r\n".$class."\r\n".$class_opt."\r\n".$region."\r\n".$school."\r\n?>");
 }
 
+
+
 function updatecache_sy($name=''){
 	global $db;
 	if($name!='') $sqlwhere="WHERE name='$name'";
@@ -178,6 +206,20 @@ function updatecache_n(){
 	$nationcache .= "\r\n';";
 	writeover(R_P."data/cache/nation.php","<?php\r\n".$nationcache."\r\n?>");
 }
+
+function updatecache_grade(){
+	global $db;
+	$gradecache='';
+	$gradecache="\$grade_opt='";
+	$query=$db->query("SELECT * FROM pv_grades ORDER BY cid");
+	while(@extract(db_cv($db->fetch_array($query)))){
+		$gradecache.="\r\n<option value=\"$subject\">{$subject}</option>";
+	}
+	$gradecache .= "\r\n';";
+	writeover(R_P."data/cache/grade.php","<?php\r\n".$gradecache."\r\n?>");
+}
+
+
 
 function updatecache_p(){
 	global $db;
