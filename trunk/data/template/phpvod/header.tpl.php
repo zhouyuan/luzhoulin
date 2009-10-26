@@ -88,8 +88,8 @@ float: left;
 }
 .box_border .box_caption{
 padding: 5px 10px;
-background-color: #F5F5F5;
-border-top: solid 2px #C00;
+background-color: #FaFaFa;
+border-top: solid 1px #C00;
 border-bottom: solid 1px #DDD;
 float: left;
 clear: both;
@@ -134,8 +134,8 @@ float: left;
 .table th{
 padding: 5px 10px;
 text-align: left;
-background-color: #F5F5F5;
-border-top: solid 2px #C00;
+background-color: #FaFaFa;
+border-top: solid 1px #C00;
 border-bottom: solid 1px #DDD;
 }
 
@@ -169,8 +169,10 @@ padding: 1px 2px;
 }
 
 input.button{
-border: solid 1px #DDD;
-background-color: #FFF;
+padding:3px 4px;
+    color:#fff;
+border: solid 1px #F9A4B2;
+background-color: #D32C47;
 }
 
 textarea{
@@ -312,27 +314,44 @@ float: left;
 text-decoration: none;
 }
 #mainmenu_top{
-height:28px;
+height:26px;
+background:#ffede8;
 }
 #mainmenu_top ul li {
 float:left;
 }
 #mainmenu_top ul li .menuhover{
-background:url(<?=$db_wwwurl?>/<?=$imgpath?>/<?=$stylepath?>/mainmenu_s.gif) no-repeat;
-color:#fff;
+background:#ffede8;
+color:#3c3c39;
 }
 #mainmenu_top ul li a{
-padding-top:8px;
-color:#666666;
+padding-left:8px;
+padding-right:8px;
+border-top:1px solid #ffede8;
+border-left:1px solid #ffede8;
+border-right:1px solid #ffede8;
+color:#3c3c39;
 display:block;
-font-weight:bold;
-width:81px;
-height:20px;
+font-size:14px;
+height:25px;
+line-height:25px;
 text-align:center;
 cursor:pointer;
-background:url(<?=$db_wwwurl?>/<?=$imgpath?>/<?=$stylepath?>/mainmenu_h.gif) no-repeat;
+float:left;
+}
+#mainmenu_top ul li a:hover{
+border-top:1px solid #c00;
+border-left:1px solid #c00;
+border-right:1px solid #c00;
+background:#fff;
+color:#000;
 }
 #mainmenu_bottom{
+border-top:1px solid #c00;
+border-right:1px solid #e0e0e0;
+border-bottom:1px solid #e0e0e0;
+border-left:1px solid #e0e0e0;
+padding:0.5em;
 background:url(<?=$db_wwwurl?>/<?=$imgpath?>/<?=$stylepath?>/mainmenu_bg.jpg) repeat-x;
 }
 #mainmenu_bottom .mainmenu_rbg{
@@ -341,17 +360,16 @@ margin-left:0px;
 height:32px;
 }
 #mainmenu_bottom ul li{
-color: #FFF;
+color: #000;
 float:left;
 height:32px;
 line-height:32px;
 margin-left:7px;
 padding-left:8px;
 padding-right:18px;
-background:url(<?=$db_wwwurl?>/<?=$imgpath?>/<?=$stylepath?>/menulink_bg_normal.gif) no-repeat right;
 }
 #mainmenu_bottom ul li a{
-color:#fff;
+color:#000;
 display:block;
 }
 #mainmenu_bottom ul li a:hover{
@@ -454,21 +472,25 @@ width: 70px;
 /* --------------- 影片列表页 --------------- */
 /* --------------- class --------------- */
 #class_menu{
-color:#FFFFFF;
-background:url(<?=$db_wwwurl?>/<?=$imgpath?>/<?=$stylepath?>/mainmenu_bg.jpg) repeat-x;
+color:#000;
+background:#fff;
 height: 30px;
 margin-bottom: 15px;
+font-size:14px;
 }
 
+#class_menu a{
+font-size:14px;
+}
 #class_menu ul li{
-color: #FFF;
+color: #000;
 float:left;
 padding: 7px 18px 4px 18px;
-background:url(<?=$db_wwwurl?>/<?=$imgpath?>/<?=$stylepath?>/menulink_bg_normal.gif) no-repeat right;
+background:#fff;
 }
 
 #class_menu ul li a{
-color:#fff;
+color:#000;
 }
 
 #class_menu ul li a:hover{
@@ -716,7 +738,9 @@ height: 120x;
 <? } ?>
 
 ┆ <a href="search.php">搜索</a>
-<!--┆ <a href="faq.php">帮助</a>-->
+┆ <a href="faq.php">帮助</a>
+┆ <a href="#" onClick="this.style.behavior='url(#default#homepage)'; this.setHomePage(document.location.href);">设为首页</a>
+┆ <a href="javascript:window.external.addFavorite(document.location.href,document.title)">加入收藏</a>
 </div>
 </div>
 </div><!-- header end -->

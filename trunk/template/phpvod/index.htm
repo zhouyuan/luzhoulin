@@ -39,9 +39,11 @@ function showM(thisobj,Num)
 
 <div id="menu">
 	<div id="mainmenu_top">$mm</div>
-	<div id="mainmenu_bottom" >
+	<!--{if $cid>0}-->
+	<div id="mainmenu_bottom">
 		<div class="mainmenu_rbg">$mb</div>
 	</div>
+	<!--{/if}-->
 </div>
 
 
@@ -95,25 +97,42 @@ function showM(thisobj,Num)
 		</h2>
 	</div>
 
-	<div class="box_content box_caption_w720">
-	<ul class="sv">
 
+
+
+	<div class="box_content box_caption_w720">
+	<table class="table box_caption_w720 " >
+
+	<tr class="caption">
+		<td width="10%">ID</td>
+		<td width="25%">标题</td>
+		<td width="20%">会员</td>
+		<td width="15%">更新时间</td>
+		<td width="10%">人气</td>
+		<td width="10%">评论数</td>
+		<td width="10%">审核</td>
+	</tr>
+	
+	
 		<!--{eval $n=1;}-->
 		<!--{loop:video:$video cid=$c1[cid]|showsub=1|order=lostdate DESC,postdate DESC|limit=16|subject_len=22}-->
-		<!--{if $n<=4}-->
-		<li class="list1">
-			<div><a href="read.php?vid=$video[vid]"><img class="pic" src="$video[pic]" /></a></div>
-			<div class="subject"><a href="read.php?vid=$video[vid]">$video[subject]</a></div>
-			<div class="author"><a href="profile.php?action=show&id=$video[authorid]" target="_blank">$video[author]</a></div>
-		</li>
-		<!--{else}-->
-		<li class="list2">
-			<img src="$imgpath/$stylepath/index/picli.gif" /><a href="read.php?vid=$video[vid]">$video[subject]</a>
-		</li>
-		<!--{/if}-->
+		
+	<tr class="text_center">
+		<td>$video[vid]</td>
+		<td><a href="read.php?vid=$video[vid]" target="_blank">$video[subject]</a></td>
+		<td><a href="profile.php?action=show&id=$video[authorid]" target="_blank">$video[author]</a></td>
+		<td>$video[lostdate]</td>
+		<td>$video[hits]</td>
+		<td>$video[replier]</td>
+		<td>$video[yz]</td>
+	</tr>
+
 		<!--{eval $n++;}-->
 		<!--{/loop:video}-->
-	</ul>
+		
+		
+</table>
+
 	</div>
 </div>
 <!--{/loop:class}-->

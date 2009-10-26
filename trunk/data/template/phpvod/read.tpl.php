@@ -151,9 +151,7 @@ document.getElementById("history").innerHTML="您没有任何浏览记录！";
 
 
 <div id="class_menu" >
-<ul>
-<li><a href="<?=$db_bfn?>">首页</a></li><? $valuedb = pv_loop('class',"cid=$cup"); if(is_array($valuedb)) { foreach($valuedb as $value) { ?><li><a href="class.php?cid=<?=$value[cid]?>"><?=$value[caption]?></a></li><? } } ?><li><a href="<?=$link?>">向上</a></li>
-</ul>
+<a href="<?=$db_bfn?>">首页</a> -> <?=$class[$cid][caption]?>
 </div>
 
 
