@@ -3,6 +3,8 @@ require_once('global.php');
 require_once(R_P.'require/header.php');
 include_once(R_P.'data/cache/class.php');
 include_once(R_P.'data/cache/nation.php');
+include_once(R_P.'data/cache/grade.php');
+include_once(R_P.'data/cache/tag.php');
 include_once(R_P.'data/cache/player.php');
 include_once(R_P.'data/cache/dbset.php');
 include_once(R_P.'data/cache/creditdb.php');
@@ -16,7 +18,8 @@ $rs = $db->get_one("SELECT
 FROM
   pv_members m	LEFT JOIN pv_class c ON c.caption=m.school
 WHERE m.username='$username'");
-$cid=$rs[cid];
+$cid=$rs['cid'];
+
 
 list(,,,$postgd)=explode("\t",$db_gdcheck);
 !$postaction && $postaction="new";
@@ -96,7 +99,7 @@ if ($postaction=="new"){
 		$father = $class[$class[$cid]['fathers']]['caption'];
 		
 		$db->update("INSERT INTO pv_video(cid,nid,author,authorid,postdate,lostdate,subject,playactor,director,tag,content,yz,grade,region,school) 
-		VALUES('$cid','$nid','$username','$uid','$timestamp','$timestamp','$subject','$playactor','$director','$tag','$atc_content','$yz','$grade','$father','$self')");
+		VALUES('$cid','$nid','$username','$uid','$timestamp','$timestamp','$subject','$playactor','$director','$newtag','$atc_content','$yz','$grade','$father','$self')");
 		$vid=$db->insert_id();		
 		$db->update("INSERT INTO pv_videodata SET vid='$vid',sale='$sale',need='$need'");
 		 
@@ -181,7 +184,8 @@ if ($postaction=="new"){
 		extract($video);
 		$class_opt = str_replace("<option value=\"$cid\">","<option value=\"$cid\" selected>",$class_opt);
 		$nation_opt = str_replace("<option value=\"$nid\">","<option value=\"$nid\" selected>",$nation_opt);
-
+		$grade_opt = str_replace("<option value=\"$nid\">","<option value=\"$nid\" selected>",$grade_opt);
+		
 		$credit_opt = "<option value=\"money\">½ðÇ®</option><option value=\"rvrc\">ÍþÍû</option>";
 		foreach($_CREDITDB as $key => $value)
 		{
@@ -291,7 +295,7 @@ if ($postaction=="new"){
 		$self = $class[$cid]['caption'];
 		$father = $class[$class[$cid]['fathers']]['caption'];
 		
-		$db->update("UPDATE pv_video SET cid='$cid',nid='$nid',subject='$subject',tag='$tag',playactor='$playactor',director='$director',content='$atc_content',lostdate='$timestamp', grade='$grade',region='$father',school='$self' WHERE vid='$vid'");
+		$db->update("UPDATE pv_video SET cid='$cid',nid='$nid',subject='$subject',tag='$newtag',playactor='$playactor',director='$director',content='$atc_content',lostdate='$timestamp', grade='$grade',region='$father',school='$self' WHERE vid='$vid'");
 
 	if(is_numeric($sale_value) && (int)$sale_value > 0)
 			$sale="{$sale_value}|{$sale_type}";

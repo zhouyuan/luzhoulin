@@ -20,14 +20,14 @@
 </td>
 </tr>
 <? } ?>
-<tr>
+<!--<tr>
 <td class="w40">所属学校<span style="color:red;">*</span></td>
 <td>
 <select name="cid" >
 <?=$class_opt?>
 </select>
 </td>
-</tr>
+</tr>-->
 
 <tr>
 <td>科目<span style="color:red;">*</span></td>
@@ -45,25 +45,27 @@
 </tr>
 
 <tr>
-<td>知识点标签[<a href="#" onclick="this.blur();alert('其他用户可以通过标签方便的找到这个节目');return false;"><strong>?</strong></a>]</td>
+<td>所属年级</td>
 <td>
-标签1 <input name="tag[]" size="10" value="<?=$tag[0]?>" maxlength="10" class="text" /> 
-标签2 <input name="tag[]" size="10" value="<?=$tag[1]?>" maxlength="10" class="text" /> 
-标签3 <input name="tag[]" size="10" value="<?=$tag[2]?>" maxlength="10" class="text" /> 
+<select name="grade">
+<?=$grade_opt?>
+</select>
 </td>
 </tr>
 
 <tr>
-<td>所属年级</td>
-<!--<td><input type="text" name="playactor" value="<?=$playactor?>" class="text" /> (多个演员或导演请用空格或","隔开)</td>-->
+<td>知识点标签[<a href="#" onclick="this.blur();alert('其他用户可以通过标签方便的找到这个节目');return false;"><strong>?</strong></a>]</td>
 <td>
-<select name="grade">
-<option value="小学一年级">小学一年级</option>
-<option value="小学二年级">小学二年级</option>
-<option value="小学三年级">小学三年级</option>
+    <select name="newtag">
+<?=$tag_opt?>
 </select>
+<!--		标签1 <input name="tag[]" size="10" value="<?=$tag[0]?>" maxlength="10" class="text" /> 
+标签2 <input name="tag[]" size="10" value="<?=$tag[1]?>" maxlength="10" class="text" /> 
+标签3 <input name="tag[]" size="10" value="<?=$tag[2]?>" maxlength="10" class="text" /> -->
 </td>
 </tr>
+
+
 
 <tr>
 <td>主讲老师</td>

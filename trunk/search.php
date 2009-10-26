@@ -10,7 +10,11 @@ if(!$action){
 }elseif($action=='search'){
 	if($SYSTEM['allowadminshow']!='1') $yzsql="AND yz='1'"; else $yzsql='';
 	$keyword = urldecode(trim($keyword));
-	empty($keyword) && Showmsg('no_condition');
+	$suject=$_POST['subject'];
+	$director=$_POST['director'];
+	$tag=$_POST['tag'];
+	//empty($keyword) && Showmsg('no_condition');
+	empty($subject) && Showmsg('no_condition');
 	$sql='1';
 
 	if($cid){
@@ -44,6 +48,22 @@ if(!$action){
 		else
 			$sql.=" AND ($field LIKE '%$keyword%')";
 	}
+	
+	if($suject){
+		$field = 'subject';
+		$sql.=" AND ($field LIKE '%$subject%')";
+	}
+	
+	if($director){
+		$field = 'director';
+		$sql.=" AND ($field LIKE '%$director%')";
+	}
+	
+	if($tag){
+		$field = 'tag';
+		$sql.=" AND ($field LIKE '%$tag%')";
+	}
+
 	if(!$orderway){
 		$orderway = 'lostdate';
 	}
