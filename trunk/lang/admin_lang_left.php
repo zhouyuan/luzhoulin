@@ -18,6 +18,7 @@ $lang=array(
 	'分类管理'=>array(
 		'board'=>"<a target=main href='$admin_file?adminjob=class'>区校管理</a>",
 		'nation'=>"<a target=main href='$admin_file?adminjob=nation'>课程分类管理</a>",
+		'tags'=>"<a target=main href='$admin_file?adminjob=tags'>知识点管理</a>",
 		/*'unite'=>"<a target=main href='$admin_file?adminjob=unite'>合并分类</a>",*/
 	),
 	'视频管理'=>array(
@@ -43,7 +44,7 @@ $lang=array(
 	'信息管理'=>array(
 		'announce'=>"<a target=main href='$admin_file?adminjob=announce'>网站公告</a>",
 		'sharelinks'=>"<a target=main href='$admin_file?adminjob=sharelinks'>友情链接</a>",
-		/*'help'=>"<a target=main href='$admin_file?adminjob=help'>自定义帮助文档</a>",*/
+		'help'=>"<a target=main href='$admin_file?adminjob=help'>自定义帮助文档</a>",
 		'record'=>"<a target=main href='$admin_file?adminjob=record'>后台日志管理</a>",
 	),
 	'辅助功能'=>array(
