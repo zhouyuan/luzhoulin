@@ -1,7 +1,7 @@
 <?php
 $gp_gid='6';
 $gp_gptype='system';
-$gp_grouptitle='未验证会员';
+$gp_grouptitle='老师';
 $gp_groupimg='8';
 $gp_grouppost='0';
 $gp_maxmsg='10';

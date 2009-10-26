@@ -3,52 +3,7 @@ include_once PrintEot('top');
 if (empty($action)){
 print <<<EOT
 -->
-<form action="$basename&" method="post">
-<input type=hidden name="action" value="menedit">
-<table width=98% border=0 align=center cellspacing=1 cellpadding=0 class=tableborder>
-<tr><td class=header colspan=5>会员组编辑</td></tr>
-<tr align=center>
-	<td>头衔</td><td>等级图片号</td><td>升级点数需求</td><td>编辑</td><td>删除</td>
-</tr>
-<!--
-EOT;
-foreach($memberdb as $member){
-$key=$member[gid];
-print <<<EOT
--->
-<tr>
-<td class=bg align=middle>组ID为:$member[gid] <input type=text size=40 name='memtitle[$key]' value='$member[grouptitle]'></td>
-<td class=bg align=middle><input type=text size=40 name='mempic[$key]' value='$member[groupimg]'></td>
-<td class=bg align=middle><input type=text size=10 name='mempost[$key]' value='$member[grouppost]'></td>
-<td class=bg valign=middle align=center><input type=button value='权限' onclick=location.href='$basename&action=editgroup&gid=$key'></td>
-<td class=bg valign=middle align=center><input type=button value='删除' onclick=location.href='$basename&action=delgroup&delid=$key'></td>
-</tr>
-<!--
-EOT;
-}print <<<EOT
--->
-</table>
-<br><center><input type=submit value="提 交"></center></form>
-<br />
-<form action="$basename&" method="post">
-<input type=hidden name="action" value="addmengroup">
-<table width=50% align=center cellspacing=1 cellpadding=0 class=tableborder>
-<tr><td class=header colspan=2>新增会员组</td></tr>
-<tr>
-	<td class=bg valign=middle align=left width=40%> 头衔</td>
-	<td class=bg valign=middle align=left><input type=text size=40 name='newtitle'></td>
-</tr>
-<tr>
-	<td class=bg valign=middle align=left width=40%>等级图片号</td>
-	<td class=bg valign=middle align=left><input type=text size=40 name='newpic'></td>
-</tr>
-<tr>
-	<td class=bg valign=middle align=left width=40%>升级点数需求</td>
-	<td class=bg valign=middle align=left><input type=text size=40 name='newpost'></td>
-</tr>
-</table>
-<br><center><input type=submit value="提 交"></center></form>
-<br />
+
 <form action="$basename&" method="post">
 <input type=hidden name="action" value="defedit">
 <table width=98% align=center cellspacing=1 cellpadding=0 class=tableborder>

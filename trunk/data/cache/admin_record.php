@@ -174,3 +174,66 @@
 <?die;?>|lippman||/vod/admin.php?adminjob=class|127.0.0.1|1256542869|action=edit_sub, step=2, cid=30, cup=3, vieworder=0, caption=第一高中, type=free, orderway=postdate, orderasc=1, atccheck=0, |
 <?die;?>|lippman||/vod/admin.php?adminjob=class&action=edit_sub&cid=30|127.0.0.1|1256542870||
 <?die;?>|lippman||/vod/admin.php?adminjob=class|127.0.0.1|1256542872||
+<?die;?>|test||/vod/admin.php?|127.0.0.1|1256556448||
+<?die;?>|test||/vod/admin.php?adminjob=left|127.0.0.1|1256556448||
+<?die;?>|test||/vod/admin.php?adminjob=admin|127.0.0.1|1256556448||
+<?die;?>|lippman||/vod/admin.php?|127.0.0.1|1256556461||
+<?die;?>|lippman||/vod/admin.php?adminjob=left|127.0.0.1|1256556461||
+<?die;?>|lippman||/vod/admin.php?adminjob=admin|127.0.0.1|1256556461||
+<?die;?>|lippman||/vod/admin.php?adminjob=settings&type=wwwset|127.0.0.1|1256556476||
+<?die;?>|lippman||/vod/admin.php?adminjob=settings&type=ck|127.0.0.1|1256556485||
+<?die;?>|lippman||/vod/admin.php?adminjob=settings&type=function|127.0.0.1|1256556487||
+<?die;?>|lippman||/vod/admin.php?adminjob=settings&type=wwwset|127.0.0.1|1256556488||
+<?die;?>|lippman||/vod/admin.php?adminjob=level|127.0.0.1|1256556492||
+<?die;?>|lippman||/vod/admin.php?adminjob=level&|127.0.0.1|1256556517|action=addadmingroup, newtitle=老师, newpic=3, |
+<?die;?>|lippman||/vod/admin.php?adminjob=level|127.0.0.1|1256556521||
+<?die;?>|lippman||/vod/admin.php?adminjob=level&action=editgroup&gid=14|127.0.0.1|1256556532||
+<?die;?>|lippman|zhouyuan|Logging Failed|127.0.0.1|1256557322|
+<?die;?>|lippman|zhouyuan|Logging Failed|127.0.0.1|1256557333|
+<?die;?>|test2|123456|Logging Failed|127.0.0.1|1256557363|
+<?die;?>|test2||/vod/admin.php?|127.0.0.1|1256557777||
+<?die;?>|test2||/vod/admin.php?adminjob=left|127.0.0.1|1256557777||
+<?die;?>|test2||/vod/admin.php?adminjob=admin|127.0.0.1|1256557777||
+<?die;?>|lippman||/vod/admin.php?|127.0.0.1|1256557787||
+<?die;?>|lippman||/vod/admin.php?adminjob=left|127.0.0.1|1256557787||
+<?die;?>|lippman||/vod/admin.php?adminjob=admin|127.0.0.1|1256557787||
+<?die;?>|lippman||/vod/admin.php?adminjob=level|127.0.0.1|1256557791||
+<?die;?>|lippman||/vod/admin.php?adminjob=class|127.0.0.1|1256557825||
+<?die;?>|lippman||/vod/admin.php?|127.0.0.1|1256558009||
+<?die;?>|lippman||/vod/admin.php?adminjob=left|127.0.0.1|1256558009||
+<?die;?>|lippman||/vod/admin.php?adminjob=admin|127.0.0.1|1256558009||
+<?die;?>|lippman||/vod/admin.php?adminjob=level|127.0.0.1|1256558014||
+<?die;?>|lippman||/vod/admin.php?adminjob=level|127.0.0.1|1256558110||
+<?die;?>|lippman||/vod/admin.php?adminjob=level|127.0.0.1|1256558147||
+<?die;?>|lippman||/vod/admin.php?adminjob=setuser|127.0.0.1|1256558153||
+<?die;?>|lippman||/vod/admin.php?adminjob=setuser&|127.0.0.1|1256558155|action=search, groupid=, schname=, schname_s=1, schemail=, userip=, regdate=all, orderway=regdate, asc=, lines=100, |
+<?die;?>|lippman||/vod/admin.php?adminjob=setuser&|127.0.0.1|1256558163|action=editgroup, gid=array(1=5, 2=3, 3=4, 4=6, 5=-1, 6=-1, 7=-1, 8=-1, 9=-1, 10=-1, 11=-1, 12=-1, )|
+<?die;?>|lippman||/vod/admin.php?adminjob=setuser|127.0.0.1|1256558165||
+<?die;?>|lippman||/vod/admin.php?adminjob=setuser&|127.0.0.1|1256558167|action=search, groupid=, schname=, schname_s=1, schemail=, userip=, regdate=all, orderway=regdate, asc=, lines=100, |
+<?die;?>|lippman||/vod/admin.php?adminjob=setuser&|127.0.0.1|1256558177|action=editgroup, gid=array(1=5, 2=3, 3=4, 4=-1, 5=6, 6=-1, 7=-1, 8=-1, 9=-1, 10=-1, 11=-1, 12=-1, )|
+<?die;?>|lippman||/vod/admin.php?adminjob=setuser|127.0.0.1|1256558179||
+<?die;?>|lippman||/vod/admin.php?adminjob=setuser&|127.0.0.1|1256558180|action=search, groupid=, schname=, schname_s=1, schemail=, userip=, regdate=all, orderway=regdate, asc=, lines=100, |
+<?die;?>|lippman||/vod/admin.php?adminjob=setuser&|127.0.0.1|1256558194|action=editgroup, gid=array(1=5, 2=3, 3=4, 4=-1, 5=-1, 6=-1, 7=-1, 8=6, 9=-1, 10=-1, 11=-1, 12=-1, )|
+<?die;?>|lippman||/vod/admin.php?adminjob=setuser|127.0.0.1|1256558195||
+<?die;?>|lippman||/vod/admin.php?adminjob=setuser&|127.0.0.1|1256558197|action=search, groupid=, schname=, schname_s=1, schemail=, userip=, regdate=all, orderway=regdate, asc=, lines=100, |
+<?die;?>|lippman||/vod/admin.php?adminjob=setuser&|127.0.0.1|1256558254|action=editgroup, gid=array(1=5, 2=3, 3=4, 4=-1, 5=-1, 6=-1, 7=-1, 8=-1, 9=-1, 10=-1, 11=-1, 12=6, )|
+<?die;?>|lippman||/vod/admin.php?adminjob=setuser|127.0.0.1|1256558255||
+<?die;?>|lippman||/vod/admin.php?adminjob=setuser&|127.0.0.1|1256558257|action=search, groupid=, schname=, schname_s=1, schemail=, userip=, regdate=all, orderway=regdate, asc=, lines=100, |
+<?die;?>|lippman||/vod/admin.php?adminjob=level|127.0.0.1|1256558295||
+<?die;?>|lippman||/vod/admin.php?adminjob=setuser|127.0.0.1|1256558302||
+<?die;?>|lippman||/vod/admin.php?adminjob=setuser&|127.0.0.1|1256558304|action=search, groupid=, schname=, schname_s=1, schemail=, userip=, regdate=all, orderway=regdate, asc=, lines=100, |
+<?die;?>|lippman||/vod/admin.php?adminjob=updatecache|127.0.0.1|1256558316||
+<?die;?>|lippman||/vod/admin.php?adminjob=updatecache&|127.0.0.1|1256558317|action=cache, |
+<?die;?>|lippman||/vod/admin.php?adminjob=updatecache|127.0.0.1|1256558319||
+<?die;?>|lippman||/vod/admin.php?adminjob=updatecache&|127.0.0.1|1256558320|action=template_cache, |
+<?die;?>|lippman||/vod/admin.php?adminjob=updatecache|127.0.0.1|1256558321||
+<?die;?>|lippman||/vod/admin.php?adminjob=updatecache&|127.0.0.1|1256558324|action=siteinfo, |
+<?die;?>|lippman||/vod/admin.php?adminjob=updatecache|127.0.0.1|1256558326||
+<?die;?>|lippman||/vod/admin.php?adminjob=setuser|127.0.0.1|1256558328||
+<?die;?>|lippman||/vod/admin.php?adminjob=setuser&|127.0.0.1|1256558330|action=search, groupid=, schname=, schname_s=1, schemail=, userip=, regdate=all, orderway=regdate, asc=, lines=100, |
+<?die;?>|lippman||/vod/admin.php?adminjob=setuser&|127.0.0.1|1256558338|action=editgroup, gid=array(1=5, 2=3, 3=4, 4=-1, 5=-1, 6=-1, 7=6, 8=-1, 9=-1, 10=-1, 11=-1, 12=6, )|
+<?die;?>|lippman||/vod/admin.php?adminjob=setuser|127.0.0.1|1256558341||
+<?die;?>|lippman||/vod/admin.php?adminjob=setuser&|127.0.0.1|1256558343|action=search, groupid=, schname=, schname_s=1, schemail=, userip=, regdate=all, orderway=regdate, asc=, lines=100, |
+<?die;?>|lippman||/vod/admin.php?adminjob=vodcheck|127.0.0.1|1256558357||
+<?die;?>|lippman||/vod/admin.php?adminjob=report|127.0.0.1|1256558359||
+<?die;?>|lippman||/vod/admin.php?adminjob=nation|127.0.0.1|1256558767||

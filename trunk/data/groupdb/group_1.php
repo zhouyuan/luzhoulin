@@ -1,7 +1,7 @@
 <?php
 $gp_gid='1';
 $gp_gptype='default';
-$gp_grouptitle='default';
+$gp_grouptitle='Ñ§Éú';
 $gp_groupimg='6';
 $gp_grouppost='0';
 $gp_maxmsg='10';
