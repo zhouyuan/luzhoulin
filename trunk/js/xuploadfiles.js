@@ -6,7 +6,7 @@ function xuploadfiles_ver()
 {
 	// 客户端插件版本号、最新软件下载地址
 	var ver = 2100;	// 2.1.0.0
-	var updateURL = "http://localhost/vod/activex/xuploadfiles"; 
+	var updateURL = "activex/xuploadfiles"; 
 
 	var obj;
 
