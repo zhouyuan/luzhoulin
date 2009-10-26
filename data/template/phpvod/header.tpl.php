@@ -731,7 +731,7 @@ height: 120x;
 <?=$username?>！<a href="login.php?action=quit">[退出]</a>
 <!--┆ <a href="message.php">短消息</a>-->
 ┆ <a href="profile.php?action=show&id=<?=$uid?>">个人资料</a>
-<? } if($gp_allowpost=='1') { ?>
+<? } if($SYSTEM[allowadmincp]=='1') { ?>
 ┆ <a href="post.php">发布视频</a>
 <? } if(is_array($hackdb)) { foreach($hackdb as $h) { ?>┆ <a href="hack.php?H_name=<?=$h[directory]?>"><?=$h[name]?></a><? } } if($SYSTEM[allowadmincp]=='1') { ?>
 ┆ <a href="admin.php" target="_blank">后台管理</a>
