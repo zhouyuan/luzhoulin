@@ -14,7 +14,7 @@ if(!$action){
 	$director=$_POST['director'];
 	$tag=$_POST['tag'];
 	//empty($keyword) && Showmsg('no_condition');
-	empty($subject) && Showmsg('no_condition');
+	//empty($subject) && Showmsg('no_condition');
 	$sql='1';
 
 	if($cid){
