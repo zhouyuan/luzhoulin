@@ -211,12 +211,15 @@ function updatecache_grade(){
 	global $db;
 	$gradecache='';
 	$gradecache="\$grade_opt='";
+	$gradecache2 = "\$grade_optID='";
 	$query=$db->query("SELECT * FROM pv_grades ORDER BY cid");
 	while(@extract(db_cv($db->fetch_array($query)))){
 		$gradecache.="\r\n<option value=\"$subject\">{$subject}</option>";
+		$gradecache2.="\r\n<option value=\"$id\">{$subject}</option>";
 	}
 	$gradecache .= "\r\n';";
-	writeover(R_P."data/cache/grade.php","<?php\r\n".$gradecache."\r\n?>");
+	$gradecache2 .= "\r\n';";
+	writeover(R_P."data/cache/grade.php","<?php\r\n".$gradecache."\r\n".$gradecache2."\r\n?>");
 }
 
 

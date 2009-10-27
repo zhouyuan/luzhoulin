@@ -126,6 +126,7 @@ if (!$action){
 		}
 
 		$schdb[]=$sch;
+		//print_r($schdb);exit;
 	}
 	include PrintEot('setuser');exit;
 } elseif($action=='editgroup'){
