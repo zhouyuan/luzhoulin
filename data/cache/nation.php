@@ -1,7 +1,6 @@
 <?php
 $nation_opt='
 <option value="6">政治</option>
-<option value="7">asd</option>
 <option value="1">语文</option>
 <option value="2">数学</option>
 <option value="3">英语</option>
