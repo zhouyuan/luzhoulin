@@ -13,13 +13,12 @@ $urlreal = $_POST['realpos'];
 
 $pid['0']=10;
 
-$rs = $db->get_one("SELECT
-  m.*,c.*
-FROM
-  pv_members m	LEFT JOIN pv_class c ON c.caption=m.school
-WHERE m.username='$username'");
-$cid=$rs['cid'];
-
+//$rs = $db->get_one("SELECT
+//  m.*,c.*
+//FROM
+//  pv_members m	LEFT JOIN pv_class c ON c.caption=m.school
+//WHERE m.username='$username'");
+//$cid=$rs['cid'];
 
 list(,,,$postgd)=explode("\t",$db_gdcheck);
 !$postaction && $postaction="new";
@@ -36,7 +35,7 @@ if ($postaction=="new"){
 	!$step && $step="1";
 	if($step=='1'){
 		/* 用户组权限 */
-		if($gp_allowpost!='1') Showmsg('group_post');
+		//if($gp_allowpost!='1') Showmsg('group_post');
 
 		$db_picmaxsize=ceil($db_picmaxsize/1024);
 
@@ -55,11 +54,11 @@ if ($postaction=="new"){
 	}elseif($step=='2'){
 
 		/* 栏目权限 */
-		if($class[$cid]['type']!='free' && $groupid=='guest') Showmsg('post_guest');
+		/*if($class[$cid]['type']!='free' && $groupid=='guest') Showmsg('post_guest');*/
 
 		if($class[$cid]['allowpost']!='')
 		{
-			if($groupid=='guest' || strpos($class[$cid]['allowpost'],",$groupid,")===false) Showmsg('post_noper');
+			if(/*$groupid=='guest' || */strpos($class[$cid]['allowpost'],",$groupid,")===false) Showmsg('post_noper');
 		}
 
 		$postgd && GdConfirm($gdcode);
