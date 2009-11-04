@@ -59,9 +59,37 @@
 			<!--{/loop:class}-->
 			</h2>		
 		</div>
+		
 		<div class="box_content box_content_w720">
-			<ul class="vlist">
-			<!--{loop $videodb $video}-->
+		<table class="table box_caption_w720 " >
+
+	<tr class="caption">
+		<td width="10%">ID</td>
+		<td width="25%">标题</td>
+		<td width="20%">科目</td>
+		<td width="19%">更新时间</td>
+		<td width="8%">人气</td>
+		<td width="10%">评论数</td>
+		<td width="9%">审核</td>
+	</tr>
+	
+	
+		<!--{loop $videodb $video}-->
+	<tr class="text_center">
+		<td>$video[vid]</td>
+		<td><a href="read.php?vid=$video[vid]" target="_blank">$video[title]</a></td>
+		<td>$video[subject]</td>
+		<td>$video[postdate]</td>
+		<td>$video[hits]</td>
+		<td>$video[replier]</td>
+		<td>$video[yz]</td>
+	</tr>
+
+<!--{/loop}-->
+		
+		
+</table>
+<!--			<ul class="vlist">
 				<li>
 					<a href="read.php?vid=$video[vid]"><img src="$video[pic]" /></a>
 					<h1><a href="read.php?vid=$video[vid]">$video[title]</a></h1>
@@ -73,8 +101,7 @@
 					<p>人气: $video[hits]</p>
 					<p>评论: $video[replier]</p>
 				</li>
-			<!--{/loop}-->
-			</ul>
+			</ul>-->
 		</div>
 	</div>
 	<div class="page">$pages</div>
