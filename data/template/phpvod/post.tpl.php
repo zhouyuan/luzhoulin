@@ -20,14 +20,14 @@
 </td>
 </tr>
 <? } ?>
-<!--<tr>
+<tr>
 <td class="w40">所属学校<span style="color:red;">*</span></td>
 <td>
 <select name="cid" >
 <?=$class_opt?>
 </select>
 </td>
-</tr>-->
+</tr>
 
 <tr>
 <td>科目<span style="color:red;">*</span></td>
