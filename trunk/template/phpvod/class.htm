@@ -1,7 +1,11 @@
 <div id="class_menu" >
 	<a href="$db_bfn">首页</a> -> {$class[$cid][caption]}
 </div>
-
+</script>
+<link rel="stylesheet" href="image/sort/style.css" type="text/css" media="print, projection, screen" />
+<script type="text/javascript" src="js/jquery-latest.js"></script>
+<script type="text/javascript" src="js/jquery.tablesorter.js"></script>
+<script type="text/javascript" src="js/jquery.tablesorter.pager.js"></script>
 <div id="class_left">
 <!--{if $subnum>0}-->
 	<div class="box_border box_border_w220">
@@ -47,7 +51,11 @@
 	</div>
 
 </div> <!-- 左侧结束 -->
-
+<script type="text/javascript">
+$(function() {
+    $("#tableclass").tablesorter().tablesorterPager({container: $("#pager")});;
+});
+</script>
 <div id="class_right">
 
 	<div class="box_border box_border_w720">
@@ -61,19 +69,18 @@
 		</div>
 		
 		<div class="box_content box_content_w720">
-		<table class="table box_caption_w720 " >
-
+		<table id="tableclass" class="tablesorter" >
+	<thead>
 	<tr class="caption">
-		<td width="10%">ID</td>
-		<td width="25%">标题</td>
-		<td width="20%">科目</td>
-		<td width="19%">更新时间</td>
-		<td width="8%">人气</td>
-		<td width="10%">评论数</td>
-		<td width="9%">审核</td>
-	</tr>
-	
-	
+		<th style="width:40px">ID</th>
+		<th style="width:120px">标题</th>
+		<th style="width:80px">科目</th>
+		<th style="width:80px">更新时间</th>
+		<th style="width:80px">人气</th>
+		<th style="width:80px">评论数</th>
+		<th style="width:40px">审核</th>
+	</tr></thead>
+    <tbody>	
 		<!--{loop $videodb $video}-->
 	<tr class="text_center">
 		<td>$video[vid]</td>
@@ -84,9 +91,8 @@
 		<td>$video[replier]</td>
 		<td>$video[yz]</td>
 	</tr>
-
-<!--{/loop}-->
-		
+    <!--{/loop}-->
+    </tbody>
 		
 </table>
 <!--			<ul class="vlist">
@@ -101,8 +107,24 @@
 					<p>人气: $video[hits]</p>
 					<p>评论: $video[replier]</p>
 				</li>
-			</ul>-->
+			</ul>--> 
+        <div id="pager" style=" padding-right:inherit">
+        <form>
+            <img src="image/addons/pager/icons/first.png" class="first"/>
+            <img src="image/addons/pager/icons/prev.png" class="prev"/>
+            <input type="text" class="pagedisplay"/>
+            <img src="image/addons/pager/icons/next.png" class="next"/>
+            <img src="image/addons/pager/icons/last.png" class="last"/>
+            <select class="pagesize">
+                <option selected="selected"  value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option  value="40">40</option>
+            </select>
+        </form>
+    </div>
 		</div>
 	</div>
-	<div class="page">$pages</div>
+   
+	<!--<div class="page">$pages</div>-->
 </div> <!-- 右侧结束 -->
