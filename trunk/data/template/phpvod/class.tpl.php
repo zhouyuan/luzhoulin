@@ -1,7 +1,11 @@
 <div id="class_menu" >
 <a href="<?=$db_bfn?>">首页</a> -> <?=$class[$cid][caption]?>
 </div>
-
+</script>
+<link rel="stylesheet" href="image/sort/style.css" type="text/css" media="print, projection, screen" />
+<script type="text/javascript" src="js/jquery-latest.js"></script>
+<script type="text/javascript" src="js/jquery.tablesorter.js"></script>
+<script type="text/javascript" src="js/jquery.tablesorter.pager.js"></script>
 <div id="class_left">
 <? if($subnum>0) { ?>
 <div class="box_border box_border_w220">
@@ -35,7 +39,11 @@
 </div>
 
 </div> <!-- 左侧结束 -->
-
+<script type="text/javascript">
+$(function() {
+    $("#tableclass").tablesorter().tablesorterPager({container: $("#pager")});;
+});
+</script>
 <div id="class_right">
 
 <div class="box_border box_border_w720">
@@ -43,8 +51,33 @@
 <h1><?=$class[$cid][caption]?></h1>
 <h2><? $valuedb = pv_loop('class',"cid=$cid"); if(is_array($valuedb)) { foreach($valuedb as $value) { ?>&nbsp;&nbsp;<a href="class.php?cid=<?=$value[cid]?>"><?=$value[caption]?></a><? } } ?></h2>		
 </div>
+
 <div class="box_content box_content_w720">
-<ul class="vlist"><? if(is_array($videodb)) { foreach($videodb as $video) { ?><li>
+<table id="tableclass" class="tablesorter" >
+<thead>
+<tr class="caption">
+<th style="width:40px">ID</th>
+<th style="width:120px">标题</th>
+<th style="width:80px">科目</th>
+<th style="width:80px">更新时间</th>
+<th style="width:80px">人气</th>
+<th style="width:80px">评论数</th>
+<th style="width:40px">审核</th>
+</tr></thead>
+    <tbody><? if(is_array($videodb)) { foreach($videodb as $video) { ?><tr class="text_center">
+<td><?=$video[vid]?></td>
+<td><a href="read.php?vid=<?=$video[vid]?>" target="_blank"><?=$video[title]?></a></td>
+<td><?=$video[subject]?></td>
+<td><?=$video[postdate]?></td>
+<td><?=$video[hits]?></td>
+<td><?=$video[replier]?></td>
+<td><?=$video[yz]?></td>
+</tr>
+    <? } } ?>    </tbody>
+
+</table>
+<!--			<ul class="vlist">
+<li>
 <a href="read.php?vid=<?=$video[vid]?>"><img src="<?=$video[pic]?>" /></a>
 <h1><a href="read.php?vid=<?=$video[vid]?>"><?=$video[title]?></a></h1>
 <p>主讲: <?=$video[playactor]?></p>
@@ -54,8 +87,25 @@
 <p>会员: <a href="profile.php?action=show&id=<?=$video[authorid]?>" target="_blank"><?=$video[author]?></a></p>
 <p>人气: <?=$video[hits]?></p>
 <p>评论: <?=$video[replier]?></p>
-</li><? } } ?></ul>
+</li>
+</ul>--> 
+        <div id="pager" style=" padding-right:inherit">
+        <form>
+            <img src="image/addons/pager/icons/first.png" class="first"/>
+            <img src="image/addons/pager/icons/prev.png" class="prev"/>
+            <input type="text" class="pagedisplay"/>
+            <img src="image/addons/pager/icons/next.png" class="next"/>
+            <img src="image/addons/pager/icons/last.png" class="last"/>
+            <select class="pagesize">
+                <option selected="selected"  value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option  value="40">40</option>
+            </select>
+        </form>
+    </div>
 </div>
 </div>
-<div class="page"><?=$pages?></div>
+   
+<!--<div class="page"><?=$pages?></div>-->
 </div> <!-- 右侧结束 -->
