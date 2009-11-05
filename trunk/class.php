@@ -53,7 +53,7 @@ $orderasc = $class[$cid]['orderasc'] == '0' ? 'ASC' : 'DESC';
 
 if($SYSTEM['allowadminshow']!='1') $yzsql="AND yz='1'"; else $yzsql='';
 
-$query=$db->query("SELECT *,v.subject as title,n.subject as nation FROM pv_video as v LEFT JOIN pv_videodata as vd ON v.vid=vd.vid LEFT JOIN pv_nations as n ON v.nid=n.id WHERE cid='$cid' $yzsql ORDER BY $orderway $orderasc $limit");
+$query=$db->query("SELECT *,v.subject as title,n.subject as nation FROM pv_video as v LEFT JOIN pv_videodata as vd ON v.vid=vd.vid LEFT JOIN pv_nations as n ON v.nid=n.id WHERE cid='$cid' $yzsql ORDER BY $orderway $orderasc ");
 $videodb = array();
 while($video=$db->fetch_array($query))
 {
